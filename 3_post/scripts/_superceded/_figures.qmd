@@ -1,0 +1,504 @@
+---
+title: "_figures"
+author: "Adrian Wiegman"
+format: html
+editor: source
+---
+
+```{r}
+# SET UP ENVIRONMENT -----------------
+
+# clear objects from environment 
+rm(list=ls()) 
+
+# make sure pacman and tidyverse are installed
+if (!require("pacman")) install.packages("pacman")
+pacman::p_unload("all") # detach all non-base R packages
+pacman::p_load(tidyverse) # load tidyverse
+
+# type package names in the string below, use comma as separator
+package_names <- "
+readxl,
+scales,
+" 
+
+package_names |>
+   str_split_1(",") |> 
+   str_extract("\\w+") |>
+   (\(x) x[!is.na(x)])() |>
+   (\(x) try(pacman::p_load(char=x,character.only=T),F))()
+```
+
+```{r}
+# |output: false
+filename = "data/BogPourPoints_Ident_MEP_SUB_Extr_230724_160554.xlsx"
+df_bogs_raw <- read_excel(filename) 
+df_bogs <- df_bogs_raw |>
+  rename(bogFID = FID_WMAbogsDRAFT2013_copy,
+         NO3_mgl = bayes_krig_NO3_mgl,
+         EMBAY = EMBAY_DISP,
+         SUBEM = SUBEM_DISP
+         ) %>%
+  select(bogFID,
+         #WMA_NO,
+         #OWNER,
+         TOWN,
+         #BOG_NAME,
+         EMBAY,
+         #SUBEM,
+         terminus,
+         CropStatus,
+         bogsurf_m2,
+         bogshed_m2,
+         bogshedmarg_m2,
+         subemb_m2,
+         embayment_m2,
+         NO3_mgl,
+         Nload_Sept,
+         Nload_Fert,
+         Nload_Stor,
+         Nload_Atmo,
+         Nload_Tota,
+         Nload_Parc) %>%
+  group_by(bogFID,TOWN,EMBAY) %>%
+  summarize(across(is.numeric,mean)) %>%
+  ungroup()
+  #%>%
+  #na.omit()
+str(df_bogs)
+save(df_bogs,file="data/df_bogs.Rdata")
+```
+
+
+Calculate Metrics and perform modeling estimates on selected variables. 
+
+```{r}
+load("df_bogs.Rdata")
+recharge_rate_iny = 27.25 #in/yr
+recharge_rate_md = recharge_rate_iny*2.54/100/365.25
+
+df_bogs_processed <- df_bogs %>% 
+  rename_with(~ sub("(.*)_m2$", "area_\\1", .x), everything()) %>%
+  # calculate discharge into bog based on recharge rate 
+  mutate(across(starts_with("area_"),
+                function(x,y=recharge_rate_md) x*y,
+                .names="{.col}_m3d")) %>%
+  rename_with(~ sub("area(.*_m3d)", "Q\\1", .x), everything()) %>%
+  # convert areas to Ha
+  mutate(across(starts_with("area_"),
+                function(x) x/10000,
+                .names="{.col}_ha")) %>%
+  # Calculate Load to Cranberry Bog Areal N loading Rate then Multiply by Bogshed Area
+  mutate(across(contains("Nload_"),
+                function(x=.,y=area_subemb_ha,z=area_bogshed_ha)(x/y)*z,
+                .names="{.col}_kgN_y")) %>%
+  # Calculate concentration and discharge based N loads
+  mutate(NO3_Load_kgN_y=Q_bogshed_m3d*NO3_mgl*365.25/1000,
+         NO3_Loading_Rate_kgN_ha_y=NO3_Load_kgN_y/area_bogsurf_ha,
+         # TN (mg/L) based on regression of TN vs NO3 from MEP reports r2=0.8019
+         TN_mgl = 1*NO3_mgl+0.5481,
+         TN_Load_kgN_y=Q_bogshed_m3d*TN_mgl*365.25/1000,
+         TN_Loading_Rate_kgN_ha_y=TN_Load_kgN_y/area_bogsurf_ha,
+         HLR_md = Q_bogshed_m3d/area_bogsurf) %>%
+  
+  # mutate(marg_NO3_Load_kgN_y=Q_bogshedmarg_m3d*NO3_mgl*365.25/1000,
+  #        marg_NO3_Loading_Rate_kgN_ha_y=marg_NO3_Load_kgN_y/area_bogsurf_ha,
+  #        marg_TN_Load_kgN_y=Q_bogshedmarg_m3d*TN_mgl*365.25/1000,
+  #        marg_TN_Loading_Rate_kgN_ha_y=marg_TN_Load_kgN_y/area_bogsurf_ha) %>%
+  # Model Nitrate Reduction Efficiency and Removal
+  mutate(
+    # This is a exponential model fit to removal efficiency vs. 
+    NO3_RE_pct_walton2020_a=-11.37*log(NO3_Loading_Rate_kgN_ha_y)+110.82,
+    NO3_RE_pct_walton2020_a=ifelse(NO3_RE_pct_walton2020_a>99,99,NO3_RE_pct_walton2020_a),
+    NO3_RE_pct_walton2020_b=62.158*exp(-(10^-3)*NO3_Loading_Rate_kgN_ha_y),
+    NO3_RE_pct_walton2020_c=207.24*NO3_Loading_Rate_kgN_ha_y^(-0.304),
+    
+    # This is a logarithmic model fit to removal efficiency vs.   
+    NO3_removal_kgN_y_walton2020_a=(NO3_RE_pct_walton2020_a/100)*NO3_Load_kgN_y,
+    NO3_removal_kgN_y_walton2020_b=(NO3_RE_pct_walton2020_b/100)*NO3_Load_kgN_y,
+    NO3_removal_kgN_y_walton2020_c=(NO3_RE_pct_walton2020_c/100)*NO3_Load_kgN_y)%>%
+    # This is a exponential model fit to removal efficiency vs. 
+  arrange(by=NO3_Load_kgN_y) %>%
+  mutate(
+    cumsum_TN_Load_kgN_y=cumsum(TN_Load_kgN_y),
+    cumsum_NO3_Load_kgN_y=cumsum(NO3_Load_kgN_y)) %>%
+  arrange(by=NO3_removal_kgN_y_walton2020_a) %>%
+    mutate(
+    cumsum_NO3_removal_kgN_y_walton2020_a=cumsum(NO3_removal_kgN_y_walton2020_a),
+    cumsum_NO3_removal_kgN_y_walton2020_b=cumsum(NO3_removal_kgN_y_walton2020_b))
+  #mutate(across())
+save(df_bogs_processed,file="data/df_bogs_processed.Rdata")
+
+```
+
+# Data Exploration
+
+Set up GGplot
+
+```{r}
+require(scales) # to access break formatting functions
+xscale =scale_x_continuous(trans=log10_trans(),
+                     breaks=trans_breaks("log10", function(x) 10^x),
+                     labels=trans_format("log10", math_format(10^.x)))
+log10breaks = trans_breaks("log10", function(x) 10^x)
+yscale =scale_y_continuous(trans=log10_trans(),
+                     breaks=trans_breaks("log10", function(x) 10^x),
+                     labels=trans_format("log10", math_format(10^.x)))
+
+df = df_bogs_processed
+g <- ggplot(data=df,aes(label=bogFID)) 
+```
+
+
+## Verification
+
+This verifies that the streams data and the watershed MVP tool lines up.  
+
+```{r}
+g + geom_point(aes(y=TN_Load_kgN_y,x=Nload_Tota_kgN_y,size=Q_bogshed_m3d,color=NO3_mgl))+
+  facet_wrap(~TOWN)+
+  xscale+
+  yscale+
+  #facet_wrap(~EMBAY)+
+  #annotation_logticks(sides="b")+
+  geom_smooth(aes(y=TN_Load_kgN_y,x=Nload_Tota_kgN_y),method="lm")+
+  geom_abline(slope=1,intercept=0)
+
+```
+
+
+## Univariate
+
+```{r}
+summary(df$NO3_mgl)
+summary(df$Q_bogshed_m3d)
+
+# cumulative sum of NO3_removal
+ggplot(data=df,aes(NO3_removal_kgN_y_walton2020_a))+stat_ecdf(geom = "step", pad = FALSE)
+#ggplot(data=df,aes(marg_NO3_removal_kgN_y_walton2020_a))+stat_ecdf(geom = "step", pad = FALSE)
+g + geom_point(aes(x=cumsum_TN_Load_kgN_y,y=TN_Load_kgN_y))
+g + geom_point(aes(x=cumsum_NO3_Load_kgN_y,y=NO3_Load_kgN_y))
+g + geom_point(aes(x=cumsum_NO3_removal_kgN_y_walton2020_a,y=NO3_removal_kgN_y_walton2020_a))+
+  geom_text(aes(x=cumsum_NO3_removal_kgN_y_walton2020_a,y=NO3_removal_kgN_y_walton2020_a),check_overlap = TRUE)
+
+# histograms
+g + geom_histogram(aes(y=NO3_mgl))
+g + geom_histogram(aes(x=Q_bogshed_m3d))
+g + geom_histogram(aes(x=NO3_RE_pct_walton2020_a))
+g + geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_a),fill="blue",alpha=0.5)+ geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_b),fill="red",alpha=0.5)+xscale
+
+g + geom_histogram(aes(x=NO3_Load_kgN_y))
+g + geom_histogram(aes(x=NO3_Loading_Rate_kgN_ha_y))
+g + geom_histogram(aes(x=HLR_md))+
+  geom_vline(xintercept = 0.1)+
+  xscale+
+  annotation_logticks(sides="b")
+```
+
+## Bivariate
+
+```{r}
+#g + geom_point(aes(y=marg_NO3_Load_kgN_y,x=NO3_Load_kgN_y))+
+#  geom_abline(slope=1,intercept=0)
+
+g + geom_point(aes(y=NO3_mgl,x=HLR_md))+
+  xscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_mgl,x=HLR_md))+
+  xscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+# plot hlr as a function of 
+g + geom_point(aes(y=Q_bogshed_m3d,x=area_bogsurf,size=NO3_mgl,fill=TOWN),pch=21)+
+  xscale +
+  yscale +
+  geom_line(aes(y=area_bogsurf*0.1,x=area_bogsurf))+
+  #geom_line(aes(y=area_bogsurf*0.01,x=area_bogsurf))+
+  #geom_line(aes(y=area_bogsurf*0.001,x=area_bogsurf))+
+  annotation_logticks(sides="lb")
+#HLR = Q/A
+#HLR*A = Q
+#A = Q/HLR
+g + geom_point(aes(y=NO3_Load_kgN_y,
+                   x=area_bogsurf_ha,
+                   size=NO3_mgl,
+                   color=ifelse(HLR_md<0.1,"<0.1",">=0.1")))+
+  xscale +
+  yscale +
+  annotation_logticks(sides="b")
+g + geom_point(aes(y=NO3_Load_kgN_y,x=area_bogsurf_ha,color=ifelse(HLR_md<0.1,"<0.1",">=0.1")))+
+  xscale +
+  yscale +
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_Load_kgN_y,x=HLR_md,size=NO3_mgl))+
+  xscale +
+  yscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=Q_bogshed_m3d,x=HLR_md,size=NO3_mgl,color=NO3_mgl))+
+  xscale +
+  yscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_Load_kgN_y,x=HLR_md,size=NO3_mgl,color=NO3_mgl))+
+  xscale +
+  yscale +
+  facet_wrap(~TOWN)+
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+```
+
+## Selected Bogs
+
+```{r}
+restoration_projects = c(`Co-U` = 165, # Coonamessett Upper 
+                         `Co-M` = 164, # Coonamessett Upper 
+                         `Co-L1` = 583, # Coonamessett Middle
+                         `Co-L2` = 584, # Coonamessett Lower 
+                         `MM-U1` = 153, # Marstons Mills (Upper)
+                         `MM-U2` = 177, # Marstons Mills (Upper)
+                         `MM-M` = 155, # Marstons Mills (Main)
+                         `MM-L1` = 424, # Marston Mills (Lower)
+                         `MM-L2` = 152, # Marston Mills (Lower)
+                         `BSB` = 135, # Bank's Street Bog
+                         `ChR` = 243, # Childs River,
+                         `IBB`=108, # Indian Brook Bogs
+                         `TdmE`=496, # Tidmarsh East,
+                         `FhP`=715, # Foothills Preserve
+                         `HB`=359, # Holmes Bog,
+                         `ER-1`=491, # Eel River
+                         `ER-2`=492, # Eel River,
+                         `PB`=36, # Pinnacle Bog
+                         `SM`=419) # South Meadow)
+names(restoration_projects)
+df_DER_names <- data.frame(DERname = names(restoration_projects),bogFID = restoration_projects)
+df_DER <- df_DER_names %>% left_join(df)
+write_csv(df_DER,"df_DER.csv")
+```
+
+
+```{r}
+require(ggrepel)
+ggplot(data=df %>% na.omit(),aes(Q_bogshed_m3d,NO3_mgl))+ 
+  geom_point(data=df,aes(size=area_bogsurf),pch=21,fill="grey")+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(HLR_md,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(area_bogsurf,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=NO3_mgl,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(NO3_mgl,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=Q_bogshed_m3d),fill="grey",pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(HLR_md,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_mgl,Q_bogshed_m3d))+ 
+  geom_point(data=df,aes(size=NO3_removal_kgN_y_walton2020_a),fill="grey",pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=area_bogsurf),pch=21,fill="grey")+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=area_bogsurf,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_bogshed_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=area_bogsurf_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+ theme_bw()+
+  annotation_logticks()
+x = "reduction_vs_Q_A_C"
+ggsave(paste0("_fig_",x,".png"))
+```
+
+```{r}
+df_summary <- df %>% 
+  group_by(TOWN) %>% 
+  filter(TN_Load_kgN_y == max(TN_Load_kgN_y)) %>%
+  arrange(TN_Load_kgN_y,descending=T) %>% 
+  left_join(df_DER_names)
+df_summary %>% select(TOWN,bogFID,BOG_NAME,DERname,Q_bogshed_m3d,NO3_mgl,TN_mgl,TN_Load_kgN_y,NO3_removal_kgN_y_walton2020_a,NO3_removal_kgN_y_walton2020_b)
+```
+
+
+# Clustering
+
+```{r}
+my_data = df_bogs_processed %>% 
+  select(is.numeric) %>%
+  select()
+  scale %>% na.omit() 
+mat <- my_data %>%
+  as.matrix.data.frame()
+rownames(my_data) = df_bogs_processed$bogFID
+
+library(ComplexHeatmap)
+Heatmap(mat)
+
+library("factoextra")
+fviz_nbclust(my_data, kmeans, method = "gap_stat")
+
+set.seed(123)
+km.res <- kmeans(my_data, 3, nstart = 25)
+# Visualize
+library("factoextra")
+fviz_cluster(km.res, data = my_data,
+             ellipse.type = "convex",
+             palette = "jco",
+             ggtheme = theme_minimal())
+```
+
+```{r}
+pct_excavated = seq(1,100,by=2)
+NO3 = 
+M <- matrix(nrow=pct,nrow=50,dimnames = c("pct_excavated","NO3"))
+```
+

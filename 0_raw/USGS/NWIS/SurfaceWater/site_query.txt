@@ -1,0 +1,10 @@
+param_code param_name
+00631 Nitrate + nitrite water, fltrd, mg/L as N
+
+# Query for water quality data for site_no=011058837185
+
+## All water quality parameters 
+https://nwis.waterdata.usgs.gov/usa/nwis/qwdata/?site_no=011058837185&agency_cd=USGS&inventory_output=0&rdb_inventory_output=file&TZoutput=0&pm_cd_compare=Greater%20than&radio_parm_cds=all_parm_cds&qw_attributes=0&format=rdb&qw_sample_wide=wide&rdb_qw_attributes=0&date_format=YYYY-MM-DD&rdb_compression=value&submitted_form=brief_list
+
+## Nitrate only
+https://nwis.waterdata.usgs.gov/usa/nwis/qwdata/?site_no=011058837185&agency_cd=USGS&inventory_output=0&rdb_inventory_output=file&TZoutput=0&pm_cd_compare=Greater%20than&radio_parm_cds=parm_cd_list&radio_multiple_parm_cds=00631&qw_attributes=0&format=rdb&qw_sample_wide=separated_wide&rdb_qw_attributes=0&date_format=YYYY-MM-DD&rdb_compression=value&submitted_form=brief_list

@@ -1,0 +1,716 @@
+---
+title: "_model_load_reduction"
+author: "Adrian Wiegman"
+format: html
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# SET UP ENVIRONMENT -----------------
+
+# clear objects from environment 
+rm(list=ls()) 
+
+# make sure pacman and tidyverse are installed
+if (!require("pacman")) install.packages("pacman")
+pacman::p_unload("all") # detach all non-base R packages
+pacman::p_load(tidyverse) # load tidyverse
+
+# type package names in the string below, use comma as separator
+package_names <- "
+readxl,
+scales,
+broom,
+RColorBrewer
+" 
+
+package_names |>
+   str_split_1(",") |> 
+   str_extract("\\w+") |>
+   (\(x) x[!is.na(x)])() |>
+   (\(x) try(pacman::p_load(char=x,character.only=T),F))()
+```
+
+
+```{r}
+load("3_post/data/1_model_loads.Rdata")
+```
+
+
+# Data Exploration
+
+Set up GGplot
+
+```{r}
+require(scales) # to access break formatting functions
+xscale =scale_x_continuous(trans=log10_trans(),
+                     breaks=trans_breaks("log10", function(x) 10^x),
+                     labels=trans_format("log10", math_format(10^.x)))
+log10breaks = trans_breaks("log10", function(x) 10^x)
+yscale =scale_y_continuous(trans=log10_trans(),
+                     breaks=trans_breaks("log10", function(x) 10^x),
+                     labels=trans_format("log10", math_format(10^.x)))
+
+df = df_bogs_processed
+g <- ggplot(data=df,aes(label=bogFID)) 
+```
+
+## Verification
+
+This verifies that the streams data and the watershed MVP tool lines up.  
+
+```{}
+g + geom_point(aes(y=TN_Load_kgN_y,x=Nload_Tota_kgN_y,size=Q_m3d,color=NO3_mgl))+
+  facet_wrap(~TOWN)+
+  xscale+
+  yscale+
+  #facet_wrap(~EMBAY)+
+  #annotation_logticks(sides="b")+
+  geom_smooth(aes(y=TN_Load_kgN_y,x=Nload_Tota_kgN_y),method="lm")+
+  geom_abline(slope=1,intercept=0)
+
+```
+
+
+## Summary Tables
+
+```{r}
+library(broom)
+df_bogs_summary_stats <- df %>% 
+  select(bogsurf_area_ha,bogshed_area_ha,marg_bogshed_area_ha,Q_m3d,marg_Q_m3d,HLR_md,NO3_mgl,TN_mgl,
+         NO3_Load_kgN_y,TN_Load_kgN_y,NO3_Loading_Rate_kgN_ha_y,TN_Loading_Rate_kgN_ha_y) %>%
+  na.omit() %>%
+  map_df(.f = ~ broom::tidy(summary(.x)), .id = "variable") %>%
+  mutate(across(where(is.numeric),~signif(.x,3)))
+df_bogs_summary_stats %>% write_csv("3_post/df_bogs_summary_stats.csv")
+```
+
+
+```{r}
+df %>% ggplot(aes(log(bogsurf_area_ha),log(bogshed_area_ha)))+geom_point()
+lm(log(bogsurf_area_ha)~log(bogshed_area_ha),data=df) %>% summary
+lm(bogsurf_area_ha~bogshed_area_ha,data=df) %>% summary
+```
+
+
+## Univariate
+
+Bogs and bogsheds 
+```{r}
+summary(df$NO3_mgl)
+summary(df$Q_m3d)
+
+# cumulative sum of NO3_removal
+ggplot(data=df)+
+  stat_ecdf(aes(NO3_removal_kgN_y_walton2020_a),color="blue",geom = "step", pad = FALSE)+
+  stat_ecdf(aes(NO3_removal_kgN_y_walton2020_b),color="red",geom = "step", pad = FALSE)+
+  stat_ecdf(aes(NO3_removal_kgN_y_land2016_a),color="green",geom = "step", pad = FALSE)
+
+#ggplot(data=df,aes(marg_NO3_removal_kgN_y_walton2020_a))+stat_ecdf(geom = "step", pad = FALSE)
+g + geom_point(aes(x=cumsum_TN_Load_kgN_y,y=TN_Load_kgN_y))
+g + geom_point(aes(x=cumsum_NO3_Load_kgN_y,y=NO3_Load_kgN_y))
+g + geom_point(aes(x=cumsum_NO3_removal_kgN_y_walton2020_a,y=NO3_removal_kgN_y_walton2020_a))+
+  geom_text(aes(x=cumsum_NO3_removal_kgN_y_walton2020_a,y=NO3_removal_kgN_y_walton2020_a),check_overlap = TRUE)
+
+# histograms
+g + geom_histogram(aes(y=NO3_mgl))
+g + geom_histogram(aes(x=Q_m3d))
+g + geom_histogram(aes(x=NO3_RE_pct_walton2020_a))
+g + geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_a),fill="blue",alpha=0.5)+ geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_b),fill="red",alpha=0.5)+geom_histogram(aes(x=NO3_removal_kgN_y_land2016_a),fill="green",alpha=0.5)+xscale
+
+g + geom_histogram(aes(x=NO3_Load_kgN_y))
+g + geom_histogram(aes(x=NO3_Loading_Rate_kgN_ha_y))
+g + geom_histogram(aes(x=HLR_md))+
+  geom_vline(xintercept = 0.1)+
+  xscale+
+  annotation_logticks(sides="b")
+```
+
+```{r}
+qNO3 <- df$NO3_mgl %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+qQ <- df$Q_m3d %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+
+# histograms
+g + geom_vline(aes(xintercept=qNO3['1%']),
+             color="black",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qNO3['99%']),
+             color="black",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qNO3['50%']),
+             color="black",
+             size=1)+
+  geom_vline(aes(xintercept=qQ['1%']),color="black",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qQ['99%']),color="black",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qQ['50%']),
+             color="black",
+             size=1)+
+  geom_histogram(aes(x=Q_m3d),fill="blue",alpha=0.5)+
+  geom_histogram(aes(x=NO3_mgl),fill="orange2",alpha=0.5)+
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(qNO3['1%'],3),
+                     "C50%:",signif(qNO3['50%'],3),
+                     "C99%:",signif(qNO3['99%'],3),
+                     "\nQ1%:",signif(qQ['1%'],3),
+                     "Q50%:",signif(qQ['50%'],3),
+                     "Q99%:",signif(qQ['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_Q_C_hist.png",dpi=600)
+```
+
+```{r}
+qsurf <- df$bogsurf_area_ha %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+qshed <- df$bogshed_area_ha %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+
+# histograms
+g +
+  geom_histogram(aes(x=bogsurf_area_ha),fill="red2",alpha=1)+
+  geom_histogram(aes(x=bogshed_area_ha),fill="transparent",alpha=0)+
+  geom_vline(aes(xintercept=qsurf['1%']),
+             color="red3",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf['99%']),
+             color="red3",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf['50%']),
+             color="red3",
+             size=1)+
+  #geom_vline(aes(xintercept=qshed['1%']),color="cyan2",
+  #           linetype="dashed")+
+  #geom_vline(aes(xintercept=qshed['99%']),color="cyan2",
+  #           linetype="dashed")+
+  #geom_vline(aes(xintercept=qshed['50%']),
+  #           color="cyan2",
+  #           size=1)+
+  
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(qsurf['1%'],3),
+                     "C50%:",signif(qsurf['50%'],3),
+                     "C99%:",signif(qsurf['99%'],3),
+                     "\nQ1%:",signif(qshed['1%'],3),
+                     "Q50%:",signif(qshed['50%'],3),
+                     "Q99%:",signif(qshed['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_surf_hist.png",dpi=600)
+```
+
+```{r}
+qsurf <- df$bogsurf_area_ha %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+qshed <- df$bogshed_area_ha %>% quantile(., probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+
+# histograms
+g +
+  geom_histogram(aes(x=bogsurf_area_ha),fill="red2",alpha=1)+
+  geom_histogram(aes(x=bogshed_area_ha),fill="cyan2",alpha=1)+
+  geom_vline(aes(xintercept=qsurf['1%']),
+             color="red4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf['99%']),
+             color="red4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf['50%']),
+             color="red4",
+             size=1)+
+  geom_vline(aes(xintercept=qshed['1%']),color="cyan4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qshed['99%']),color="cyan4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qshed['50%']),
+             color="cyan4",
+             size=1)+
+  
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(qsurf['1%'],3),
+                     "C50%:",signif(qsurf['50%'],3),
+                     "C99%:",signif(qsurf['99%'],3),
+                     "\nQ1%:",signif(qshed['1%'],3),
+                     "Q50%:",signif(qshed['50%'],3),
+                     "Q99%:",signif(qshed['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_surf_shed_hist.png",dpi=600)
+```
+
+```{r}
+qsurf2shed <- quantile(df$bogshed_area_ha/df$bogsurf_area_ha, probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+
+# histograms
+g +
+  geom_histogram(aes(x=bogshed_area_ha/bogsurf_area_ha),fill="green2",alpha=0.5)+
+  geom_vline(aes(xintercept=qsurf2shed['1%']),color="green4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf2shed['99%']),color="green4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=qsurf2shed['50%']),
+             color="green4",
+             size=1)+
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(qsurf2shed['1%'],3),
+                     "C50%:",signif(qsurf2shed['50%'],3),
+                     "C99%:",signif(qsurf2shed['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_surf_2_shed_hist.png",dpi=600)
+```
+
+```{r}
+q <- quantile(df$NO3_Loading_Rate_kgN_ha_y, probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+summary(df$NO3_Loading_Rate_kgN_ha_y)
+# histograms
+g +
+  geom_histogram(aes(x=NO3_Loading_Rate_kgN_ha_y),fill="purple",alpha=0.5)+
+  geom_vline(aes(xintercept=q['1%']),color="purple4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['99%']),color="purple4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['50%']),
+             color="purple4",
+             size=1)+
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(q['1%'],3),
+                     "C50%:",signif(q['50%'],3),
+                     "C99%:",signif(q['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_NO3_loading_hist.png",dpi=600)
+```
+
+```{r}
+q <- quantile(df$TN_Loading_Rate_kgN_ha_y, probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+summary(df$TN_Loading_Rate_kgN_ha_y)
+# histograms
+g +
+  geom_histogram(aes(df$TN_Loading_Rate_kgN_ha_y),fill="green",alpha=0.5)+
+  geom_vline(aes(xintercept=q['1%']),color="green4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['99%']),color="green4",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['50%']),
+             color="green4",
+             size=1)+
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(q['1%'],3),
+                     "C50%:",signif(q['50%'],3),
+                     "C99%:",signif(q['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_NO3_loading_hist.png",dpi=600)
+```
+
+```{r}
+q <- quantile(df$HLR_md, probs = c(1,5, 50, 95,99)/100,na.rm=TRUE)
+
+# histograms
+g +
+  geom_histogram(aes(x=HLR_md),fill="lightblue3",alpha=0.5)+
+  geom_vline(aes(xintercept=q['1%']),color="blue",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['99%']),color="blue",
+             linetype="dashed")+
+  geom_vline(aes(xintercept=q['50%']),
+             color="blue",
+             size=1)+
+  xscale+
+  annotation_logticks(sides="b")+
+  labs(caption=paste("C1%:",signif(q['1%'],3),
+                     "C50%:",signif(q['50%'],3),
+                     "C99%:",signif(q['99%'],3)))+
+  theme_bw()
+ggsave("images/fig_HLR_hist.png",dpi=600)
+```
+
+```{r}
+g + geom_histogram(aes(x=NO3_RE_pct_walton2020_a))
+g + geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_a),fill="blue",alpha=0.5)+ geom_histogram(aes(x=NO3_removal_kgN_y_walton2020_b),fill="red",alpha=0.5)+xscale
+
+g + geom_histogram(aes(x=NO3_Load_kgN_y))
+g + geom_histogram(aes(x=NO3_Loading_Rate_kgN_ha_y))
+g + geom_histogram(aes(x=HLR_md))+
+  geom_vline(xintercept = 0.1)+
+  xscale+
+  annotation_logticks(sides="b")
+```
+
+## Bivariate
+
+```{r}
+#g + geom_point(aes(y=marg_NO3_Load_kgN_y,x=NO3_Load_kgN_y))+
+#  geom_abline(slope=1,intercept=0)
+
+g + geom_point(aes(y=NO3_mgl,x=HLR_md))+
+  xscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_mgl,x=HLR_md))+
+  xscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+# plot hlr as a function of 
+g + geom_point(aes(y=Q_m3y,x=bogsurf_area_ha,size=NO3_mgl,fill=TOWN),pch=21)+
+  xscale +
+  yscale +
+  geom_line(aes(y=bogsurf_area_ha*0.1,x=bogsurf_area_ha))+
+  #geom_line(aes(y=area_bogsurf*0.01,x=area_bogsurf))+
+  #geom_line(aes(y=area_bogsurf*0.001,x=area_bogsurf))+
+  annotation_logticks(sides="lb")
+#HLR = Q/A
+#HLR*A = Q
+#A = Q/HLR
+g + geom_point(aes(y=NO3_Load_kgN_y,
+                   x=bogsurf_area_ha,
+                   size=NO3_mgl,
+                   color=ifelse(HLR_md<0.1,"<0.1",">=0.1")))+
+  xscale +
+  yscale +
+  annotation_logticks(sides="b")
+g + geom_point(aes(y=NO3_Load_kgN_y,x=bogsurf_area_ha,color=ifelse(HLR_md<0.1,"<0.1",">=0.1")))+
+  xscale +
+  yscale +
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_Load_kgN_y,x=HLR_md,size=NO3_mgl))+
+  xscale +
+  yscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=Q_m3d,x=HLR_md,size=NO3_mgl,color=NO3_mgl))+
+  xscale +
+  yscale +
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+
+g + geom_point(aes(y=NO3_Load_kgN_y,x=HLR_md,size=NO3_mgl,color=NO3_mgl))+
+  xscale +
+  yscale +
+  facet_wrap(~TOWN)+
+  geom_vline(xintercept=0.1)+
+  annotation_logticks(sides="b")
+```
+
+
+
+```{r}
+# FIGS FOR SUPPLEMENTAL
+require(ggrepel)
+df$NO3_mgl %>% summary()
+filbw = scale_fill_gradient(low = "lightmagenta", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)
+PuRd5 = brewer.pal(n = 5, name = "PuRd")
+colors5 = brewer.pal(n = 5, name = "Greens")
+breaks5 = c(0.02,0.2,0.4,0.8,1.6)
+mycolors = scale_color_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+myfills = scale_fill_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+
+ggplot(data=df,aes(Q_m3d,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=NO3_mgl,fill=NO3_mgl),pch=21)+
+  myfills+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,
+                  box.padding = 0.5,
+                  arrow = arrow(length = unit(0.015, "npc")),
+                                size=3,
+                                color="blue",
+                                segment.color="blue",
+                  segement.size=2)+
+  xscale+
+  yscale+
+  annotation_logticks(sides = "lb")+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggsave("images/FigS2A_L_Q.png",width = 6,height=5)
+
+ggplot(data=df,aes(NO3_mgl,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=Q_m3d),fill="grey",pch=21)+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,
+                  box.padding = 0.5,
+                  arrow = arrow(length = unit(0.015, "npc")),
+                                size=3,
+                                color="blue",
+                                segment.color="blue",
+                  segement.size=2)+
+  xscale+
+  yscale+
+  annotation_logticks(sides = "lb")+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggsave("images/FigS2B_L_NO3.png",width = 6,height=5)
+```
+
+
+```{r}
+require(ggrepel)
+filbw = scale_fill_gradient(low = "white", high = "black",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)
+PuRd5 = brewer.pal(n = 5, name = "PuRd")
+colors5 = brewer.pal(n = 5, name = "Greens")
+breaks5 = c(0.17,0.32,0.59,1.05,2.16)
+mycolors = scale_color_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+myfills = scale_fill_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+
+ggplot(data=df,aes(Q_m3d,NO3_mgl))+ 
+  geom_point(data=df,aes(size=bogsurf_area_m2),pch=21,fill="grey")+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(HLR_md,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "#980043",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER,aes(HLR_md,NO3_Load_kgN_y,label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(bogsurf_area_ha,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "white", high = "black",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(HLR_md,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_mgl,Q_m3d))+ 
+  geom_point(data=df,aes(size=NO3_removal_kgN_y_walton2020_a),fill="grey",pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha),pch=21,fill="grey")+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(NO3_Loading_Rate_kgN_ha_y,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  xscale+
+  yscale+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_removal_kgN_y_walton2020_a))+ 
+  geom_point(data=df,aes(size=HLR_md,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "yellow", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+  theme_bw()
+
+ggplot(data=df,aes(Q_m3d,NO3_removal_kgN_y_walton2020_b))+ 
+  geom_point(data=df,aes(size=bogsurf_area_ha,fill=NO3_mgl),pch=21)+
+  scale_fill_gradient(low = "white", high = "black",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)+
+  geom_text_repel(data=df_DER %>% na.omit(),aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,size=3,color="blue",segment.color="blue")+
+  #facet_wrap(vars(TOWN))+
+  xscale+
+  yscale+
+ theme_bw()+
+  annotation_logticks()
+x = "reduction_vs_Q_A_C"
+ggsave(paste0("_fig_",x,".png"))
+
+```
+
+```{r}
+df_bogs_processed %>% ggplot(aes(Q_m3d,HLR_md))+geom_point() +scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0))+scale_x_log10()
+df_bogs_processed$TN_mgl_p50 %>% summary()
+colors5 = brewer.pal(n = 5, name = "Greens")
+#breaks5 = c(0.36,0.64,0.68,0.72,2.25)
+mycolors = scale_color_gradientn(colors=colors5)
+myfills = scale_fill_gradientn(colors=colors5)
+d <- df_bogs_processed %>% filter(embFID!=-1,!is.na(TN_mgl_p50))
+d %>%
+  ggplot(aes(Q_m3d,bogsurf_area_ha,size=HLR_md,fill=TN_mgl_p50))+
+  geom_point(pch=21) +
+  #scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0,10e1))+
+  #scale_x_log10(breaks=c(10e-1,10e0,10e1,10e2,10e3,10e4,10e5))+
+  myfills
+ggsave("images/figS5_HLR_Q_C_S1.png",width=6,height=4)
+```
+
+
+## Figure S5
+```{r}
+
+
+df_bogs_processed %>% ggplot(aes(Q_m3d,HLR_md))+geom_point() +scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0))+scale_x_log10()
+df_bogs_processed$TN_mgl_p50 %>% summary()
+colors5 = brewer.pal(n = 5, name = "Greens")
+#breaks5 = c(0.36,0.64,0.68,0.72,2.25)
+mycolors = scale_color_gradientn(colors=colors5)
+myfills = scale_fill_gradientn(colors=colors5)
+d <- df_bogs_processed %>% filter(embFID!=-1,!is.na(TN_mgl_p50))
+d %>%
+  ggplot(aes(Q_m3d,HLR_md,size=bogsurf_area_ha,fill=TN_mgl_p50))+
+  geom_point(pch=21) +
+  scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0,10e1))+
+  scale_x_log10(breaks=c(10e-1,10e0,10e1,10e2,10e3,10e4,10e5))+
+  myfills
+ggsave("images/figS5_HLR_Q_C_S1.png",width=6,height=4)
+  
+  
+
+
+library(RColorBrewer)
+df_EMBAY_bog_summary$TN_mgl_p50 %>% summary()
+colors5 = brewer.pal(n = 5, name = "Greens")
+breaks5 = c(0.52,0.69,0.79,0.92,1.61)
+mycolors = scale_color_gradientn(colors=colors5,
+                                 breaks=breaks5)
+myfills = scale_fill_gradientn(colors=colors5,
+                                 breaks=breaks5)
+d <- df_EMBAY_bog_summary %>% filter(embFID!=-1,                                    !str_detect(EMBAY_NAME,"ButtermilkBay"),                                     !str_detect(EMBAY_NAME,"PocassetHarbor"))
+                                
+
+d %>% ggplot(aes(Q_m3d,HLR_md,size=bogsurf_area_ha,fill=TN_mgl_p50))+
+  geom_point(pch=21) +scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0))+
+  scale_x_log10() + 
+  ggrepel::geom_text_repel(aes(label=embFID),
+                           #fontface="bold",
+                           bg.color = "white", # shadow color
+                           bg.r = 0.02,          # shadow radiuspoint.padding = 0.2,
+                           box.padding = 0.4,
+                           segment.curvature = -0.001,
+                           size=4)+
+  mycolors+
+  myfills
+ggsave("images/figS5_HLR_Q_C_S2.png",width=6,height=4)
+```
+
+
+# Clustering
+
+```{r}
+my_data = df_bogs_processed %>% 
+  select(is.numeric) %>%
+  select()
+  scale %>% na.omit() 
+mat <- my_data %>%
+  as.matrix.data.frame()
+rownames(my_data) = df_bogs_processed$bogFID
+
+library(ComplexHeatmap)
+Heatmap(mat)
+
+library("factoextra")
+fviz_nbclust(my_data, kmeans, method = "gap_stat")
+
+set.seed(123)
+km.res <- kmeans(my_data, 3, nstart = 25)
+# Visualize
+library("factoextra")
+fviz_cluster(km.res, data = my_data,
+             ellipse.type = "convex",
+             palette = "jco",
+             ggtheme = theme_minimal())
+```
+
+```{r}
+pct_excavated = seq(1,100,by=2)
+NO3 = 
+M <- matrix(nrow=pct,nrow=50,dimnames = c("pct_excavated","NO3"))
+```
+

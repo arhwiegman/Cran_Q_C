@@ -1,0 +1,2 @@
+Discharge Annual Statistics
+https://waterdata.usgs.gov/nwis/annual?referred_module=sw&amp;site_no=01105600&amp;por_01105600_64246=1267744,00060,64246,1966,2024&amp;partial_periods=on&amp;year_type=W&amp;format=rdb&amp;date_format=YYYY-MM-DD&amp;rdb_compression=value&amp;submitted_form=parameter_selection_list

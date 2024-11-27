@@ -1,0 +1,372 @@
+---
+title: "1_model_load_reduction"
+author: "Adrian Wiegman"
+format: html
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# SET UP ENVIRONMENT -----------------
+
+# clear objects from environment 
+rm(list=ls()) 
+
+# make sure pacman and tidyverse are installed
+if (!require("pacman")) install.packages("pacman")
+pacman::p_unload("all") # detach all non-base R packages
+pacman::p_load(tidyverse) # load tidyverse
+
+# type package names in the string below, use comma as separator
+package_names <- "
+readxl,
+scales,
+" 
+
+package_names |>
+   str_split_1(",") |> 
+   str_extract("\\w+") |>
+   (\(x) x[!is.na(x)])() |>
+   (\(x) try(pacman::p_load(char=x,character.only=T),F))()
+```
+
+# Load & Wrangle Data
+```{r}
+# |output: false
+# working directory
+wd = "C:/Users/Adrian.Wiegman/Documents/GitHub/Wiegman_USDA_ARS/Cran_Q_C"
+# folder to save output files
+outpath = file.path(wd,"3_post/data")
+```
+
+Embayment loads from MEP data 
+
+Subembayment Loads from Cape Cod Commission MVP tool. 
+https://gis-cccommission.opendata.arcgis.com/datasets/CCCommission::subembayments/explore?location=41.658236%2C-70.483793%2C12.02
+
+```{r}
+# Embayment metrics
+df_EMBAY_MVPtool_summary <- read_excel("2_gis/Subembayments_TableToExcel.xlsx") %>% 
+  group_by(EMBAY_NAME) %>%
+  select(-starts_with("SUB"),-FID,-OBJECTID) %>%
+  summarize_if(is.numeric,sum)
+
+df_EMBAY <- read_excel("2_gis/MEP_Embayments_Domain_TableToExcel.xlsx") %>%
+  select(embFID=OBJECTID,
+         EMBAY_NAME,
+         # area is in hectars not sq meters
+         embayshed_area_ha = embayshed_area_m2)
+
+df_EMBAY_loads <- read_csv("0_raw/embayment_loads.csv",
+                           skip=1,na=c("#N/A","#DIV/0!","")) %>%
+  select(-embayshed_area_ha,-bog_surface_area_ha)
+  
+# Show the relationship between CCC loads and MEP loads
+lm(atten_kgy~0+CCC_Nload_Total,data=df_EMBAY_loads %>% filter(CCC_Nload_Total!=0 & atten_kgy != 0)) %>% summary()
+
+# Call:
+# lm(formula = atten_kgy ~ 0 + CCC_Nload_Total, data = df_EMBAY_loads %>% 
+#     filter(CCC_Nload_Total != 0 & atten_kgy != 0))
+# 
+# Residuals:
+#      Min       1Q   Median       3Q      Max 
+# -20232.9  -2589.6    426.3   3077.2  11539.4 
+# 
+# Coefficients:
+#                 Estimate Std. Error t value Pr(>|t|)    
+# CCC_Nload_Total  0.59327    0.02382    24.9   <2e-16 ***
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 6085 on 23 degrees of freedom
+# Multiple R-squared:  0.9642,	Adjusted R-squared:  0.9627 
+# F-statistic: 620.2 on 1 and 23 DF,  p-value: < 2.2e-16
+
+plot(atten_kgy~0+CCC_Nload_Total,data=df_EMBAY_loads %>% filter(CCC_Nload_Total!=0 & atten_kgy != 0))
+abline(0,1)
+
+df_EMBAY_merged <- df_EMBAY %>%
+  left_join(df_EMBAY_MVPtool_summary) %>%
+  left_join(df_EMBAY_loads) %>%
+  # replace missing mep loading rates with CCC rates.
+  # apply a 0.6 reduction to CCC loads base on regression above. 
+    mutate(atten_kgy = case_when(
+      EMBAY_NAME == "ButtermilkBay" ~ CCC_Nload_Total*0.6,
+      EMBAY_NAME == "PocassetHarbor" ~ CCC_Nload_Total*0.6,
+      T ~ atten_kgy)) %>%
+  # calculate loading rates
+    mutate(LR_kghay_CCC = CCC_Nload_Total/embayshed_area_ha,
+         LR_kghay_MEP = atten_kgy/embayshed_area_ha,
+         LR_kghay_MEP_Buildout = atten_plus_buildout_kgy/embayshed_area_ha)
+```
+
+
+```{r}
+# read in bog watershed and concentration data outputs from ArcGIS
+filename = file.path(wd,"2_gis/bogs_pour_points_ident_agg_raw_MEP_Basins_ZS_extract_Q_C.xls")
+df_bogs_raw <- read_excel(filename) %>%
+  mutate(inside_domain = !is.na(Q_m3d_D8gwelid0))
+```
+
+```{r}
+# summarise the number of bogs and bog area in model domain
+cat("quantiles of bog area outside domain\n")
+x <- df_bogs_raw %>% 
+  filter(ORIG_FID>=1) %>%
+  filter(!inside_domain) %>% select(sum_bogsurf_area_m2) 
+area_out <-x %>% sum()
+x %>% summary()
+n_out <- x%>% nrow()
+
+cat("quantiles of bog area inside domain\n")
+x <- df_bogs_raw %>% filter(inside_domain) %>% select(sum_bogsurf_area_m2) 
+area_in <-x%>% sum()
+x %>% summary()
+n_in <-x%>% nrow()
+
+cat("bog area inside domain:", area_in/10000," ha\n")
+cat("bog area total:", (area_in+area_out)/10000," ha\n")
+cat("percent bog area inside domain:",100 * area_in / (area_in+area_out),"%\n")
+cat("bog count inside domain:",n_in,"\n")
+cat("bog count total:",(n_in + n_out),"\n")
+cat("percent of bog count inside domain:",100 * n_in / (n_in+n_out),"%\n")
+
+cat("bog count total:",(n_in + n_out),"\n")
+cat("domain land area:",1728425821/1e6,"km2\n")
+cat("domain coastline:",858,"km\n") # calculated from NHD land boundary.
+cat("domain area draining to cranberry bogs:",493614300/1e6,"km2\n")
+cat("domain area draining to cranberry bogs:",100*493614300/1728425821,"%\n")
+```
+
+
+```{r}
+df_bogs <- df_bogs_raw %>% 
+  # select bogs inside model domain
+  filter(inside_domain==T) %>% 
+  rename(
+    # Empirical Bayesian Krigging model
+    # predicted quantiles for stream nitrogen concentrations
+    # units: mg N L-1
+         NO3_mgl_p25 = EBK_NO3_p25,
+         NO3_mgl_p50 = EBK_NO3_p50,
+         NO3_mgl_p75 = EBK_NO3_p75,
+         TN_mgl_p25 = EBK_TN_p25,
+         TN_mgl_p50 = EBK_TN_p50,
+         TN_mgl_p75 = EBK_TN_p75) %>%
+  select(OBJECTID,
+         bogFID = ORIG_FID,
+         embFID = FID_MEP_Embayments_Domain,
+         TOWN,
+         EMBAY_NAME,
+         # Concentrations predicted by EBK model. 
+         NO3_mgl_p25,
+         NO3_mgl_p50,
+         NO3_mgl_p75,
+         TN_mgl_p25,
+         TN_mgl_p50,
+         TN_mgl_p75,
+         bogsurf_area_m2 = sum_bogsurf_area_m2, # surface area of cranberry bog,
+         bogsurf_perim_m2 = sum_bogsurf_area_m2, # surface perimeter ~ ditch area. 
+         marg_bogshed_area_m2, # additional area that that bog drains, what seeps through groundwater, not what flows through streams
+         #embayshed_area_ha = embayshed_area_m2, # embayment watershed contributing area from TMDL / MEP / watershed MVP planning tool 
+         ZS_MAX_FA_D8_gwelid0, # zonal statistics extract of the cel with maximum flow accumulation within a given cranberry bog, using the `gwelid0` hybrid water table elevation model 
+  )
+str(df_bogs)
+
+save(df_bogs,file = file.path(outpath,"df_bogs.Rdata"))
+```
+
+## Calculate Metrics and perform modeling estimates on selected variables. 
+
+```{r}
+# set parameters
+recharge_rate_iny = 27.25 #in/yr
+recharge_rate_md = recharge_rate_iny*2.54/100/365.25 # recharge rate in m/d
+
+```
+
+```{r}
+# perform calculations
+load(file.path(outpath,"df_bogs.Rdata"))
+
+df_bogs_processed <- df_bogs %>%
+  mutate(bog_count = 1) %>% 
+  mutate(
+         # use 50% percentile estimate of concentrations for load calculations. 
+         NO3_mgl = NO3_mgl_p50,
+         TN_mgl = TN_mgl_p50,
+         # surface area of cranberry bog
+         # area draining to cranberry bog
+         # number of grid cells times area of each gridcell 10m x 10m 
+         # bogshed_area_m2 = ZS_MAX_FA_D8_gwe_bf*10^2, 
+         bogshed_area_m2 = ZS_MAX_FA_D8_gwelid0*10^2, # m, total area draining through cranberry bog
+         bogshed_area_ha = bogshed_area_m2/10000, # hectares, total area draining through cranberry bog
+         bogsurf_area_ha = bogsurf_area_m2/10000, # hectares, surface area of cranberry farm polygon
+         #embayshed_area_ha= embayshed_area_m2/10000,
+         marg_bogshed_area_ha= marg_bogshed_area_m2/10000,
+         # flow
+         Q_m3y = bogshed_area_m2*recharge_rate_md*365.25,
+         marg_Q_m3y = marg_bogshed_area_m2*recharge_rate_md*365.25,
+         Q_m3d = bogshed_area_m2*recharge_rate_md,
+         marg_Q_m3d = marg_bogshed_area_m2*recharge_rate_md) %>% 
+  
+  # Calculate concentration and discharge based N loads  (Q*C, L1, Eqn. 1)
+  mutate(NO3_Load_kgN_y=Q_m3y*NO3_mgl/1000,
+         NO3_Loading_Rate_kgN_ha_y=NO3_Load_kgN_y/bogsurf_area_ha,
+         # TN (mg/L) based on regression of TN vs NO3 from MEP reports r2=0.8019
+         TN_Load_kgN_y=Q_m3y*TN_mgl/1000,
+         TN_Loading_Rate_kgN_ha_y=TN_Load_kgN_y/bogsurf_area_ha,
+         HLR_md = Q_m3d/bogsurf_area_m2) %>%
+  
+  # Calculate marginal concentration and discharge based N loads (MEP, L2, Eqn. 2)
+  mutate(marg_NO3_Load_kgN_y=marg_Q_m3y*NO3_mgl/1000,
+         marg_NO3_Loading_Rate_kgN_ha_y=marg_NO3_Load_kgN_y/bogsurf_area_ha,
+         # TN (mg/L) based on regression of TN vs NO3 from MEP reports r2=0.8019
+         marg_TN_Load_kgN_y=marg_Q_m3y*TN_mgl/1000,
+         marg_TN_Loading_Rate_kgN_ha_y=marg_TN_Load_kgN_y/bogsurf_area_ha,
+         marg_HLR_md = marg_Q_m3d/bogsurf_area_m2) %>%
+  
+  # adding MEP and CCC loading rate estimates
+  left_join(df_EMBAY_merged %>% 
+              select(embFID,LR_kghay_CCC,LR_kghay_MEP,LR_kghay_MEP_Buildout)) %>%
+  
+  # Calculate loading rate * contributing area based loads (MEP, L2)
+  # note CCC and MEP Build out estimates not reported in paper.
+  # Total watershed loads transmitted to cranberry farm
+  mutate(TN_Load_kgN_y_CCC = LR_kghay_CCC * bogshed_area_ha,
+         TN_Load_kgN_y_MEP = LR_kghay_MEP * bogshed_area_ha,
+         TN_load_kgN_y_MEP_Buildout = LR_kghay_MEP_Buildout * bogshed_area_ha) %>% 
+  # marginal (Reach) watershed loads accumulated 
+  # between upstream and downstream ends of cranberry farm
+  mutate(marg_TN_Load_kgN_y_CCC = LR_kghay_CCC * marg_bogshed_area_ha,
+         marg_TN_Load_kgN_y_MEP = LR_kghay_MEP * marg_bogshed_area_ha,
+         marg_TN_load_kgN_y_MEP_Buildout = LR_kghay_MEP_Buildout * marg_bogshed_area_ha) 
+
+save(df_bogs_processed,file=file.path(outpath,"df_bogs_processed.Rdata"))
+```
+
+
+```{r}
+# set df bogs processed as the working dataframe 
+df = df_bogs_processed
+```
+
+## Embayment Summary
+
+```{r}
+df_EMBAY_sums <- df_bogs_processed %>% 
+  group_by(embFID,EMBAY_NAME) %>% 
+  arrange(marg_TN_Load_kgN_y,descending=T) %>% 
+  select(embFID,
+         EMBAY_NAME,
+         bogsurf_area_ha, # hectares, cranberry farm surface area 
+         bogshed_area_ha, # hectares, area draining through craberry farms
+         bog_count, # count of cranberry farms
+         marg_bogshed_area_ha, # hectares, marginal (reach) contributing area of cranberry farm
+         Q_m3d, # m^3 d-1, estimated flow based on water table contributing area and recharge rate. 
+         marg_Q_m3d, # m^3 d-1, marginal (reach) flow accumulated between upstream and downstream end of cranberry farm 
+         TN_mgl_p25, # mg N L-1, TN 25% percentile of EBK (krigging model) estimated TN concentration 
+         TN_mgl_p50, # mg N L-1, TN 50% percentile of EBK (krigging model) estimated TN concentration 
+         TN_mgl_p75, # mg N L-1, TN 75% percentile of EBK (krigging model) estimated TN concentration 
+         NO3_mgl_p25, # mg N L-1, TN 25% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         NO3_mgl_p50, # mg N L-1, TN 50% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         NO3_mgl_p75, # mg N L-1, TN 75% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         TN_Load_kgN_y, # kg N y-1, modeled total watershed TN load transported to cranberry bogs, based on Q*C method using 50% percentile estimate of EBK predicted concentration (eqn 1, L1)
+         NO3_Load_kgN_y, # kg N y-1, modeled total watershed NO3 load transported to cranberry bogs, based on Q*C method using 50% percentile estimate of EBK predicted concentration (eqn 1, L1)
+         marg_TN_Load_kgN_y, # kg N y-1, modeled marginal watershed TN load accumulated between upstream and downstream end of cranberry bog, based on Q*C method using 50% percentile estimate of EBK predicted concentration (eqn 1, L1)
+         marg_NO3_Load_kgN_y, # kg N y-1, modeled marginal watershed NO3 load accumulated between upstream and downstream end of cranberry bog, based on Q*C method using 50% percentile estimate of EBK predicted concentration (eqn 1, L1)
+         marg_TN_Load_kgN_y_MEP, # kg N y-1, modeled marginal watershed TN load accumulated between upstream and downstream end of cranberry bog, MEP estimated loading rate and marginal contributing area. 
+         TN_Load_kgN_y_MEP, # kg N y-1, modeled total watershed TN load accumulated between upstream and downstream end of cranberry bog, MEP estimated loading rate and marginal contributing area
+         ) %>%
+  summarise_all(~sum(.,na.rm=T)) %>%
+  ungroup() %>%
+  # convert concentration sums to means
+  mutate(TN_mgl_p25=TN_mgl_p25/bog_count,
+         TN_mgl_p50=TN_mgl_p50/bog_count,
+         TN_mgl_p75=TN_mgl_p75/bog_count,
+         NO3_mgl_p25=NO3_mgl_p25/bog_count,
+         NO3_mgl_p50=NO3_mgl_p50/bog_count,
+         NO3_mgl_p75=NO3_mgl_p75/bog_count)
+df_EMBAY_sums %>% write_csv("3_post/df_EMBAY_sums.csv")
+
+# add embayment attributes
+df_EMBAY_merged_summary <- df_EMBAY_merged %>%
+  left_join(df_EMBAY_sums,by=c("embFID","EMBAY_NAME"))
+
+# save embayment attributes with modeled totals for nitrogen loads delivered to cranberry bogs. 
+df_EMBAY_merged_summary %>% write_csv("3_post/df_EMBAY_merged_summary.csv")
+```
+
+
+## Highlight Selected Bogs
+```{r}
+restoration_projects = c(`Co-U` = 165, # Coonamessett Upper 
+                         `Co-M` = 164, # Coonamessett Upper 
+                         `Co-L1` = 583, # Coonamessett Middle
+                         `Co-L2` = 584, # Coonamessett Lower 
+                         `MM-U1` = 153, # Marstons Mills (Upper)
+                         `MM-U2` = 177, # Marstons Mills (Upper)
+                         `MM-M` = 155, # Marstons Mills (Main)
+                         `MM-L1` = 424, # Marston Mills (Lower)
+                         `MM-L2` = 152, # Marston Mills (Lower)
+                         `BSB` = 135, # Bank's Street Bog
+                         `ChR` = 243, # Childs River,
+                         `IBB`=108, # Indian Brook Bogs
+                         `TdmE`=496, # Tidmarsh East,
+                         `FhP`=715, # Foothills Preserve
+                         `HB`=359, # Holmes Bog,
+                         `ER-1`=491, # Eel River
+                         `ER-2`=492, # Eel River,
+                         `PB`=36, # Pinnacle Bog
+                         `SM`=419) # South Meadow)
+# sometimes index starts at zero sometime starts at 1. adjust if figures get messed up.
+restoration_projects = restoration_projects + 1
+names(restoration_projects)
+df_DER_names <- data.frame(DERname = names(restoration_projects),
+                           bogFID = restoration_projects)
+df_DER <- df_DER_names %>% left_join(df)
+write_csv(df_DER,"3_post/df_DER.csv")
+```
+
+# The bog receiving the highest load within each embayment. 
+
+```{r}
+df_EMBAY_bog_summary <- df_bogs_processed %>% 
+  left_join(df_DER_names) %>%
+  group_by(EMBAY_NAME,embFID) %>%
+  arrange(TN_Load_kgN_y,descending=T) %>% 
+  filter(TN_Load_kgN_y == max(TN_Load_kgN_y)) %>%
+  left_join(df_DER_names) %>% 
+  left_join(df_EMBAY) %>%
+  left_join(df_EMBAY_MVPtool_summary)
+
+df_EMBAY_bog_summary %>% 
+    select(EMBAY_NAME,
+           embFID,
+         bogsurf_area_ha,
+         bogshed_area_ha,
+         embayshed_area_ha,
+         marg_bogshed_area_ha,
+         Q_m3d,
+         marg_Q_m3d, # discharge accumulated between upstream and downstream,
+         NO3_mgl, # 50% concentration estimate
+         TN_mgl, # 50% concentration estimate
+         TN_mgl_p25, # mg N L-1, TN 25% percentile of EBK (krigging model) estimated TN concentration 
+         TN_mgl_p50, # mg N L-1, TN 50% percentile of EBK (krigging model) estimated TN concentration 
+         TN_mgl_p75, # mg N L-1, TN 75% percentile of EBK (krigging model) estimated TN concentration 
+         NO3_mgl_p25, # mg N L-1, TN 25% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         NO3_mgl_p50, # mg N L-1, TN 50% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         NO3_mgl_p75, # mg N L-1, TN 75% percentile of EBK (krigging model) estimated NO3 (nitrate+nitrite) concentration
+         TN_Load_kgN_y,
+         NO3_Load_kgN_y,
+         marg_TN_Load_kgN_y,
+         marg_NO3_Load_kgN_y,
+         marg_TN_Load_kgN_y_MEP,
+         TN_Load_kgN_y_MEP) %>%
+  write_csv("3_post/df_EMBAY_bog_summary_highest_load.csv")
+```
+
+```{r}
+save.image(file="3_post/data/1_model_loads.Rdata")
+```

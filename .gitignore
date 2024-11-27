@@ -1,5 +1,6 @@
-.Rdata
-.csv
-.xlsx
-.xls
+*.Rdata
+*.csv
+*.xlsx
+*.xls
 */_superceded/*
+.Rproj.user

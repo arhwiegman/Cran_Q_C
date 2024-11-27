@@ -1,0 +1,122 @@
+#
+# File created on 2023-08-21 11:21:38 EDT
+#
+# U.S. Geological Survey
+# 
+# This file contains selected water-quality data for stations in the National Water Information 
+# System water-quality database.  Explanation of codes found in this file are followed by
+# the retrieved data.
+#
+# The data you have secured from the USGS NWISWeb database may include data that have 
+# not received Director's approval and as such are provisional and subject to revision. 
+# The data are released on the condition that neither the USGS nor the United States 
+# Government may be held liable for any damages resulting from its authorized or 
+# unauthorized use.
+#
+# To view additional data-quality attributes, output the results using these options:  
+# one result per row, expanded attributes.  Additional precautions are at:
+# https://help.waterdata.usgs.gov/tutorials/water-quality-data/help-using-the-water-quality-data-retrieval-system#Data_retrievals_precautions
+#
+#  agency_cd                   - Agency Code
+#  site_no                     - Station number
+#  sample_dt                   - Begin date
+#  sample_tm                   - Begin time
+#  sample_end_dt               - End date
+#  sample_end_tm               - End time
+#  sample_start_time_datum_cd  - Time datum
+#  tm_datum_rlbty_cd           - Time datum reliability code
+#  coll_ent_cd                 - Agency Collecting Sample Code
+#  medium_cd                   - Medium code
+#  tu_id                       - Taxonomic unit code
+#  body_part_id                - Body part code
+#  P00010                      - Temperature, water, degrees Celsius
+#  P00020                      - Temperature, air, degrees Celsius
+#  P00028                      - Agency analyzing sample, code
+#  P00041                      - Weather, World Meteorological Organization (WMO) code
+#  P00061                      - Discharge, instantaneous, cubic feet per second
+#  P00076                      - Turbidity, water, unfiltered, nephelometric turbidity units
+#  P00080                      - Color, water, filtered, platinum cobalt units
+#  P00095                      - Specific conductance, water, unfiltered, microsiemens per centimeter at 25 degrees Celsius
+#  P00191                      - Hydrogen ion, water, unfiltered, calculated, milligrams per liter
+#  P00300                      - Dissolved oxygen, water, unfiltered, milligrams per liter
+#  P00400                      - pH, water, unfiltered, field, standard units
+#  P00403                      - pH, water, unfiltered, laboratory, standard units
+#  P00405                      - Carbon dioxide, water, unfiltered, milligrams per liter
+#  P00410                      - Acid neutralizing capacity, water, unfiltered, fixed endpoint (pH 4.5) titration, field, milligrams per liter as calcium carbonate
+#  P00600                      - Total nitrogen [nitrate + nitrite + ammonia + organic-N], water, unfiltered, milligrams per liter
+#  P00602                      - Total nitrogen [nitrate + nitrite + ammonia + organic-N], water, filtered, milligrams per liter
+#  P00605                      - Organic nitrogen, water, unfiltered, milligrams per liter as nitrogen
+#  P00607                      - Organic nitrogen, water, filtered, milligrams per liter as nitrogen
+#  P00608                      - Ammonia (NH3 + NH4+), water, filtered, milligrams per liter as nitrogen
+#  P00610                      - Ammonia (NH3 + NH4+), water, unfiltered, milligrams per liter as nitrogen
+#  P00613                      - Nitrite, water, filtered, milligrams per liter as nitrogen
+#  P00615                      - Nitrite, water, unfiltered, milligrams per liter as nitrogen
+#  P00618                      - Nitrate, water, filtered, milligrams per liter as nitrogen
+#  P00620                      - Nitrate, water, unfiltered, milligrams per liter as nitrogen
+#  P00623                      - Ammonia plus organic nitrogen, water, filtered, milligrams per liter as nitrogen
+#  P00625                      - Ammonia plus organic nitrogen, water, unfiltered, milligrams per liter as nitrogen
+#  P00630                      - Nitrate plus nitrite, water, unfiltered, milligrams per liter as nitrogen
+#  P00631                      - Nitrate plus nitrite, water, filtered, milligrams per liter as nitrogen
+#  P00650                      - Phosphate, water, unfiltered, milligrams per liter as PO4
+#  P00660                      - Orthophosphate, water, filtered, milligrams per liter as PO4
+#  P00669                      - Hydrolyzable phosphorus, water, unfiltered, milligrams per liter as phosphorus
+#  P00671                      - Orthophosphate, water, filtered, milligrams per liter as phosphorus
+#  P00672                      - Hydrolyzable phosphorus, water, filtered, milligrams per liter as phosphorus
+#  P00677                      - Hydrolyzable phosphorus plus orthophosphate, water, filtered, milligrams per liter as phosphorus
+#  P00678                      - Hydrolyzable phosphorus plus orthophosphate, water, unfiltered, milligrams per liter as phosphorus
+#  P00681                      - Organic carbon, water, filtered, milligrams per liter
+#  P00689                      - Organic carbon, suspended sediment, total, milligrams per liter
+#  P00900                      - Hardness, water, milligrams per liter as calcium carbonate
+#  P00915                      - Calcium, water, filtered, milligrams per liter
+#  P00925                      - Magnesium, water, filtered, milligrams per liter
+#  P00930                      - Sodium, water, filtered, milligrams per liter
+#  P00931                      - Sodium adsorption ratio (SAR), water, number
+#  P00932                      - Sodium fraction of cations, water, percent in equivalents of major cations
+#  P00935                      - Potassium, water, filtered, milligrams per liter
+#  P00940                      - Chloride, water, filtered, milligrams per liter
+#  P00945                      - Sulfate, water, filtered, milligrams per liter
+#  P01046                      - Iron, water, filtered, micrograms per liter
+#  P30209                      - Discharge, instantaneous, cubic meters per second
+#  P70301                      - Dissolved solids, water, filtered, sum of constituents, milligrams per liter
+#  P70302                      - Dissolved solids, water, short tons per day
+#  P70303                      - Dissolved solids, water, filtered, short tons per acre-foot
+#  P70507                      - Orthophosphate, water, unfiltered, milligrams per liter as phosphorus
+#  P70953                      - Chlorophyll a, phytoplankton, chromatographic-fluorometric method, micrograms per liter
+#  P70954                      - Chlorophyll b, phytoplankton, chromatographic-fluorometric method, micrograms per liter
+#  P71845                      - Ammonia (NH3 + NH4+), water, unfiltered, milligrams per liter as NH4
+#  P71846                      - Ammonia (NH3 + NH4+), water, filtered, milligrams per liter as NH4
+#  P71851                      - Nitrate, water, filtered, milligrams per liter as nitrate
+#  P71856                      - Nitrite, water, filtered, milligrams per liter as nitrite
+#  P71887                      - Total nitrogen [nitrate + nitrite + ammonia + organic-N], water, unfiltered, milligrams per liter as nitrate
+#  P90095                      - Specific conductance, water, unfiltered, laboratory, microsiemens per centimeter at 25 degrees Celsius
+#
+# Description of sample_start_time_datum_cd:
+# EDT  - Eastern Daylight Time
+#
+# Description of tm_datum_rlbty_cd:
+# T  - Transferred
+#
+# Description of coll_ent_cd:
+# USGS-WRD  - U.S. Geological Survey-Water Resources Discipline
+#
+# Description of medium_cd:
+# WS  - Surface water
+#
+# Description of tu_id:
+# https://www.itis.gov/
+#
+# Description of body_part_id:
+#
+# Description of remark_cd:
+# <  - Less than
+#
+# Data for the following sites are included:
+#  USGS 01103253 CHICKEN BROOK NEAR WEST MEDWAY, MA
+#
+# WARNING:  Some spreadsheet programs do not allow more than 256 columns. This retrieval
+# may not be imported into those programs without manually editing this file.
+#
+agency_cd	site_no	sample_dt	sample_tm	sample_end_dt	sample_end_tm	sample_start_time_datum_cd	tm_datum_rlbty_cd	coll_ent_cd	medium_cd	tu_id	body_part_id	p00010	p00020	p00028	p00041	p00061	p00076	p00080	p00095	p00191	p00300	p00400	p00403	p00405	p00410	p00600	p00602	p00605	p00607	p00608	p00610	p00613	p00615	p00618	p00620	p00623	p00625	p00630	p00631	p00650	p00660	p00669	p00671	p00672	p00677	p00678	p00681	p00689	p00900	p00915	p00925	p00930	p00931	p00932	p00935	p00940	p00945	p01046	p30209	p70301	p70302	p70303	p70507	p70953	p70954	p71845	p71846	p71851	p71856	p71887	p90095
+5s	15s	10d	5d	10d	5d	3s	1s	8s	3s	11s	11s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s	12s
+USGS	01103253	1989-07-25	11:00			EDT	T	USGS-WRD	WS			 22.0	 33.2	 80020	 1	 6.3	 1.3	 110	 161	 0.00011	 7.3	 7.0	 7.3	 3.6	 17	 1.1	 0.93	 0.64	 0.56	 0.040	 0.06	< 0.010	 0.01	 0.330	 0.390	 0.60	 0.70	 0.40	 0.330	 0.307	 0.215	 0.00	 0.07	 0.00	 0.07	 0.10	 11.0	 0.4	 33.5	 9.80	 2.20	 16.0	 1.20	 49	 1.90	 24.0	 9	 620	 0.18	 75	 1.28	 0.10	 0.10	 1.6	 0.4	 0.077	 0.052	 1.46	< 0.033	 4.9	 157
+USGS	01103253	1989-07-25	11:01			EDT	T	USGS-WRD	WS			 22.0	 33.2	 80020	 1	 6.3			 161	 0.00011	 7.3	 7.0		 3.6	 17																																		 0.18					 1.8	 0.4						

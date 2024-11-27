@@ -1,0 +1,550 @@
+---
+title: "_model_load_reduction"
+author: "Adrian Wiegman"
+format: html
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+
+# Set Up
+```{r}
+# SET UP ENVIRONMENT -----------------
+
+# clear objects from environment 
+rm(list=ls()) 
+
+# make sure pacman and tidyverse are installed
+if (!require("pacman")) install.packages("pacman")
+pacman::p_unload("all") # detach all non-base R packages
+pacman::p_load(tidyverse) # load tidyverse
+
+# type package names in the string below, use comma as separator
+package_names <- "
+readxl,
+scales,
+broom,
+ggpubr,
+ggrepel,
+RColorBrewer
+" 
+
+package_names |>
+   str_split_1(",") |> 
+   str_extract("\\w+") |>
+   (\(x) x[!is.na(x)])() |>
+   (\(x) try(pacman::p_load(char=x,character.only=T),F))()
+```
+## ggplot Settings
+```{r} 
+theme_set(theme_bw())
+theme_update(panel.grid.minor=element_blank(),
+             axis.text.x = element_text(color = "black",size=12),
+             axis.text.y = element_text(color = "black",size=12))
+log_x_scale <- scale_x_log10(
+  breaks = scales::trans_breaks("log10", function(x) 10^x),
+  labels = scales::trans_format("log10", scales::math_format(10^.x)))
+log_y_scale <- scale_y_log10(
+  breaks = scales::trans_breaks("log10", function(x) 10^x),
+  labels = scales::trans_format("log10", scales::math_format(10^.x)))
+
+```
+
+## Load Data
+```{r}
+load("3_post/data/1_model_loads.Rdata")
+```
+
+# Main Article  
+## Fig 1
+
+Images for figure 1 were exported from ArcGIS Pro.
+
+## Fig 2
+verify discharge. 
+```{r}
+load("3_post/data/_verify_discharge.Rdata")
+# FIGURE 2 -----------
+df <- df_Q_bogs_streams_verify 
+myshapes = scale_shape_manual(values=c(21,22,24))
+myfills = scale_fill_manual(values=c("grey90","yellow","blue2"))
+g2 <- ggplot(df) + 
+  geom_abline(intercept=0,slope=1)+
+  geom_point(aes(y=Q_m3d,x=Q_m3d_D8gwelid0,
+                               fill=org,
+                               shape=org),
+             alpha=0.75,size=2.5)+
+  geom_point(data=df %>% filter(cranberry),
+             aes(y=Q_m3d,x=Q_m3d_D8gwelid0),
+             #position=position_nudge(x=100,y=100),
+             color="white",
+             alpha=0.75,pch=16,size=1.5)+
+  geom_point(data=df %>% filter(cranberry),
+             aes(y=Q_m3d,x=Q_m3d_D8gwelid0),
+             #position=position_nudge(x=100,y=100),
+             color="red",
+             alpha=0.75,pch=20,size=1)+
+
+  myshapes+
+  myfills
+g2 +  
+  xlim(c(0,12000))+
+  ylim(c(0,12000))+
+  theme(legend.position="none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank())
+ggsave("images/fig2_verify_Q_gwelid0_inset.png",width=4*.5,height=4*.5,dpi=600)
+g2 +  
+  xlim(c(0,120000))+
+  ylim(c(0,120000))+
+  theme(legend.position="none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank())
+ggsave("images/fig2_verify_Q_gwelid0.png",width=4,height=4,dpi=600)
+
+lm(resid~Q_m3d_D8gwelid0,data=df%>% filter(cranberry)) %>% summary
+lm(resid~Q_m3d_D8gwelid0,data=df%>% filter(org=="USGS"))%>% summary
+lm(resid~Q_m3d_D8gwelid0,data=df) %>% summary
+   
+lm(Q_m3d~Q_m3d_D8gwelid0,data=df %>% filter(cranberry)) %>% summary
+lm(Q_m3d~Q_m3d_D8gwelid0,data=df %>% filter(org=="USGS"))%>% summary
+lm(Q_m3d~Q_m3d_D8gwelid0,data=df) %>% summary
+df$resid^2%>%mean() %>% sqrt()
+```
+
+## Fig 3
+Images for Figure 3 were exported from ArcGIS Pro. 
+statistics for correlations are calculated in the following script. 
+```{r}
+source("3_post/scripts/_spearman_TN_NO3_pop_imp.R")
+```
+
+## Fig 4
+```{r}
+# comparison of load methods 
+## L1 VS L2 sum of marginal "reach" loads for 24 embayments
+df <- df_EMBAY_merged_summary %>% 
+  filter(!is.na(bog_count)) %>% 
+  filter(EMBAY_NAME != "ButtermilkBay") %>%
+  filter(EMBAY_NAME != "PocassetHarbor") %>%
+  mutate(resid=(marg_TN_Load_kgN_y - marg_TN_Load_kgN_y_MEP))
+df %>% write_csv("3_post/df_EMBAY_merged_summary_TN_p50.csv")
+
+
+library(ggrepel)
+library(plotly)
+set.seed(5)
+lmall <- lm(marg_TN_Load_kgN_y~marg_TN_Load_kgN_y_MEP+0,
+            data=df) 
+lmall %>%  summary()
+df[22,]
+lmsub <- lm(marg_TN_Load_kgN_y~marg_TN_Load_kgN_y_MEP+0,
+            data=df %>% filter(marg_TN_Load_kgN_y_MEP<10000))
+lmsub %>%  summary()
+lmsub$fitted.values
+g <- ggplot(df,aes(x=marg_TN_Load_kgN_y_MEP,y=marg_TN_Load_kgN_y,label=embFID))+
+  geom_abline(slope=1,intercept = 0)+
+  geom_point(pch=21,fill="grey",alpha=0.5,size=3) 
+
+predict(lmsub)
+ggplotly()
+g + 
+  geom_abline(slope=0.67,intercept=0,color="blue",size=.75,
+              linetype="dashed")+
+  geom_text_repel(min.segment.length = 0, seed = 42,
+                  box.padding=0.3,
+                  bg.color = "white", # shadow color
+                  bg.r = 0.2,
+                  point.padding = 1,
+                  #nudge_x = 1,
+                  #nudge_y = 1,
+                  segment.curvature = -1e-20,
+                  size=5)+
+  xlim(c(0,65000))+
+  ylim(c(0,65000))+
+  theme(legend.position="none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank())
+ggsave("images/fig4_L1_vs_L2_all_labs.png",height=4,width=4)
+
+g +
+  xlim(c(0,6000))+
+  ylim(c(0,6000))+
+  geom_abline(slope=0.67,intercept=0,color="blue",size=.75,
+              linetype="dashed")+
+  geom_text_repel(min.segment.length = 0,
+                  seed = 42, 
+                  box.padding = 1,
+                  bg.color = "white", # shadow color
+                  bg.r = 0.2,
+                  point.padding = 0.5, 
+                  nudge_x = .3,
+                  nudge_y = .5,
+                  segment.curvature = -1e-20,
+                  size=6)+
+  theme(legend.position="none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank())
+ggsave("images/fig4_L1_vs_L2_lt6000.png",height=3,width=3)
+```
+
+## Fig 5
+comparison of contributing area and loads for all bogs and best bog.
+fertilizer loads are calculated here as well. 
+```{r}
+# this is the retire and restore only the best bog scenario
+df <- df_EMBAY_bog_summary %>% 
+  filter(!is.na(bog_count)) %>% 
+  filter(!is.na(EMBAY_NAME))
+
+# this is the 100% retirement and restoration scenario
+df2 <-  df_EMBAY_merged_summary %>% filter(!is.na(bog_count))
+
+# all bogs not aggregated by embayment
+df3 <- df_bogs_processed
+
+# prep dataframes
+df. <- df %>% select(EMBAY_NAME,
+                     embFID,
+                     embayshed_area_ha,
+                     bogshed_area_ha,
+                     bogsurf_area_ha,
+                     bogsurf_perim_m2,
+                     HLR_md,
+                     Q_m3d,
+                     LR_kghay_MEP,
+                     TN_Load_kgN_y,
+                     marg_TN_Load_kgN_y,
+                     TN_Load_kgN_y_MEP,
+                     marg_TN_Load_kgN_y_MEP) %>% 
+  inner_join(df2 %>% select(EMBAY_NAME,
+                            embayshed_area_ha,
+                            marg_bogshed_area_ha,
+                            total_bogsurf_area_ha = bogsurf_area_ha,
+                            total_TN_Load_kgN_y=TN_Load_kgN_y,
+                            total_marg_TN_Load_kgN_y=marg_TN_Load_kgN_y,
+                            total_TN_Load_kgN_y_MEP=TN_Load_kgN_y_MEP,
+                            TN_mgl_p50,
+                            NO3_mgl_p50,
+                            total_marg_TN_Load_kgN_y_MEP=
+                              marg_TN_Load_kgN_y_MEP)) %>%
+  mutate(
+    # adjust bogshed areas for best bog to account for error from method differences
+    bogshed_area_ha_raw = bogshed_area_ha,
+    bogshed_area_ha = ifelse(bogshed_area_ha<marg_bogshed_area_ha,
+                             bogshed_area_ha,
+                             marg_bogshed_area_ha),
+    pct_bogsheds_drained_by_best =  100*bogshed_area_ha/marg_bogshed_area_ha,
+    pct_embayshed_drained_by_all = 100*marg_bogshed_area_ha/embayshed_area_ha,
+    pct_embayshed_drained_by_best = 100*bogshed_area_ha/embayshed_area_ha,
+    watershed_load = (LR_kghay_MEP*embayshed_area_ha),
+    pct_load_from_fertilizer_all = 100*total_bogsurf_area_ha*45.8*(0.31*0.8+0.61*0.2)*0.65/watershed_load,
+    pct_load_from_fertilizer_best = 100*bogsurf_area_ha*45.8*(0.31*0.8+0.61*0.2)*0.65/watershed_load,
+    pct_load_drained_by_all_L2 = 100*total_marg_TN_Load_kgN_y_MEP/watershed_load,
+    pct_load_drained_by_all_L1 = 100*total_marg_TN_Load_kgN_y/watershed_load,
+    pct_load_drained_by_best_L2 =100*TN_Load_kgN_y_MEP/watershed_load,
+    pct_load_drained_by_best_L1 = 100*TN_Load_kgN_y/watershed_load) %>%
+  filter(embFID!=6) %>%
+  filter(embFID!=29)
+
+# QUICK SUMMARY STATS
+df. %>% select(total_bogsurf_area_ha) %>% summary()
+df. %>% select(embayshed_area_ha) %>% summary()
+df.$pct_load_from_fertilizer_all %>% hist()
+
+# percent load from fertilizer for S1 restore all farms
+df.$pct_load_from_fertilizer_all[df.$pct_load_from_fertilizer_all < 17] %>% summary()
+
+# percent watershed area draining to cranberry bogs -------------------------------
+100*mean(df.$marg_bogshed_area_ha/df.$embayshed_area_ha)
+
+df. %>% ggplot(aes(y=reorder(paste0(EMBAY_NAME," (",embFID,")"),embayshed_area_ha)))+
+  geom_col(aes(x=embayshed_area_ha),
+           fill="transparent",
+           col="black")
+ggsave("images/embay_vs_area_ha_label.png",width=4,height=6,dpi=600)
+
+# Contributing area
+df. %>% ggplot(aes(y=reorder(embFID,embayshed_area_ha)))+
+  geom_col(aes(x=embayshed_area_ha),
+           fill="transparent",
+           col="black")+
+  geom_col(aes(x=marg_bogshed_area_ha),
+           fill="blue",
+           col="black")+
+  geom_col(aes(x=bogshed_area_ha),
+           fill="lightblue",col="black")
+ggsave("images/fig5a_embay_vs_area_best.png",width=3,height=6,dpi=600)
+
+
+# Plot of percent of watershed area and nitrogen loads
+df. %>% ggplot(aes(y=reorder(embFID,embayshed_area_ha)))+
+  geom_col(aes(x=100),
+           fill="transparent",
+           col="black")+
+  geom_col(aes(x=pct_embayshed_drained_by_all),
+           fill="black",
+           col="black")+
+  geom_col(aes(x=pct_embayshed_drained_by_best),
+           fill="lightgrey",col="black")+
+  geom_point(aes(x=pct_bogsheds_drained_by_best),
+              pch=21,fill="white",stroke=1,col="black",size=3)+
+  geom_point(aes(x=100*NO3_mgl_p50/TN_mgl_p50,fill=100*NO3_mgl_p50/TN_mgl_p50),
+             position = position_nudge(x = 0.2,y=-.2),
+             fill="black",stroke=1,size=2,pch=24,col="white")+
+  xlim(c(0,100))+
+  geom_point(aes(x=pct_load_from_fertilizer_all),
+             position = position_nudge(y = 0.1),
+             pch=22,fill="yellow",stroke=1,col="black",size=2)
+ggsave("images/fig5c_embay_vs_pct_area_best.png",width=3,height=6,dpi=600)
+
+# Nitrogen loads
+df. %>% ggplot(aes(y=reorder(embFID,embayshed_area_ha)))+
+  geom_col(aes(x=LR_kghay_MEP*embayshed_area_ha),
+           fill="transparent",
+           col="black")+
+  geom_col(aes(x=LR_kghay_MEP*marg_bogshed_area_ha),
+           fill="darkgreen",
+           col="black")+
+  geom_col(aes(x=LR_kghay_MEP*bogshed_area_ha),
+           fill="lightgreen",col="black")
+ggsave("images/fig5b_embay_vs_load_best.png",width=3,height=6,dpi=600)
+
+```
+
+
+## Fig 6
+loads are multiplied by reduction efficiency 
+### a
+```{r}
+# Load reduction for all bogs. 
+df <- df_EMBAY_merged_summary %>% 
+  filter(!is.na(bog_count)) %>% 
+  filter(EMBAY_NAME != "ButtermilkBay") %>%
+  filter(EMBAY_NAME != "PocassetHarbor") %>%
+  mutate(resid=(marg_TN_Load_kgN_y - marg_TN_Load_kgN_y_MEP))
+
+dL1 <- df %>% 
+  mutate(
+    method = "L1",
+    L_pct = 100*marg_TN_Load_kgN_y/(LR_kghay_MEP*embayshed_area_ha),
+    L_pctR_p05 = L_pct*0.05,
+    L_pctR_p25 = L_pct*0.23,
+    L_pctR_p50 = L_pct*0.38,
+    L_pctR_p75 = L_pct*0.53,
+    L_pctR_p95 = L_pct*0.81)
+
+dL2 <- df %>% 
+  mutate(
+    method = "L2",
+    L_pct = 100*marg_TN_Load_kgN_y_MEP/(LR_kghay_MEP*embayshed_area_ha),
+    L_pctR_p05 = L_pct*0.05,
+    L_pctR_p25 = L_pct*0.23,
+    L_pctR_p50 = L_pct*0.38,
+    L_pctR_p75 = L_pct*0.53,
+    L_pctR_p95 = L_pct*0.81)
+
+df_L1L2 <- rbind(dL2,dL1)
+
+my_fills <- scale_fill_manual(values=c("magenta","darkblue"))
+my_colors <- scale_color_manual(values=c("magenta","darkblue"))
+g_b = ggplot(df_L1L2 %>% filter(embFID!=6) %>% filter(embFID!=29),
+           aes(x=reorder(paste0(EMBAY_NAME," (",embFID,")"),marg_bogshed_area_ha/embayshed_area_ha),
+                       y=L_pctR_p50,
+                       color=method))+
+  geom_linerange(aes(ymin=L_pctR_p25,ymax=L_pctR_p75),
+                 position = position_dodge2(preserve = "single",width=0.4),
+                 linewidth=2)+
+  geom_linerange(aes(ymin=L_pctR_p05,ymax=L_pctR_p95),
+                 position = position_dodge2(preserve = "single",width=0.4))+
+  geom_point(aes(size=method),fill="white",
+             position = position_dodge2(preserve = "single",width=0.4),
+             pch=21,stroke=1.5,size=2)+
+  geom_hline(aes(yintercept=3),linetype="dashed")+
+  geom_hline(aes(yintercept=10),linetype="dashed")+
+  geom_hline(aes(yintercept=30),linetype="dashed")+
+  my_colors
+g_b + ylim(0,65) + ggpubr::rotate()
+ggsave("images/fig6_a_full.png",height=6,width=8)
+```
+### b
+```{r}
+# Load reduction for the bog with the highest incoming load. 
+df <- df_EMBAY_bog_summary %>% 
+  filter(!is.na(bog_count)) %>% 
+  filter(EMBAY_NAME != "ButtermilkBay") %>%
+  filter(EMBAY_NAME != "PocassetHarbor") %>%
+  mutate(resid=(marg_TN_Load_kgN_y - marg_TN_Load_kgN_y_MEP))
+df %>% write_csv("3_post/df_EMBAY_bog_summary_TN_p50.csv")
+
+dL1 <- df %>% 
+  mutate(
+    method = "L1",
+    L_pct = 100*TN_Load_kgN_y/(LR_kghay_MEP*embayshed_area_ha),
+    #L_pctR_cheng = 100*TN_removal_kgN_y_1/(LR_kghay_MEP*embayshed_area_ha),
+    L_pctR_p05 = L_pct*0.05,
+    L_pctR_p25 = L_pct*0.23,
+    L_pctR_p50 = L_pct*0.38,
+    L_pctR_p75 = L_pct*0.53,
+    L_pctR_p95 = L_pct*0.81)
+
+dL2 <- df %>% 
+  mutate(
+    method = "L2",
+    L_pct = 100*TN_Load_kgN_y_MEP/(LR_kghay_MEP*embayshed_area_ha),
+    #L_pctR_cheng = 100*TN_removal_kgN_y_1_MEP/(LR_kghay_MEP*embayshed_area_ha),
+    L_pctR_p05 = L_pct*0.05,
+    L_pctR_p25 = L_pct*0.23,
+    L_pctR_p50 = L_pct*0.38,
+    L_pctR_p75 = L_pct*0.53,
+    L_pctR_p95 = L_pct*0.81)
+
+df_L1L2 <- rbind(dL2,dL1)
+
+my_fills <- scale_fill_manual(values=c("magenta","darkblue"))
+my_colors <- scale_color_manual(values=c("magenta","darkblue"))
+g_b = ggplot(df_L1L2 %>% filter(embFID!=6) %>% filter(embFID!=29),
+           aes(x=reorder(paste0(EMBAY_NAME," (",embFID,")"),bogshed_area_ha/embayshed_area_ha),
+                       y=L_pctR_p50,
+                       color=method))+
+  geom_linerange(aes(ymin=L_pctR_p25,ymax=L_pctR_p75),
+                 position = position_dodge2(preserve = "single",width=0.4),
+                 linewidth=2)+
+  geom_linerange(aes(ymin=L_pctR_p05,ymax=L_pctR_p95),
+                 position = position_dodge2(preserve = "single",width=0.4))+
+  geom_point(aes(size=method),fill="white",
+             position = position_dodge2(preserve = "single",width=0.4),
+             pch=21,stroke=1.5,size=2)+
+  geom_hline(aes(yintercept=3),linetype="dashed")+
+  geom_hline(aes(yintercept=10),linetype="dashed")+
+  geom_hline(aes(yintercept=30),linetype="dashed")+
+  my_colors
+g_b + ylim(0,65) + ggpubr::rotate()
+ggsave("images/fig6_b_S2_full.png",height=6,width=8)
+```
+
+# Supplemental
+
+## Fig S1
+
+This figure was produced by exporting map images from ArgGIS Pro. 
+
+## Fig S2
+This figure was produced during the pre-processing phases of the project. 
+using the following script: 
+`prep_NO3_data.R` then running `_explore_NO3_data.R`
+
+## Fig S3
+```{r}
+# FIGS FOR SUPPLEMENTAL
+require(ggrepel)
+df$NO3_mgl %>% summary()
+filbw = scale_fill_gradient(low = "magenta", high = "red",name = "NO3 (mg/L)", trans = log10_trans(),
+                        breaks = log10breaks)
+PuRd5 = brewer.pal(n = 5, name = "PuRd")
+colors5 = brewer.pal(n = 5, name = "Greens")
+breaks5 = c(0.02,0.2,0.4,0.8,1.6)
+mycolors = scale_color_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+myfills = scale_fill_gradientn(colors=PuRd5,
+                                 breaks=breaks5)
+
+ggplot(data=df,aes(Q_m3d,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=NO3_mgl,fill=NO3_mgl),pch=21)+
+  myfills+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,
+                  box.padding = 0.5,
+                  arrow = arrow(length = unit(0.015, "npc")),
+                                size=3,
+                                color="blue",
+                                segment.color="blue",
+                  segement.size=2)+
+  xscale+
+  yscale+
+  annotation_logticks(sides = "lb")+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggsave("images/FigS3a_A_L_Q.png",width = 6,height=5)
+
+ggplot(data=df,aes(NO3_mgl,NO3_Load_kgN_y))+ 
+  geom_point(data=df,aes(size=Q_m3d),fill="grey",pch=21)+
+  geom_text_repel(data=df_DER,aes(label=DERname),bg.color = "white",
+                  bg.r = 0.25,
+                  box.padding = 0.5,
+                  arrow = arrow(length = unit(0.015, "npc")),
+                                size=3,
+                                color="blue",
+                                segment.color="blue",
+                  segement.size=2)+
+  xscale+
+  yscale+
+  annotation_logticks(sides = "lb")+
+  #facet_wrap(vars(TOWN))+
+  theme_bw()
+ggsave("images/FigS3b_L_NO3.png",width = 6,height=5)
+```
+
+## Fig S4
+Figure S4 statistics for correlations are calculated in the following script. 
+```{r}
+source("3_post/scripts/_compare_concentration_and_loading_rate.R")
+```
+
+## Fig S5
+```{r}
+# Upper panel
+colors5 = brewer.pal(n = 5, name = "Greens")
+#breaks5 = c(0.36,0.64,0.68,0.72,2.25)
+mycolors = scale_color_gradientn(colors=colors5)
+myfills = scale_fill_gradientn(colors=colors5)
+
+df_bogs_processed %>% ggplot(aes(Q_m3d,HLR_md))+geom_point() +scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0))+scale_x_log10()
+df_bogs_processed$TN_mgl_p50 %>% summary()
+colors5 = brewer.pal(n = 5, name = "Greens")
+#breaks5 = c(0.36,0.64,0.68,0.72,2.25)
+mycolors = scale_color_gradientn(colors=colors5)
+myfills = scale_fill_gradientn(colors=colors5)
+d <- df_bogs_processed %>% filter(embFID!=-1,!is.na(TN_mgl_p50))
+d %>%
+  ggplot(aes(Q_m3d,HLR_md,size=bogsurf_area_ha,fill=TN_mgl_p50))+
+  geom_point(pch=21) +
+  scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0,10e1))+
+  scale_x_log10(breaks=c(10e-1,10e0,10e1,10e2,10e3,10e4,10e5))+
+  myfills
+ggsave("images/figS5a_HLR_Q_C_S1.png",width=6,height=4)
+  
+  
+# Lower panel
+df_EMBAY_bog_summary$TN_mgl_p50 %>% summary()
+colors5 = brewer.pal(n = 5, name = "Greens")
+breaks5 = c(0.52,0.69,0.79,0.92,1.61)
+mycolors = scale_color_gradientn(colors=colors5,
+                                 breaks=breaks5)
+myfills = scale_fill_gradientn(colors=colors5,
+                                 breaks=breaks5)
+d <- df_EMBAY_bog_summary %>% filter(embFID!=-1,                                    !str_detect(EMBAY_NAME,"ButtermilkBay"),                                     !str_detect(EMBAY_NAME,"PocassetHarbor"))
+                                
+
+d %>% ggplot(aes(Q_m3d,HLR_md,size=bogsurf_area_ha,fill=TN_mgl_p50))+
+  geom_point(pch=21) +scale_y_log10(breaks=c(10e-4,10e-3,10e-2,10e-1,10e0))+
+  scale_x_log10() + 
+  ggrepel::geom_text_repel(aes(label=embFID),
+                           #fontface="bold",
+                           bg.color = "white", # shadow color
+                           bg.r = 0.02,          # shadow radiuspoint.padding = 0.2,
+                           box.padding = 0.4,
+                           segment.curvature = -0.001,
+                           size=4)+
+  mycolors+
+  myfills
+ggsave("images/figS5b_HLR_Q_C_S2.png",width=6,height=4)
+```
