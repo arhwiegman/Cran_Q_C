@@ -24,7 +24,8 @@ Keywords:
 
 ## Notes
 
-Currently all .Rdata, .csv, .xlsx, .xls, data files are being withheld by the authors to protect the privacy of private citizens who are identifyable in cranberry farm data 
+Currently all .Rdata, .csv, .xlsx, .xls, data files are being withheld by the authors to protect the privacy of private citizens who are identifyable in cranberry farm data.
+
 Delete: .Rdata, .csv, .xlsx, .xls from the .gitignore file in order to upload this data to the repository. 
 
 ## Contents
