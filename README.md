@@ -3,8 +3,11 @@
 
 ## Metadata
 Date: 2024-11-26
+
 Journal: Journal of Geophysical Research (Original Research)
+
 Title: Modeling nitrogen reductions to coastal embayments from ecological restoration of cultivated wetlands 
+
 Authors:
  - Adrian R. H. Wiegman 1 *
  - Casey D. Kennedy 1
@@ -13,12 +16,14 @@ Authors:
  - Molly Welsh 1
  - David Millar 1
  - Anthony Buda 4
+
 Affiliations 
  - 1 U.S. Department of Agriculture, Agricultural Research Service, Pasture Systems and Watershed Management Research Unit, One State Bog Rd, East Wareham, MA, 02538
  - 2 Woodwell Climate Research Center, 149 Woods Hole Road, Falmouth, MA, 02540, USA
  - 3 Buzzards Bay Coalition, 114 Front St, New Bedford, MA, 02740, USA
  - 4 U.S. Department of Agriculture, Agricultural Research Service, Pasture Systems and Watershed Management Research Unit, Building 3702, Curtin Road, University Park, PA 16802, USA
  - *Contact and Corresponding author: adrian.wiegman@gmail.com; adrian.wiegman@usda.gov 
+
 Keywords: 
  - [groundwater, nitrate, hydrology, water quality, septic systems, peatlands, estuaries, agriculture, Cape Cod]
 
