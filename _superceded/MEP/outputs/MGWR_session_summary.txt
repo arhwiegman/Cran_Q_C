@@ -1,0 +1,78 @@
+================================================================================
+MGWR Version: 2.2.1
+Released on: 03/20/2020
+Source code is available at: https://github.com/pysal/mgwr
+Development Team: Ziqi Li, Taylor Oshan, Stewart Fotheringham, Wei Kang, 
+Levi Wolf, Hanchen Yu, Mehak Sachdeva, and Sarah Bardin
+Spatial Analysis Research Center (SPARC)
+Arizona State University, Tempe, USA
+================================================================================
+Model type:                                                             Gaussian
+Number of observations:                                                       64
+Number of covariates:                                                          4
+Dependent variable:                                                           TN
+Variable standardization:                                                     On
+Total runtime:                                                           0:00:02
+
+Global Regression Results
+--------------------------------------------------------------------------------
+Residual sum of squares:                                                  48.539
+Log-likelihood:                                                          -81.964
+AIC:                                                                     171.927
+AICc:                                                                    174.962
+R2:                                                                        0.242
+Adj. R2:                                                                   0.204
+
+Variable                                   Est.         SE  t(Est/SE)    p-value
+------------------------------------ ---------- ---------- ---------- ----------
+Intercept                                -0.000      0.112     -0.000      1.000
+NaturalCover                              0.003      0.120      0.021      0.983
+LE5_Use_ResComMix                         0.035      0.115      0.301      0.764
+COVERNAME_Impervious                      0.488      0.119      4.098      0.000
+
+Multiscale Geographically Weighted Regression (MGWR) Results
+--------------------------------------------------------------------------------
+Coordinates type:                                                      Spherical
+Spatial kernel:                                                Adaptive bisquare
+Criterion for optimal bandwidth:                                            AICc
+Score of change (SOC) type:                                          Smoothing f
+Termination criterion for MGWR:                                          1.0e-05
+Number of iterations used:                                                     7
+
+MGWR bandwidths
+--------------------------------------------------------------------------------
+Variable                  Bandwidth      ENP_j   Adj t-val(95%)            DoD_j
+Intercept                    51.000      2.141            2.324            0.817
+NaturalCover                 63.000      1.542            2.187            0.896
+LE5_Use_ResComMix            63.000      1.769            2.245            0.863
+COVERNAME_Impervious         47.000      2.247            2.344            0.805
+
+Diagnostic Information
+--------------------------------------------------------------------------------
+Residual sum of squares:                                                  41.368
+Effective number of parameters (trace(S)):                                 7.699
+Degree of freedom (n - trace(S)):                                         56.301
+Sigma estimate:                                                            0.857
+Log-likelihood:                                                          -76.848
+Degree of Dependency (DoD):                                                0.843
+AIC:                                                                     171.094
+AICc:                                                                    174.201
+BIC:                                                                     189.874
+R2:                                                                        0.354
+Adj. R2:                                                                   0.264
+
+Summary Statistics For MGWR Parameter Estimates
+--------------------------------------------------------------------------------
+Variable                        Mean        STD        Min     Median        Max
+--------------------      ---------- ---------- ---------- ---------- ----------
+Intercept                      0.093      0.071      0.018      0.062      0.249
+NaturalCover                  -0.020      0.010     -0.037     -0.023     -0.004
+LE5_Use_ResComMix              0.077      0.013      0.045      0.082      0.090
+COVERNAME_Impervious           0.492      0.216      0.193      0.530      0.758
+================================================================================
+Acknowledgement:
+We acknowledge the support of the National Science Foundation under Award 1758786 
+from the Geography and Spatial Sciences Program to A. S. Fotheringham which 
+enabled this software to be written and made freely available.
+================================================================================
+

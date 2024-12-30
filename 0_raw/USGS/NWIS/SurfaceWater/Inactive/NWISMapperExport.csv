@@ -1,0 +1,421 @@
+SiteNumber, SiteName, SiteCategory, SiteAgency, SiteLongitude, SiteLatitude, SiteNWISURL
+1103253,"CHICKEN BROOK NEAR WEST MEDWAY, MA",ST,USGS,-71.42339318,42.14093056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103253
+1103260,"CHARLES RIVER AT WEST MEDWAY, MA",ST,USGS,-71.418393,42.13676397,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103260
+1113994,"WEST RIVER AT PROVIDENCE, RI",ST,USGS,-71.4183903,41.84426665,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113994
+1113710,ASH SWAMP BK AT NATE WHIPPLE HW AT DIAMOND HILL RI,ST,USGS,-71.4120023,41.9825988,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113710
+1113700,"CATAMINT BROOK NEAR DIAMOND HILL, RI",ST,USGS,-71.4117246,41.9834321,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113700
+1113980,"MOSHASSUCK RIVER AT BRANCH AVE, PROVIDENCE, RI",ST,USGS,-71.4117234,41.8462111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113980
+1103384,"DOPPING BROOK AT BROOK ST NEAR EAST HOLLISTON, MA",ST,USGS,-71.40894908,42.22231879,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103384
+1113970,"MOSHASSUCK RIVER AT PAWTUCKET, RI",ST,USGS,-71.4083901,41.87259979,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113970
+1113950,"MOSHASSUCK RIVER NEAR SAYLESVILLE, RI",ST,USGS,-71.4078346,41.885933,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113950
+1103386,"DOPPING BROOK AT WHITNEY ST NR EAST HOLLISTON, MA",ST,USGS,-71.40756008,42.2153744,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103386
+4.14459E+14,"POSNEGANSETT POND AT WARWICK, RI",LK,USGS,-71.40561109,41.7498231,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414459071242200
+1117150,"WEST PASSAGE NARRAGANSETT BAY NEAR JAMESTOWN, RI",ES,USGS,-71.39949928,41.5292684,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01117150
+1103388,"BOGOSTOW BROOK AT FISKE ST NEAR HOLLISTON, MA",ST,USGS,-71.3992264,42.20343018,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103388
+4.15938E+14,"DIAMOND HILL RESERVOIR AT DIAMOND HILL, RI",LK,USGS,-71.3989464,41.99398765,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415938071235800
+1103390,"BOGASTOW BROOK NEAR MILLIS, MA",ST,USGS,-71.39033697,42.1837082,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103390
+1113670,"BURNT SWAMP BROOK NR GRANTS MILLS, RI",ST,USGS,-71.3897796,42.0139875,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113670
+1113664,"BURNT SWAMP BROOK TR  2 AT SHELDONVILLE, MA",ST,USGS,-71.389502,42.03343178,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113664
+1113669,"BURNT SWAMP BROOK TR 4 NEAR GRANTS MILLS, RI",ST,USGS,-71.3889463,42.0139875,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113669
+1113920,"SEEKONK RIVER AT PROVIDENCE, RI",ES,USGS,-71.3872775,41.8173226,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113920
+1113666,"BURNT SWAMP BROOK TR 3 AT SHELDONVILLE, MA",ST,USGS,-71.3861685,42.02120968,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113666
+1113662,"BURNT SWAMP BROOK AT SHELDONVILLE, MA",ST,USGS,-71.3856129,42.02565409,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113662
+1113800,"MILLERS RIVER NEAR VALLEY FALLS, RI",ST,USGS,-71.3847786,41.9273216,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113800
+1113658,"BURNT SWAMP BROOK TR AT SHELDONVILLE, MA",ST,USGS,-71.3833908,42.0375984,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113658
+1113900,"BLACKSTONE RIVER AT PAWTUCKET, RI",ST,USGS,-71.3822779,41.87759986,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113900
+1098320,"BEAVERDAM BROOK AT NATICK, MA",ST,USGS,-71.3817264,42.28620724,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098320
+1113660,"BURNT SWAMP BROOK HANCOCK ST SHELDONVILLE, MA",ST,USGS,-71.3806128,42.0300985,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113660
+1113655,"BURNT SWAMP BROOK RT 121 AT SHELDONVILLE, MA",ST,USGS,-71.3795018,42.0389873,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113655
+1115050,"PROVIDENCE R OFF FIELDS POINT NR PROVIDENCE, RI",ES,USGS,-71.37588778,41.7876007,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01115050
+4.21724E+14,"STORM-SEWER OUTFALL AT CRESCENT ST, NATICK, MA",ST,USGS,-71.3747818,42.29009616,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421724071223101
+1098340,"COURSE BROOK AT NATICK, MA",ST,USGS,-71.3747817,42.27842965,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098340
+4.218E+14,"STORM-SEWER OUTFALL AT SUPERIOR DR, NATICK, MA",ST,USGS,-71.3728373,42.300096,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421800071222401
+1113750,"ABBOTT RUN NEAR SOUTH ATTLEBORO, MA",ST,USGS,-71.3725559,41.92871056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01113750
+4.21751E+14,"STORM-SEWER OUTFALL NR ROBINHOOD RD, NATICK, MA",ST,USGS,-71.3722818,42.29759608,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421751071222201
+4.21738E+14,STORM-SEWER OUTFALL POSSUM HOLLOW LANE NATICK MA,ST,USGS,-71.37144838,42.293985,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421738071221901
+4.21756E+14,"STORM-SEWER OUTFALL AT STATE ROUTE 9, NATICK, MA",ST,USGS,-71.3708928,42.29898497,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421756071221701
+4.21724E+14,"LAKE COCHITUATE - SOUTH BASIN AT DEEP HOLE, MA",LK,USGS,-71.36922607,42.2900962,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421724071221101
+4.2175E+14,LAKE COCHITUATE(S PD) NR NCW77 1.5MI NW NATICK CTR,LK,USGS,-71.368115,42.29731835,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421750071220701
+1098350,"FISK POND OUTLET AT NATICK, MA",ST,USGS,-71.3681149,42.28342965,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098350
+4.21735E+14,"STORM-SEWER OUTFALL NR LAKEWOOD RD, NATICK, MA",ST,USGS,-71.3681149,42.2931517,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421735071220701
+4.21725E+14,LAKE COCHITUATE(S PD) NR NCW67 1.1MI NW NATICK CTR,LK,USGS,-71.3664482,42.290374,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421725071220101
+1103300,"MILL RIVER NEAR NORFOLK, MA",ST,USGS,-71.36589108,42.1225978,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103300
+1103290,"SAFE MEADOW BROOK NEAR WRENTHAM, MA",ST,USGS,-71.363668,42.0548206,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103290
+1103305,"CHARLES RIVER NEAR MILLIS, MA",ST,USGS,-71.36228,42.1331533,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103305
+1103303,"CRESS BROOK NEAR NORFOLK, MA",ST,USGS,-71.3606131,42.12509785,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103303
+1098380,"NATICK LABS POND AT OUTLET, NATICK, MA",ST,USGS,-71.35867019,42.29092965,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098380
+1098361,"SETTLING BASIN POND AT OUTLET, NATICK, MA",ST,USGS,-71.3578368,42.28537418,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098361
+1098379,STORM-SEWER OUTFALL INTO NATICK LABS P NATICK MA,ST,USGS,-71.3578368,42.29204076,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098379
+1098360,"PEGAN BROOK AT NATICK, MA",ST,USGS,-71.3572812,42.28537419,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098360
+1098378,STORM-SEWER OUTFALL AT NATICK LAB APTS NATICK MA,ST,USGS,-71.3564479,42.29092968,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01098378
+1103415,"INDIAN BROOK NEAR SHERBORN, MA",ST,USGS,-71.3564477,42.2595412,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103415
+4.20822E+14,CHARLES RIVER RM 50.5168,ST,USGS,-71.3545472,42.1395361,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420822071211601
+1103400,"CHARLES RIVER NEAR MEDFIELD, MA",ST,USGS,-71.35200268,42.21009726,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103400
+4.2084E+14,CHARLES RIVER RM 50.0141,ST,USGS,-71.3510167,42.14445,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420840071210301
+1116630,"PROVIDENCE R OFF CONIMICUT POINT NR WARWICK, RI",ES,USGS,-71.3494971,41.7223235,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01116630
+1117160,"EAST PASSAGE NARRAGANSETT BAY NEAR JAMESTOWN, RI",ES,USGS,-71.349497,41.51260207,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01117160
+1109400,"TEN MILE RIVER NEAR EAST PROVIDENCE, RI",ST,USGS,-71.3453313,41.82787827,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109400
+1103355,"CHARLES RIVER TRIBUTARY NO 2 AT MILLIS, MA",ST,USGS,-71.34505769,42.1806531,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103355
+4.20846E+14,CHARLES RIVER RM 49.5018,ST,USGS,-71.3448333,42.14636667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420846071204101
+4.15043E+14,"TURNER RESERVOIR (NORTH) AT RUMFORD, RI",LK,USGS,-71.3436648,41.8453781,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415043071203900
+4.15022E+14,"TURNER RESERVOIR (SOUTH) AT RUMFORD, RI",LK,USGS,-71.34088677,41.83954485,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415022071202900
+1109396,"TEN MILE RIVER, SITE 2, AT PAWTUCKET, RI",ST,USGS,-71.3406094,41.87398897,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109396
+1109395,"TEN MILE RIVER AT PAWTUCKET, RI",ST,USGS,-71.34005407,41.8903777,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109395
+4.21148E+14,CHARLES RIVER RM 42.8,ST,USGS,-71.33938889,42.19677778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421148071202101
+4.20904E+14,CHARLES RIVER RM 49.0279,ST,USGS,-71.3388583,42.15111667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420904071201901
+4.21126E+14,CHARLES RIVER RM 43.4753,ST,USGS,-71.33882778,42.1907333,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421126071201901
+1109280,"RUNNINS RIVER FALL RIVER AVE AT SEEKONK, MA",ST,USGS,-71.3356084,41.8164895,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109280
+4.20924E+14,CHARLES RIVER RM 48.5221,ST,USGS,-71.3341,42.1567222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420924071200201
+1109270,"RUNNINS RIVER AT SEEKONK, MA",ST,USGS,-71.3328306,41.8237117,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109270
+4.20949E+14,CHARLES RIVER RM 47.4816,ST,USGS,-71.3326444,42.163725,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420949071195701
+4.21004E+14,CHARLES RIVER RM 47.0535,ST,USGS,-71.3315556,42.16789444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421004071195301
+4.20935E+14,CHARLES RIVER RM 48.0233,ST,USGS,-71.331075,42.15992778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420935071195101
+4.21114E+14,CHARLES RIVER RM 44.1042,ST,USGS,-71.3306417,42.1874083,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421114071195001
+4.21018E+14,CHARLES RIVER RM 46.522,ST,USGS,-71.3292472,42.1716861,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421018071194501
+1109285,"RUNNINS RIVER NEAR SOUTH SEEKONK, MA",ST,USGS,-71.32921888,41.78843427,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109285
+4.21807E+14,"JENNINGS POND AT NATICK, MA",LK,USGS,-71.32888889,42.30194444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421807071194401
+4.21103E+14,CHARLES RIVER RM 44.5556,ST,USGS,-71.32655278,42.1842472,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421103071193501
+4.21022E+14,CHARLES RIVER RM 46.0523,ST,USGS,-71.3239972,42.17285556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421022071192601
+4.14358E+14,"BRICKYARD POND AT BARRINGTON, RI",LK,USGS,-71.321718,41.73287917,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414358071192000
+4.21048E+14,CHARLES RIVER RM 45.0397,ST,USGS,-71.32102778,42.1801222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421048071191501
+1103320,"STOP RIVER TRIBUTARY AT NORFOLK, MA",ST,USGS,-71.3195007,42.1300981,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103320
+4.2103E+14,CHARLES RIVER RM 45.5636,ST,USGS,-71.31910278,42.1751472,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421030071190801
+1103340,"CHARLES RIVER AT MEDFIELD, MA",ST,USGS,-71.31894567,42.17593116,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103340
+1103420,"CHARLES RIVER AT NATICK, MA",ST,USGS,-71.3153354,42.27148595,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103420
+1103308,"STOP RIVER TRIBUTARY 3 NEAR WRENTHAM, MA",ST,USGS,-71.31450009,42.08954288,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103308
+1108450,"WADING RIVER TRIBUTARY AT WRENTHAM, MA",ST,USGS,-71.3125552,42.05982086,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108450
+1103350,"VINE BROOK AT MEDFIELD, MA",ST,USGS,-71.30672319,42.1878756,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103350
+1109382,"TEN MILE RIVER, TIFFANY RD, NEAR HEBRONVILLE, MA",ST,USGS,-71.30588639,41.9175998,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109382
+1103330,"STOP RIVER NEAR MEDFIELD, MA",ST,USGS,-71.3045005,42.15093145,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103330
+4.15534E+14,"DODGEVILLE POND,ATTLEBORO,MA",LK,USGS,-71.29,41.9261111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415534071172401
+4.21413E+14,"DUTTON POND LEICESTER, MA",LK,USGS,-71.29,42.23694444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=421413071172401
+1103440,"FULLER BROOK AT WELLESLEY, MA",ST,USGS,-71.2878347,42.29593034,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103440
+1109375,"BUNGAY RIVER 0.5 MI ABOVE MOUTH AT ATTLEBORO, MA",ST,USGS,-71.2875529,41.9498218,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109375
+1109365,"BUNGAY RIVER (FISH HATCHERY) NORTH ATTLEBORO, MA",ST,USGS,-71.28616448,41.98426594,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109365
+1109360,"BUNGAY RIVER AT MANSFIELD ST NEAR N. ATTLEBORO, MA",ST,USGS,-71.2833867,41.9912103,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109360
+1109215,"PALMER RIVER NEAR REHOBOTH, MA",ST,USGS,-71.2814395,41.8306563,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109215
+4.14832E+14,"SHAD FACTORY POND REHOBOTH,MA",LK,USGS,-71.2811111,41.80888889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414832071165201
+1109369,"BUNGAY RIVER AT HOLDEN ST AT ATTLEBOROUGH, MA",ST,USGS,-71.279497,41.9537107,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109369
+1104850,"MINE BROOK AT WALPOLE, MA",ST,USGS,-71.2639436,42.1539873,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104850
+1103480,"NOANET BROOK NEAR DOVER, MA",ST,USGS,-71.2628336,42.25232015,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103480
+1108500,"WADING RIVER AT WEST MANSFIELD, MA",ST,USGS,-71.2600527,42.0000992,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108500
+1104840,"NEPONSET RIVER AT WALPOLE, MA",ST,USGS,-71.2564432,42.14120967,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104840
+1104800,"NEPONSET RIVER NEAR FOXBORO, MA",ST,USGS,-71.2564425,42.08565438,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104800
+1109200,"WEST BRANCH PALMER RIVER NEAR REHOBOTH, MA",ST,USGS,-71.2544947,41.87954487,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109200
+1104820,"NEPONSET RIVER NEAR SOUTH WALPOLE, MA",ST,USGS,-71.2522762,42.1245431,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104820
+1109225,"ROCKY RUN NEAR REHOBOTH, MA",ST,USGS,-71.250326,41.7812125,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109225
+1104910,"BUBBLING BROOK NORTH ST, NEAR WESTWOOD, MA",ST,USGS,-71.249777,42.20120945,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104910
+1104860,"SPRING BROOK AT WALPOLE, MA",ST,USGS,-71.2492208,42.14648748,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104860
+1104830,"SCHOOL MEADOW BROOK NEAR WALPOLE, MA",ST,USGS,-71.2458871,42.12565426,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104830
+1109195,"EAST BRANCH PALMER RIVER AT REHOBOTH, MA",ST,USGS,-71.2419936,41.84260084,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109195
+1109027,"ROBINSON BRK AT RT 140 AT FOXBORO, MA",ST,USGS,-71.2417194,42.05621016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109027
+1109026,"ROBINSON BROOK AT COCASSET STREET AT FOXBORO, MA",ST,USGS,-71.24060837,42.0637101,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109026
+1108600,"HODGES BROOK AT WEST MANSFIELD, MA",ST,USGS,-71.2403295,41.9864883,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108600
+1104905,"MILL BROOK NEAR WESTWOOD, MA",ST,USGS,-71.2394988,42.18954289,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104905
+1108790,"CHARTLEY BROOK NEAR ATTLEBORO, MA",ST,USGS,-71.2372727,41.92260008,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108790
+1104940,"WILLETT POND OUTLET NEAR NORWOOD, MA",ST,USGS,-71.2328318,42.18065408,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104940
+1109030,"ROBINSON BROOK AT MANSFIELD, MA",ST,USGS,-71.2306076,42.03315477,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109030
+1109150,"MOUNT HOPE BAY NEAR BRISTOL, RI",ES,USGS,-71.22865829,41.66260214,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109150
+1108800,"CHARTLEY BROOK AT CHARTLEY, MA",ST,USGS,-71.226995,41.95009987,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108800
+1104960,"GERMANY BROOK NEAR NORWOOD, MA",ST,USGS,-71.2242205,42.184543,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104960
+1103700,"ROCK MEADOW BROOK AT WESTWOOD, MA",ST,USGS,-71.22310999,42.2325983,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103700
+4.13252E+14,"SAKONNET RIVER NEAR FOGLAND BEACH, RI",OC-CO,USGS,-71.2206806,41.54778889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413252071131501
+4.13642E+14,"SAKONNET RIVER NEAR GOULD ISLAND, RI",OC-CO,USGS,-71.21577778,41.61162778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413642071125701
+1109020,"RUMFORD RIVER AT EAST FOXBORO, MA",ST,USGS,-71.2153297,42.06343249,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109020
+1104890,"NEPONSET RIVER AT EAST WALPOLE, MA",ST,USGS,-71.2150533,42.16315426,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104890
+1109145,"MOUNT HOPE BAY NEAR NORTH TIVERTON, RI",ES,USGS,-71.21338,41.67371328,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109145
+4.12932E+14,"SAKONNET RIVER NEAR CHURCH POINT, RI",OC-CO,USGS,-71.2130556,41.49232778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=412932071124701
+1104980,"HAWES BROOK AT NORWOOD, MA",ST,USGS,-71.2081087,42.17398758,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104980
+4.1592E+14,"NORTH NORTON RESERVOIR, NORTON, MA",LK,USGS,-71.2019444,41.98888889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415920071120701
+1109135,"COLE RIVER NEAR SWANSEA, MA",ST,USGS,-71.19865787,41.7751016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109135
+1105100,"TRAPHOLE BROOK NEAR NORWOOD, MA",ST,USGS,-71.1958859,42.1600988,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105100
+1108300,"CANOE RIVER AT EAST FOXBORO, MA",ST,USGS,-71.19588468,42.07093257,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108300
+1109130,"LEWIN BROOK AT SWANSEA, MA",ST,USGS,-71.195324,41.748713,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109130
+1104055,"SAWMILL BROOK AT MOUTH, NEAR WEST ROXBURY, MA",ST,USGS,-71.18477597,42.280098,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104055
+1105530,"PURGATORY BROOK NEAR NORWOOD, MA",ST,USGS,-71.18449739,42.2092653,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105530
+1105255,"BEAVER BROOK AT MASKWONICUT ST AT SHARON, MA",ST,USGS,-71.1775516,42.1331546,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105255
+1104050,"SAWMILL BROOK NEAR WEST ROXBURY, MA",ST,USGS,-71.1739424,42.2909312,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01104050
+1103990,"LOWDER BROOK AT DEDHAM, MA",ST,USGS,-71.1719976,42.25204295,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01103990
+1105200,"MASSAPOAG BROOK AT SHARON, MA",ST,USGS,-71.17144,42.11482139,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105200
+1109043,"THREEMILE RIVER AT CRANE ST, TAUNTON, MA",ST,USGS,-71.1604111,41.9467583,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109043
+1105504,"EAST BRANCH NEPONSET AT CANTON JUNCTION, MA",ST,USGS,-71.15477349,42.15871016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105504
+1109048,"THREEMILE RIVER AT NORTON AVE, TAUNTON, MA",ST,USGS,-71.1542667,41.93330278,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109048
+1108320,"CANOE RIVER NEAR NORTON, MA",ST,USGS,-71.14393699,41.97732228,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108320
+1108340,"POQUANTICUT BROOK NEAR NORTH EASTON, MA",ST,USGS,-71.142549,42.03787746,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108340
+1105300,"STEEP HILL BROOK AT CANTON, MA",ST,USGS,-71.1367171,42.14426589,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105300
+1105553,"PONKAPOAG BROOK NEAR CANTON, MA",ST,USGS,-71.1353291,42.20343228,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105553
+1105450,"PEQUID BROOK AT CANTON, MA",ST,USGS,-71.1339396,42.1675991,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105450
+1108360,"MULBERRY MEADOW BROOK NEAR NORTON, MA",ST,USGS,-71.1339366,41.97815566,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108360
+4.15216E+14,"MT HOPE TAUNTON, MA",LK,USGS,-71.13,41.8711111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415216071074801
+1106000,"ADAMSVILLE BROOK AT ADAMSVILLE, RI",ST,USGS,-71.12921047,41.5584366,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106000
+1105350,"BEAVER MEADOW BROOK AT CANTON, MA",ST,USGS,-71.1261613,42.14982147,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105350
+1109110,"NORTH WATUPPA POND NEAR FALL RIVER, MA",LK,USGS,-71.12059967,41.695658,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109110
+1109100,"TAUNTON RIVER TRIBUTARY NEAR FALL RIVER, MA",ST,USGS,-71.1164332,41.75871315,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109100
+4.14949E+14,TAUNTON RIVER NEAR BERKELEY BRIDGE,ES,USGS,-71.1147222,41.83027778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414949071065301
+4.15528E+14,"MILL RIVER ABV MILL RIVER DAM, TAUNTON, MA",LK,USGS,-71.1066667,41.92444444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415528071062401
+1108400,"MILL RIVER NEAR TAUNTON, MA",ST,USGS,-71.1058794,41.92315626,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108400
+1106005,"ANGELINE BROOK NEAR WESTPORT POINT, MA",ST,USGS,-71.1050429,41.5514924,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106005
+1108415,"TAUNTON RIVER DOWNSTREAM, TAUNTON, MA",ST,USGS,-71.1025556,41.8715611,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108415
+1108414,"TAUNTON RIVER UPSTREAM, TAUNTON, MA",ST,USGS,-71.09325,41.87788056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108414
+1109090,"RATTLESNAKE BROOK NEAR ASSONET, MA",ST,USGS,-71.0892105,41.7767686,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109090
+4.20513E+14,"FRENCH POND EASTON, MA",LK,USGS,-71.0811111,42.08694444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420513071045201
+1105950,"KIRBY BROOK NEAR HEAD OF WESTPORT, MA",ST,USGS,-71.0730977,41.6006589,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105950
+1107000,"DORCHESTER BROOK NEAR BROCKTON, MA",ST,USGS,-71.06587997,42.06148889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107000
+1109088,"ASSONET RIVER ABOVE MONUMENT DAM AT ASSONET, MA",ST,USGS,-71.0635167,41.79803889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109088
+1105947,"BREAD AND CHEESE BROOK AT HEAD OF WESTPORT, MA",ST,USGS,-71.0628198,41.63399206,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105947
+1108280,"FORGE RIVER NEAR TAUNTON, MA",ST,USGS,-71.0586554,41.9070455,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108280
+1107050,"HOCKOMOCK RIVER NEAR WEST BRIDGEWATER, MA",ST,USGS,-71.05810099,42.0112114,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107050
+1105945,"EAST BRANCH WESTPORT RIVER,ON FORGE RD. AT FORGE P",ST,USGS,-71.0536529,41.63121436,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105945
+1105559,"NORROWAY BROOK AT NORTH RANDOLPH, MA",ST,USGS,-71.0517151,42.1845439,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105559
+1108240,"DAM LOT BROOK NEAR TAUNTON, MA",ST,USGS,-71.051433,41.9084344,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108240
+1108180,"COTLEY RIVER AT EAST TAUNTON, MA",ST,USGS,-71.0478215,41.8826013,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108180
+1107053,"HOCKOMOCK RIVER MAPLE ST NR WEST BRIDGEWATER, MA",ST,USGS,-71.04254458,41.9923227,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107053
+4.139E+14,"NOGUOCHOKE LAKE DARTMOUTH, MA",LK,USGS,-71.0416667,41.65,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413900071023001
+1105561,"FARM RIVER NEAR BRAINTREE, MA",ST,USGS,-71.0403263,42.20843277,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105561
+1107070,"WEST MEADOW BROOK NEAR BROCKTON, MA",ST,USGS,-71.03893447,42.0559335,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107070
+1109080,"ASSONET RIVER NEAR ASSONET, MA",ST,USGS,-71.0383762,41.81371297,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01109080
+1105571,"GLOVERS BROOK AT RANDOLPH, MA",ST,USGS,-71.0361588,42.1692663,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105571
+1105569,"MARY LEE BROOK AT RANDOLPH, MA",ST,USGS,-71.02838058,42.16093307,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105569
+1107065,"TOWN RIVER NEAR WEST BRIDGEWATER, MA",ST,USGS,-71.0258773,41.992045,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107065
+1105943,"SHINGLE ISLAND RIVER HXVLE RD NR N DARTMOUTH, MA",ST,USGS,-71.0250412,41.6695475,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105943
+1105562,"FARM RIVER NEAR SOUTH BRAINTREE, MA",ST,USGS,-71.0242145,42.19871068,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105562
+1105574,"COCHATO RIVER AT BRAINTREE HIGHLANDS, MA",ST,USGS,-71.0200474,42.18037746,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105574
+1105937,"SHINGLE ISLAND RIVER NEAR NORTH DARTMOUTH, MA",ST,USGS,-71.01754109,41.68204744,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105937
+1105565,"TROUT BK 0.2 MI AB LK HOLBROOK AT HOLBROOK, MA",ST,USGS,-71.01337969,42.14037769,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105565
+1105935,"DESTRUCTION BROOK NEAR SOUTH DARTMOUTH, MA",ST,USGS,-71.0125399,41.5723262,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105935
+1107085,"TOWN RIVER AT WEST BRIDGEWATER, MA",ST,USGS,-71.012266,42.01482275,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107085
+1105575,"CRANBERRY BROOK AT BRAINTREE HIGHLANDS, MA",ST,USGS,-71.0111583,42.1839886,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105575
+1105557,"FURNACE BROOK AT QUINCY, MA",ST,USGS,-71.0086596,42.25787706,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105557
+1105580,"MONATIQUOT RIVER AT SOUTH BRAINTREE, MA",ST,USGS,-71.00810289,42.19759967,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105580
+11059318,UNNAMED TRIB. TO PASKAMANSET RIV. CHASE & LUCY RD.,ST,USGS,-71.0025399,41.6103815,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011059318
+1105581,"MONATIQUOT RIVER AT RIVER STREET AT BRAINTREE, MA",ST,USGS,-70.99888889,42.22,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105581
+11059328,UNNAMED TRIB. TO PASKAMANSET RIV. SOUTH OF WELL D,ST,USGS,-70.99698399,41.5881595,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011059328
+11059326,PASKAMANSET RIVER NEAR FILT. PLANT AT WELL D,ST,USGS,-70.9967062,41.59010396,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011059326
+1108110,"SNOWS BROOK NEAR NORTH MIDDLEBORO, MA",ST,USGS,-70.9947647,41.93760115,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108110
+1105932,"PASKAMANSET RIVER EAST OF WELL A, DARTMOUTH",ST,USGS,-70.9936508,41.61177046,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105932
+1108140,"POQUOY BROOK NEAR NORTH MIDDLEBORO, MA",ST,USGS,-70.9880977,41.90565697,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108140
+1106450,"BEAVER BROOK AT RT 27 AT BROCKTON, MA",ST,USGS,-70.9861556,42.08148927,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106450
+11059315,PASKAMANSET RIVER NEAR SEWER STA. AT FRIENDS ACAD.,ST,USGS,-70.9861508,41.62677038,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011059315
+1105930,"PASKAMANSET RIVER AT TURNER P NR NEW BEDFORD, MA",ST,USGS,-70.9772622,41.67871437,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105930
+4.14046E+14,"TURNER POND SITE 1 AT NEW BEDFORD, MA",LK,USGS,-70.9772622,41.6795477,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414046070584001
+1106445,"BEAVER BROOK AT GROVELAND ST AT BROCKTON, MA",ST,USGS,-70.9767113,42.1006559,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106445
+4.14105E+14,"TURNERS POND SITE 3 AT NEW BEDFORD, MA",LK,USGS,-70.97337329,41.68482545,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414105070582601
+1107100,"TOWN RIVER AT BRIDGEWATER, MA",ST,USGS,-70.9725425,41.99704536,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107100
+1106468,"MATFIELD RIVER AT N CENTRAL ST AT E BRIDGEWATER,MA",ST,USGS,-70.9725,42.0336111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106468
+11059302,"PASKAMANSET R AT AIRPORT FENCE NR NEW BEDFORD,  MA",ST,USGS,-70.9719842,41.67038116,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011059302
+1106460,"BEAVER BROOK NEAR EAST BRIDGEWATER, MA",ST,USGS,-70.9708768,42.04537846,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106460
+1106470,"MATFIELD RIVER AT EAST BRIDGEWATER, MA",ST,USGS,-70.9705987,42.03121187,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106470
+1108055,"SAWMILL BROOK AT ROUTE 28, BRIDGEWATER, MA",ST,USGS,-70.968575,41.94890556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108055
+1106495,"MEADOW BROOK AT EAST BRIDGEWATER, MA",ST,USGS,-70.9644875,42.03398968,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106495
+1106500,"MATFIELD RIVER AT ELMWOOD, MA",ST,USGS,-70.96115378,42.01537869,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106500
+1105587,"MILL RIVER NEAR RANDOLPH ST, SOUTH WEYMOUTH MA",ST,USGS,-70.9604083,42.17035,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105587
+1105590,"MILL RIVER NEAR SOUTH WEYMOUTH, MA",ST,USGS,-70.9592127,42.19315558,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105590
+1108050,"SAWMILL BROOK AT CONANT ST BRIDGEWATER, MA",ST,USGS,-70.9587917,41.9588111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01108050
+1107220,"FALL BROOK AT EAST FREETOWN, MA",ST,USGS,-70.9583739,41.77454689,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107220
+1105928,"BUTTONWOOD BROOK NEAR SOUTH DARTMOUTH, MA",ST,USGS,-70.9555941,41.6042709,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105928
+1107102,"TOWN RIVER AT HAYWARD ST, BRIDGEWATER, MA",ST,USGS,-70.953675,41.99753889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107102
+4.14846E+14,"LONG POND, DEANS POINT STATION @ LAKEVILLE, MA",LK,USGS,-70.9530963,41.81288,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414846070571301
+1106920,"SATUCKET RIVER AT EAST BRIDGEWATER, MA",ST,USGS,-70.951987,42.02037874,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106920
+1106490,"MEADOW BROOK AT UNION ST AT EAST BRIDGEWATER, MA",ST,USGS,-70.9505985,42.0381564,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106490
+4.14641E+14,"LONG POND, ROUNDVILLE COVE STA., AT FREETOWN, MA",LK,USGS,-70.9480959,41.778158,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414641070565501
+4.15949E+14,"MATFIELD IMP. BRIDGEWATER, MA",LK,USGS,-70.945,41.99694444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415949070564201
+4.14842E+14,"LONG POND, NELSON ISLAND STA., AT LAKEVILLE, MA",LK,USGS,-70.9447628,41.81176894,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414842070564301
+11056002,OLD SWAMP RIVER AT LIBBEY INDUSTRIAL PARKWAY,ST,USGS,-70.9434083,42.19285556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011056002
+4.14807E+14,"LONG POND, LEWIS ISLAND STA., AT LAKEVILLE, MA",LK,USGS,-70.9411515,41.8020468,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414807070563001
+1107900,"PURCHADE BROOK NEAR MIDDLEBORO, MA",ST,USGS,-70.9372636,41.9264905,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107900
+4.14939E+14,"LONG POND, PARKHURST CANAL STATION @ LAKEVILLE, MA",LK,USGS,-70.9347627,41.8276022,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414939070560701
+1105598,"OLD SWAMP RIVER AT PLEASANT ST NR S WEYMOUTH, MA",ST,USGS,-70.9333787,42.18704468,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105598
+1105610,"WHITMANS POND OUTLET AT EAST WEYMOUTH, MA",ST,USGS,-70.9250456,42.21260016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105610
+1107800,"NEMASKET RIVER NEAR MIDDLEBORO, MA",ST,USGS,-70.9236523,41.9337128,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107800
+1107799,"NEMASKET RIVER AT PLYMOUTH ST, MIDDLEBOROUGH, MA",ST,USGS,-70.9233611,41.92187778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107799
+1105612,"WEYMOUTH BACK RIVER AT EAST WEYMOUTH, MA",ST,USGS,-70.9231012,42.2156557,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105612
+1105696,OLD SWAMP RIVER AT LIBERTY STREET,ST,USGS,-70.9230611,42.1589222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105696
+1105595,"OLD SWAMP RIVER NEAR HINGHAM, MA",ST,USGS,-70.92254468,42.1628782,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105595
+110569405,OLD SWAMP RIVER AT NORTHERN BASE BOUNDARY,ST,USGS,-70.92137778,42.1589222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110569405
+110569404,"OLD SWAMP RIVER, NORTH FEEDER STREAM",ST,USGS,-70.9204611,42.15695278,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110569404
+110569402,"OLD SWAMP RIVER, SOUTH FEEDER STREAM",ST,USGS,-70.9199,42.15593056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110569402
+110569403,OLD SWAMP RIVER AT THE RUBBLE DISPOSAL AREA,ST,USGS,-70.9192944,42.15425278,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110569403
+110569401,OLD SWAMP RIVER AT SOUTHERN BASE BOUNDARY,ST,USGS,-70.9192806,42.1536861,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110569401
+1105594,"OLD SWAMP RIVER AT ROCKLAND, MA",ST,USGS,-70.9189332,42.14982276,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105594
+1105617,"FRESH RIVER NEAR HINGHAM, MA",ST,USGS,-70.91421229,42.22510016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105617
+1107240,"LITTLE QUITTACAS POND NEAR ROCHESTER, MA",LK,USGS,-70.9142064,41.78732479,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107240
+1105926,"ACUSHNET RIVER AT ACUSHNET, MA",ST,USGS,-70.9139275,41.6959368,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105926
+1107798,"NEMASKET R AT OLIVER MILL PARK, MIDDLEBOROUGH, MA",ST,USGS,-70.91362778,41.9070083,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107798
+1105690,"FRENCH STREAM NEAR ROCKLAND, MA",ST,USGS,-70.90921008,42.1092675,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105690
+1107400,"FALL BROOK NEAR MIDDLEBORO, MA",ST,USGS,-70.9083736,41.86537995,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107400
+1106800,"SHUMATUSCACANT RIVER NEAR HANSON, MA",ST,USGS,-70.8997645,42.05815674,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01106800
+1105924,"ACUSHNET RIVER AT LEONARD ST NEAR ACUSHNET, MA",ST,USGS,-70.89753868,41.7245476,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105924
+1105630,"CROOKED MEADOW RIVER NEAR HINGHAM CENTER, MA",ST,USGS,-70.88448919,42.21482265,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105630
+1107180,"WINNETUXET RIVER NEAR HALIFAX, MA",ST,USGS,-70.883374,41.96926847,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107180
+4.20622E+14,"FORGE POND HANOVER, MA",LK,USGS,-70.88,42.1061111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420622070524801
+1105680,"CUSHING BROOK AT WEST HANOVER, MA",ST,USGS,-70.8794874,42.11815657,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105680
+1107150,"RAVEN BROOK NEAR HALIFAX, MA",ST,USGS,-70.8697626,41.95537975,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01107150
+1105635,"ACCORD BROOK NEAR HINGHAM, MA",ST,USGS,-70.8630996,42.2039895,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105635
+1105911,"MATTAPOISETT RIVER AT RNSVLE RD NR ROCHESTER, MA",ST,USGS,-70.86226029,41.73621429,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105911
+1105642,"WEIR RIVER AT RT3A BRIDGE NEAR HINGHAM, MA",ST,USGS,-70.85948909,42.24343377,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105642
+1105640,"WEIR RIVER NEAR HINGHAM, MA",ST,USGS,-70.859489,42.24204489,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105640
+1105700,"INDIAN HEAD BROOK NEAR HANSON, MA",ST,USGS,-70.8567086,42.0870458,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105700
+1105914,"MATTAPOISETT R AT TINKHAM LANE NR MATTAPOISETT, MA",ST,USGS,-70.84087,41.68510408,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105914
+4.15453E+14,"SAVENY POND MIDDLEBOROUGH, MA",LK,USGS,-70.84,41.9147222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415453070502401
+11058065,"THIRD HERRING BROOK POND ST NEAR HANOVER, MA",ST,USGS,-70.8330978,42.13399016,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058065
+1105921,"SWIFT BROOK NEAR MATTAPOISETT, MA",ST,USGS,-70.82809129,41.647327,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105921
+11058075,"THIRD HERRING BROOK, DS WTP, NR HANOVER MA",ST,USGS,-70.8259444,42.13179167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058075
+1105660,"BOUND BROOK NEAR COHASSET, MA",ST,USGS,-70.8211543,42.2123231,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105660
+4.15638E+14,MA-PXZ   01,LK,USGS,-70.81422778,41.94388889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415638070485101
+1105810,"THIRD HERRING BROOK AT HANOVER, MA",ST,USGS,-70.8092081,42.11704599,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105810
+1105860,"JONES RIVER BROOK NEAR PLYMPTON, MA",ST,USGS,-70.8022616,41.9884357,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105860
+1105770,"HERRING BROOK AT MOUNTAIN STREET AT PEMBROKE, MA",ST,USGS,-70.8019849,42.06204639,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105770
+1105805,"PUDDING BROOK AT NORTH PEMBROKE, MA",ST,USGS,-70.79170738,42.0903796,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105805
+1105820,"SECOND HERRING BROOK AT NORWELL, MA",ST,USGS,-70.788375,42.1601014,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105820
+1105830,"FIRST HERRING BROOK NEAR SCITUATE CENTER, MA",ST,USGS,-70.7797642,42.19176797,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105830
+1105905,"SIPPICAN RIVER NEAR MARION, MA",ST,USGS,-70.7747583,41.73427026,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105905
+1105908,"AUCOOT CREEK NEAR MARION, MA",ST,USGS,-70.7736462,41.6839934,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105908
+4.14732E+14,"ISREAL POND W. WAREHAM, MA",LK,USGS,-70.76388889,41.7922222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414732070455001
+4.20152E+14,"LOWER CHANDLER POND, DUXBURY,MA",LK,USGS,-70.7619444,42.0311111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=420152070454301
+1105865,"JONES RIVER AB FOUNTAINHEAD BK NEAR KINGSTON, MA",ST,USGS,-70.7608721,41.9962138,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105865
+1105895,"WEWEANTIC RIVER AT SOUTH WAREHAM, MA",ST,USGS,-70.7544806,41.7701033,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105895
+4.14554E+14,"HORSESHOE POND NEAR DAM AT WAREHAM, MA",LK,USGS,-70.7475,41.765,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414554070445101
+1105848,"FURNACE BROOK AT SCHOOL ST NEAR MARSHFIELD, MA",ST,USGS,-70.7422623,42.11843534,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105848
+1105872,"HALLS BROOK AT KINGSTON, MA",ST,USGS,-70.73170469,41.9992695,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105872
+1105845,"SOUTH RIVER AT MARSHFIELD, MA",ST,USGS,-70.7300393,42.0923244,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105845
+1105892,"WANKINCO RIVER AT WAREHAM, MA",ST,USGS,-70.72170178,41.7662148,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105892
+4.14634E+14,"PARKER MILLS WAREHAM, MA",LK,USGS,-70.7180556,41.7761111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414634070430501
+1105890,"AGAWAM RIVER AT EAST WAREHAM, MA",ST,USGS,-70.6772558,41.76121538,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105890
+4.15656E+14,"TOWN BROOK IMPOUNDMENT AT PLYMOUTH, MA",LK,USGS,-70.6741667,41.94888889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415656070402701
+11058739,"TOWN BROOK ABOVE STANDISH DAM AT PLYMOUTH, MA",ST,USGS,-70.6737,41.94656944,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058739
+4.24601E+14,"MILL POND EAST WAREHAM, MA",LK,USGS,-70.6736111,41.76694444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=424601070402501
+4.12257E+14,"MILL BROOK AT WEST TISBURY, MA",ST,USGS,-70.6714168,41.3826134,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=412257070401901
+1105874,"TOWN BROOK AT PLYMOUTH, MA",ST,USGS,-70.6617019,41.9562145,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105874
+1105886,"RED BROOK NEAR BUZZARDS BAY, MA",ST,USGS,-70.6325321,41.7634381,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105886
+4.15501E+14,"RUSSELL MILL POND, PLYMOUTH,MA",LK,USGS,-70.6311111,41.91694444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415501070375201
+1105884,"RED BROOK ABOVE RT 25 NEAR WAREHAM, MA",ST,USGS,-70.6305878,41.7767714,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105884
+1105885,"RED BROOK BELOW RT 25 NEAR WAREHAM, MA",ST,USGS,-70.63031,41.7756603,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105885
+1105888,"AGAWAM RIVER NEAR ELLISVILLE, MA",ST,USGS,-70.61947707,41.84565996,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105888
+4.13558E+14,"JENKINS POND, FALMOUTH FS-JENPD-0001",LK,USGS,-70.58113497,41.59948348,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413558070345401
+4.13723E+14,"DEEP POND, FALMOUTH FS-DEEPD-0001",LK,USGS,-70.57879339,41.62316916,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413723070344601
+11058837547,"COONAMESSETT R, 200FT S. OF HATCHVILLE RD NR FALM.",ST,USGS,-70.5741361,41.6120972,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058837547
+11058837589,"COONAMESSETT R AT FOOTBRIDGE NEAR FALMOUTH, MA",ST,USGS,-70.5733694,41.5818111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058837589
+1105883758,"COONAMESSETT R. AT JOHN PARKER RD, NEAR E.FALMOUTH",ST,USGS,-70.5725292,41.58927545,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883758
+1105883753,COONAMESSETT R. 2500FT N OF HATCHVILLE RD NR FALM.,ST,USGS,-70.5722516,41.6187193,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883753
+4.1393E+14,"OSBORNE POND, BOURNE BH-0SBPD-0001",LK,USGS,-70.57207119,41.65844356,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413930070342101
+1105883757,"COONAMESSETT R AT SANDWICH RD NR E. FALMOUTH, MA",ST,USGS,-70.5716959,41.5987197,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883757
+4.13655E+14,"COONAMESSETT POND, FALMOUTH FS-COOPD-0001",LK,USGS,-70.56867369,41.61530277,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413655070340901
+4.13709E+14,"COONAMESSETT POND, FALMOUTH",LK,USGS,-70.5664181,41.61927494,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413709070340101
+4.14712E+14,"GREAT HERRING POND, BOURNE BH-GRHPD-0001 (SB)",LK,USGS,-70.5640912,41.78662767,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414712070325301
+11058839,"HERRING RIVER AT BOURNEDALE, MA",ST,USGS,-70.5622521,41.7726056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058839
+1105878,"BEAVER DAM BROOK AT WHITE HORSE BEACH, MA",ST,USGS,-70.55503149,41.92871539,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105878
+4.13822E+14,MA-SDW  479-0001,ST,USGS,-70.54558438,41.63955259,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413822070324699
+4.13821E+14,"OTIS SEWAGE TREATMENT PLANT WEIR, MA",ST,USGS,-70.54530659,41.6392748,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413821070324503
+4.13805E+14,"ASHUMET POND, FALMOUTH FS-ASHPD-0002",LK,USGS,-70.5402592,41.63473608,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413805070322701
+4.13804E+14,"ASHUMET POND, MASHPEE MI-ASHPD-0010",LK,USGS,-70.537662,41.6346222,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413804070321701
+4.13756E+14,"ASHUMET POND, MASHPEE MI-ASHPD-0011",LK,USGS,-70.5363258,41.63219729,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413756070321301
+4.13736E+14,"ASHUMET POND, FALMOUTH FS-ASHPD-0008 GWOUT-R-N-LW",LK,USGS,-70.5347647,41.62680575,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413736070320702
+4.1374E+14,"ASHUMET POND, FALMOUTH FS-ASHPD-0009 (ECAMP01)",LK,USGS,-70.53471189,41.6279224,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413740070320701
+4.13742E+14,"ASHUMET POND, MASHPEE MI-ASHPD-0005",LK,USGS,-70.5315896,41.62838909,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413742070315601
+4.13803E+14,"ASHUMET POND, MASHPEE MI-ASHPD-0001 (ECAMP02)",LK,USGS,-70.5314646,41.6342862,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413803070315301
+1105883720,"CHILDS RIVER, 2200FT N. OF RT 28, NR WAQUOIT VILL.",ST,USGS,-70.5264172,41.5853872,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883720
+1105883719,"CHILDS RIVER, AT BOGS E. FALMOUTH BEAGLE CLUB",ST,USGS,-70.5250283,41.5976092,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883719
+11058837194,"CHILDS RIVER, AT CARRIAGE SHOP RD, NR WAQUOIT",ST,USGS,-70.5245361,41.5923722,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058837194
+11058837185,"CHILDS RIVER, 2500FT S. OLD BARN. RD, NR WAQUOIT",ST,USGS,-70.5228222,41.6054833,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058837185
+1105883717,"CHILDS RIVER, RT 151, O.5 MI E. OF MASHPEE/FALMOUT",ST,USGS,-70.52086159,41.61566447,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883717
+1105883718,"CHILDS RIVER, AT OLD BARNSTABLE RD, NR WAQUOIT VIL",ST,USGS,-70.520306,41.6120534,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883718
+4.13739E+14,"JOHNS POND, MASHPEE",LK,USGS,-70.520306,41.62760869,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413739070311501
+4.14045E+14,"SNAKE POND, SANDWICH SD-SNAPD-0006",LK,USGS,-70.518081,41.6793216,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414045070310701
+4.13808E+14,QUASHNET RIVER MI-QUARV-00015,ST,USGS,-70.5135364,41.63555029,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413808070305101
+4.13833E+14,"MOODY POND, MASHPEE MI-MOOPD-0002(MP-NC)",LK,USGS,-70.5105667,41.64238056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413833070303801
+4.13808E+14,"QUASHNET RIVER, MI-QUARV-00357-RBTRIB-00150",ST-DCH,USGS,-70.5101824,41.6355139,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413808070303601
+4.13813E+14,"QUASHNET RIVER, MI-QUARV-00360-LBTRIB-00026",ST-DCH,USGS,-70.5101741,41.6369528,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413813070303801
+4.13811E+14,"QUASHNET RIVER, MI-QUARV-00357-RBTRIB-00020",ST-DCH,USGS,-70.5100824,41.6365417,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413811070303801
+11058836334,"QUASHNET RV LB TRIB, 0.22 MI DS JOHNS PD",ST,USGS,-70.5100641,41.63695309,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058836334
+11058836332,"QUASHNET RV RB TRIB, 0.22 MI DS JOHNS PD",ST,USGS,-70.5099725,41.63654198,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058836332
+4.13531E+14,QUASHNET RIVER MI-QUARV-06373,ST,USGS,-70.50764468,41.5921845,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413531070302901
+4.13814E+14,QUASHNET RIVER MI-QUARV-00566-LBTRIB-00085,ST,USGS,-70.5071918,41.6373003,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413814070302801
+11058836353,"QUASH. RV LB TRIB 0.35 MI DS JOHNS PD, 1050 FT UP",ST,USGS,-70.5069194,41.63915,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058836353
+1.10588E+11,"QUASH. RV LB TRIB 0.35 MI DS JOHNS PD, 1550 FT UP",ST,USGS,-70.5054585,41.64002809,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588363525
+11058836352,"QUASH. RV LB TRIB, 0.35 MI DS JOHNS PD, 1600 FT UP",ST,USGS,-70.5052196,41.63981976,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058836352
+4.13759E+14,QUASHNET RIVER MI-QUARV-01037,ST,USGS,-70.5048001,41.6332921,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413759070301901
+110588368,"QUASHNET RIVER, 0.8 MI DS FROM RT151, NR WAQUOIT V",ST,USGS,-70.5016945,41.6053871,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588368
+4.14442E+14,"UPPER SHAWME LAKE, SANDWICH SD-USHLK-0001",LK,USGS,-70.5014332,41.7450233,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414442070300701
+110588365,"QUASHNET RIVER, 1.2 MI DS OF OUTLET FROM JOHNS PND",ST,USGS,-70.5011389,41.6245534,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588365
+4.13727E+14,QUASHNET RIVER MI-QUARV-02168,ST,USGS,-70.50088338,41.62433956,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413727070300501
+110588366,"QUASHNET RIVER, AT RT 151, NEAR WAQUOIT VILLAGE",ST,USGS,-70.50058339,41.6176091,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588366
+4.13702E+14,QUASHNET RIVER MI-QUARV-03050,ST,USGS,-70.50050839,41.61743969,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413702070300401
+4.13948E+14,"MASHPEE POND, MASHPEE",LK,USGS,-70.48697179,41.6634417,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413948070291501
+110588358,"MASHPEE RIVER, AT RT 130 NEAR MASHPEE, MA",ST,USGS,-70.48558288,41.64899759,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588358
+4.13907E+14,MASHPEE RIVER MI-MASRV-00015,ST,USGS,-70.48538009,41.65201975,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413907070290901
+4.14107E+14,"PETERS POND, SANDWICH SD-PETPD-0001",LK,USGS,-70.485355,41.68552187,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414107070290901
+1105883592,"MASHPEE RIVER, E. OF COOMBS LN, NR MASHPEE, MA",ST,USGS,-70.4845472,41.639,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883592
+1105883595,"MASHPEE RIVER US ASHER PATH BRIDGE MASHPEE,MA",ST,USGS,-70.4836111,41.63055556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883595
+1105883593,"MASHPEE RIVER, E. OF BINGHAM DR, NR MASHPEE, MA",ST,USGS,-70.4835806,41.63399167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883593
+1105883591,"MASHPEE RIVER, E. OF QUASHNET ROAD, NR MASHPEE, MA",ST,USGS,-70.4821306,41.64196944,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883591
+11058835955,"MASHPEE RIVER, 1400FT S ASHERS PTH, NR MASHPEE, MA",ST,USGS,-70.4818222,41.62599444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058835955
+110588360,"MASHPEE RIVER, RT 28, NEAR WAQUOIT VILLAGE, MA",ST,USGS,-70.48030498,41.62177597,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588360
+4.14159E+14,"SPECTACLE POND, SANDWICH SD-SPEPD-0001",LK,USGS,-70.4596904,41.6999357,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414159070273701
+4.13913E+14,"SANTUIT POND, MASHPEE",LK,USGS,-70.458082,41.65372,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413913070273101
+110588338,"SANTUIT RIVER, OUTLET TO SANTUIT POND, NR SANTUIT",ST,USGS,-70.4536375,41.646498,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588338
+1105883385,"SANTUIT RIVER, E. OF MEADOW HAVEN DR, NR SANTUIT",ST,USGS,-70.45346389,41.6422333,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883385
+1105883393,"SANTUIT RIVER, 1000FT S. OF RT 28, NR SANTUIT",ST,USGS,-70.4527972,41.6348,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883393
+1105883391,"SANTUIT RIVER, 150FT S. OF RT 28, AT SANTUIT",ST,USGS,-70.4524944,41.63685556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883391
+1105883395,"SANTUIT RIVER, 1900FT S. OF RT 28, NR SANTUIT",ST,USGS,-70.4524,41.6324,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883395
+1105883397,"SANTUIT RIVER, 900FT N. OF OLD MILL RD, NR SANTUIT",ST,USGS,-70.4515,41.6301,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883397
+1105883401,"SANTUIT RIVER 200FT S OLD MILL RD, NR SANTUIT",ST,USGS,-70.45091389,41.6272833,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883401
+110588336,"LITTLE RIVER, AT LOVELLS POND, NR MARST. MILLS, MA",ST,USGS,-70.44207778,41.6456833,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588336
+4.13855E+14,"LOVELLS POND, BARNSTABLE",LK,USGS,-70.4419444,41.64860556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413855070263101
+1105883364,"LITTLE RIVER, W. OF SAMPS. MILL RD, NR COTUIT, MA",ST,USGS,-70.4341694,41.63828889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883364
+1105883366,"LITTLE RIVER, AT CAPT. SAMADRUS RD,  NR COTUIT, MA",ST,USGS,-70.43090278,41.63507778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883366
+110588337,"LITTLE RIVER, AT OLD POST ROAD, NR COTUIT, MA",ST,USGS,-70.42630278,41.62644444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588337
+1105883328,"MARSTONS MILLS RV, AT FULLING MILL, MARS. MILLS,MA",ST,USGS,-70.41586389,41.654575,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883328
+4.14019E+14,"SHUBAEL POND, BARNSTABLE A1-SHUPD-0002",LK,USGS,-70.39631389,41.67194167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414019070234701
+110588328,"SKUNKNET RIVER, W. OF MAY LN, NR CENTERVILLE, MA",ST,USGS,-70.37995,41.6632611,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588328
+1105883283,"SKUNKNET RIVER, AT LUMB. MILL RD, NR CENTERVILLE",ST,USGS,-70.3774056,41.65734167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883283
+1105883286,"SKUNKNET RIVER, AT RT 28, NR CENTERVILLE, MA",ST,USGS,-70.3758417,41.65264167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883286
+1105883288,"SKUNKNET RIVER, NR WEST POND, NR CENTERVILLE, MA",ST,USGS,-70.3738833,41.6475333,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883288
+110588329,"SKUNKNET RIVER, AT BUMPS RVR RD,NR CENTERVILLE, MA",ST,USGS,-70.3712083,41.6456083,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588329
+110588325,"BUMPS RIVER, AT BUMPS RIVER RD, NR CENTERVILLE, MA",ST,USGS,-70.3628472,41.6483361,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588325
+1105694,OLD SWAMP RIVER AT FORREST STREET,ST,USGS,-70.3620583,42.1536861,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105694
+1105883246,"BUMPS RIVER, AT RT 28, NR CENTERVILLE, MA",ST,USGS,-70.3612194,41.6543333,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883246
+1105883244,"BUMPS RIVER, AT AMES WAY, NR CENTERVILLE, MA",ST,USGS,-70.3598333,41.65675278,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883244
+110588324,"BUMPS RIVER, S. OF WOODVALE LN, NR CENTERVILLE, MA",ST,USGS,-70.3566,41.66224167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588324
+4.14128E+14,"GARRETTS POND, BARNSTABLE A1-GARPD-0001",LK,USGS,-70.3484983,41.69125369,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414128070205701
+4.14014E+14,"WEQUAQUET LAKE, BARNSTABLE",LK,USGS,-70.33863407,41.67066539,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414014070202101
+1105883203,"CENTERVILLE RIVER, W. OF RVRVIEW LN, CTRVILLE, MA",ST,USGS,-70.3367833,41.64837778,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883203
+1105883197,"CENTERVILLE RIVER, NR LONG POND, NR CTRVILLE, MA",ST,USGS,-70.33535278,41.65448889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883197
+4.13919E+14,"LONG POND, BARNSTABLE (CENTERVILLE)",LK,USGS,-70.3352972,41.65536667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=413919070200701
+1105883194,"CENTERVILLE RIVER, AT RT 28, NR CENTERVILLE, MA",ST,USGS,-70.33512778,41.65748889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883194
+1105883191,"CENTERVILLE RIVER, AT PHINNEYS LN, NR CENTERVILLE",ST,USGS,-70.3349861,41.6601833,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=01105883191
+11058823,"UNNAMED STREAM, AT CAMP ROAD, NR HYANNIS, MA",ST,USGS,-70.2638806,41.6586583,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058823
+110588228,"HAWES RUN, AT PONDVIEW AVE, NR HYANNIS, MA",ST,USGS,-70.2611917,41.66185556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588228
+11058822,"HAWES RUN, AT WASHINGTON AVE, NR HYANNIS, MA",ST,USGS,-70.2610417,41.67119167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058822
+110588223,"HAWES RUN, AT REAGAN AVE, NR HYANNIS,MA",ST,USGS,-70.259875,41.66773889,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110588223
+11058821,"TOWN BROOK,  AT BUCK ISLAND RD, NR HYANNIS, MA",ST,USGS,-70.2567,41.66086667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058821
+4.1415E+14,"DENNIS POND, YARMOUTH YA-DENP-0001",LK,USGS,-70.2491844,41.69727675,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414150070145901
+4.14441E+14,"SCARGO LAKE, DENNIS DG-SCALK-0001",LK,USGS,-70.1801503,41.7448314,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414441070105001
+4.11614E+14,"TROTS SWAMP DRAIN, NANTUCKET, MA",ST,USGS,-70.1547393,41.2706794,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=411614070091900
+4.11645E+14,"MILLBROOK SWAMP DRN, HAWTHORNE LA, NANTUCKET, MA",ST,USGS,-70.12557209,41.27929,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=411645070073400
+11058804,"HERRING RIVER, AT GREAT WESTERN RD, N. HARWICH, MA",ST,USGS,-70.1215333,41.69014167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058804
+11058802,"HERRING RIVER, AT MAIN ST, AT NORTH HARWICH, MA",ST,USGS,-70.11503889,41.69523056,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058802
+110587993,"HERRING RIVER, AT AZALEA DR, NR N. HARWICH, MA",ST,USGS,-70.09690278,41.7101583,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587993
+4.14255E+14,"HINKLEYS POND, HARWICH",LK,USGS,-70.09640689,41.71538818,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414255070054901
+4.14315E+14,"SEYMOURS POND, HARWICH",LK,USGS,-70.09337778,41.72079167,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414315070053601
+110587992,"UNNAMED STREAM, AT PUNKHORN ROAD, NR N. HARWICH",ST,USGS,-70.0924,41.71785556,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587992
+110587991,"HERRING RIVER, AT PLEASANT LAKE AVE, NR N. HARWICH",ST,USGS,-70.0855694,41.71884444,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587991
+4.14313E+14,"LONG POND, HARWICH HI-LONPD-0001",LK,USGS,-70.0666259,41.72048266,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414313070040201
+11058798,"HERRING R AT CHEQUESSETT NECK RD AT WELLFLEET, MA",ES,USGS,-70.0645556,41.9311111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=011058798
+4.15639E+14,"POLE DIKE CREEK, UPSTRM HERRING R NR WELLFLEET, MA",ST,USGS,-70.0569444,41.94416667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415639070032501
+4.15716E+14,"BOUND BROOK, DNSTRM BOUND BK RD NR WELLFLEET, MA",ST,USGS,-70.0549722,41.9545833,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415716070031801
+4.14534E+14,"CLIFF POND, BREWSTER BM-CLIPD-0001",LK,USGS,-70.0182005,41.7595791,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414534070010701
+4.11626E+14,"OUTLET OF GIBBS POND, NANTUCKET, MA",ST,USGS,-70.0133478,41.27401148,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=411626070005000
+4.15721E+14,"GULL POND, WELLFLEET WN-GULPD-0001",LK,USGS,-70.0119276,41.95580745,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415721070004501
+4.14142E+14,"GOOSE POND, CHATHAM CG-GOOPD-0001",LK,USGS,-70.01003299,41.69507248,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414142070003801
+110587897,NAMSKAKET CREEK SITE D,ST,USGS,-70.0100176,41.78233137,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587897
+110587898,NAMSKAKET CREEK SITE C,ST,USGS,-70.01001759,41.7820536,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587898
+110587895,NAMSKAKET CREEK SITE F,LK,USGS,-70.00946207,41.783998,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587895
+110587896,NAMSKAKET CREEK SITE E,ST,USGS,-70.00918428,41.78344246,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=0110587896
+4.14654E+14,Hurley's Bog Seep,ST-DCH,USGS,-70.0083333,41.78166667,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414654070003001
+4.14759E+14,"ROCK HARBOR CR AT PIPE AT BAY VIEW DR, ORLEANS, MA",ST,USGS,-70.00727778,41.7996111,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414759070002601
+4.11838E+14,"SQUAM SWAMP BROOK AT WAUMINET RD, NANTUCKET, MA",ST,USGS,-70.00695888,41.31067709,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=411838070002700
+4.15618E+14,"GREAT POND, WELLFLEET WN-GREPD-0001",LK,USGS,-69.9993492,41.9384829,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415618070000001
+4.15001E+14,"GREAT POND, EASTHAM EG-GREPD-0001",LK,USGS,-69.9948603,41.83374956,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415001069594301
+4.11544E+14,"PHILLIPS RUN AT MILESTONE RD, NANTUCKET, MA",ST,USGS,-69.9927918,41.262345,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=411544069593600
+4.14634E+14,"CRYSTAL LAKE, ORLEANS OS-CRYLK-0001",LK,USGS,-69.98582258,41.77611499,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=414634069591101
+4.15027E+14,"MINISTER POND, EASTHAM EG-MINPD-0001",LK,USGS,-69.9787519,41.8409939,https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=415027069584501

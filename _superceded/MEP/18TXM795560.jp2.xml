@@ -1,0 +1,184 @@
+<metadata xml:lang="en"><Esri><CreaDate>20220126</CreaDate><CreaTime>13040800</CreaTime><ArcGISFormat>1.0</ArcGISFormat><ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle><SyncOnce>FALSE</SyncOnce><ModDate>20220126</ModDate><ModTime>15273500</ModTime><DataProperties><itemProps><itemName Sync="TRUE">18TXN555220.jp2</itemName><itemLocation><linkage Sync="TRUE">file://F:\orthos2021\jp2_8bit_zone18\18TXN555220.jp2</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation><imsContentType Sync="TRUE">002</imsContentType><nativeExtBox><westBL Sync="TRUE">655500.000000</westBL><eastBL Sync="TRUE">657000.000000</eastBL><southBL Sync="TRUE">4722000.000000</southBL><northBL Sync="TRUE">4723500.000000</northBL><exTypeCode Sync="TRUE">1</exTypeCode></nativeExtBox></itemProps><coordRef><type Sync="TRUE">Projected</type><geogcsn Sync="TRUE">GCS_NAD_1983_2011</geogcsn><csUnits Sync="TRUE">Linear Unit: Meter (1.000000)</csUnits><projcsn Sync="TRUE">NAD_1983_2011_UTM_Zone_18N</projcsn><peXml Sync="TRUE">&lt;ProjectedCoordinateSystem xsi:type='typens:ProjectedCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.7'&gt;&lt;WKT&gt;PROJCS[&amp;quot;NAD_1983_2011_UTM_Zone_18N&amp;quot;,GEOGCS[&amp;quot;GCS_NAD_1983_2011&amp;quot;,DATUM[&amp;quot;D_NAD_1983_2011&amp;quot;,SPHEROID[&amp;quot;GRS_1980&amp;quot;,6378137.0,298.257222101]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433]],PROJECTION[&amp;quot;Transverse_Mercator&amp;quot;],PARAMETER[&amp;quot;False_Easting&amp;quot;,500000.0],PARAMETER[&amp;quot;False_Northing&amp;quot;,0.0],PARAMETER[&amp;quot;Central_Meridian&amp;quot;,-75.0],PARAMETER[&amp;quot;Scale_Factor&amp;quot;,0.9996],PARAMETER[&amp;quot;Latitude_Of_Origin&amp;quot;,0.0],UNIT[&amp;quot;Meter&amp;quot;,1.0],AUTHORITY[&amp;quot;EPSG&amp;quot;,6347]]&lt;/WKT&gt;&lt;XOrigin&gt;-5120900&lt;/XOrigin&gt;&lt;YOrigin&gt;-9998100&lt;/YOrigin&gt;&lt;XYScale&gt;450445547.3910538&lt;/XYScale&gt;&lt;ZOrigin&gt;-100000&lt;/ZOrigin&gt;&lt;ZScale&gt;10000&lt;/ZScale&gt;&lt;MOrigin&gt;-100000&lt;/MOrigin&gt;&lt;MScale&gt;10000&lt;/MScale&gt;&lt;XYTolerance&gt;0.001&lt;/XYTolerance&gt;&lt;ZTolerance&gt;0.001&lt;/ZTolerance&gt;&lt;MTolerance&gt;0.001&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;WKID&gt;102387&lt;/WKID&gt;&lt;LatestWKID&gt;6347&lt;/LatestWKID&gt;&lt;/ProjectedCoordinateSystem&gt;</peXml></coordRef><RasterProperties><General><PixelDepth Sync="TRUE">8</PixelDepth><HasColormap Sync="TRUE">FALSE</HasColormap><CompressionType Sync="TRUE">JPEG2000</CompressionType><NumBands Sync="TRUE">4</NumBands><Format Sync="TRUE">JP2</Format><HasPyramids Sync="TRUE">TRUE</HasPyramids><SourceType Sync="TRUE">continuous</SourceType><PixelType Sync="TRUE">unsigned integer</PixelType><NoDataValue Sync="TRUE"/></General></RasterProperties></DataProperties><SyncDate>20220126</SyncDate><SyncTime>15240600</SyncTime><scaleRange><minScale>50000</minScale><maxScale>5000</maxScale></scaleRange><ArcGISProfile>FGDC</ArcGISProfile></Esri><Binary><Thumbnail><Data EsriPropertyType="PictureX">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACFAMgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDQj0uA
+B2bOM5dSxw/TJNTXsF5HptrJZalaxW9swWe2lj3GWPgY9+M8cdM5rSkURxq7ASSvw7BMAk9gOcD8
+TWZqCK0YEgTZjg9z7j/GpT94dtDS0nR9N1iI2tvi0hUEZtWEbAEHj2/Ee9N0DSLPwysy6VJPcWUx
+V8yHO5do5HAHXP1/KsH7J9nJntb543LZyP8A9dXtDtry0Erw30gikO44Ytz/ALrEiqvZaMm3c2tR
+0W31IrPbymBjyXQc8+vIOfxq9p9glhEDuaZwCQcAE1HaQSgb5W3OxyTgAe341i6x4rttOd7VHjku
+o2AkETk4ycqB0JJHX/69VbqRq9Dp9S0uXUNOkigkQXTJu8st8yjB5x3+nvXnBW5s1ltLlcEydD0H
+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</Data></Thumbnail></Binary><mdDateSt Sync="TRUE">20220126</mdDateSt><dataIdInfo><envirDesc Sync="TRUE"> Version 6.2 (Build 9200) ; Esri ArcGIS 10.7.1.11595</envirDesc><dataLang><languageCode value="eng" Sync="TRUE"/><countryCode value="USA" Sync="TRUE"/></dataLang><idCitation xmlns=""><resTitle Sync="FALSE">2021 Aerial Imagery</resTitle><presForm xmlns=""><PresFormCd value="005" Sync="TRUE"/></presForm><date><createDate>2021-04-01T00:00:00</createDate><pubDate>2022-01-26T00:00:00</pubDate></date><citRespParty xmlns=""><rpOrgName>MassGIS</rpOrgName><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, 8th Floor</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><country>US</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5611</voiceNum></cntPhone></rpCntInfo><displayName>MassGIS</displayName><role><RoleCd value="006"/></role></citRespParty></idCitation><spatRpType><SpatRepTypCd value="002" Sync="TRUE"/></spatRpType><dataExt xmlns=""><geoEle xmlns=""><GeoBndBox esriExtentType="search"><exTypeCode Sync="TRUE">1</exTypeCode><westBL Sync="TRUE">-73.103444</westBL><eastBL Sync="TRUE">-73.084745</eastBL><northBL Sync="TRUE">42.648258</northBL><southBL Sync="TRUE">42.634453</southBL></GeoBndBox></geoEle><exDesc>Spring 2021</exDesc></dataExt><idPurp>Spring 2021 aerial imagery for Massachusetts. The imagery is 15 cm resolution, 8-bit, 4-band (RGB-IR) data, in JPEG 2000 format. The horizontal projection/datum is NAD 1983 (2011) UTM Zones18N (meters).</idPurp><idAbs>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;Spring 2021 aerial imagery for Massachusetts. The imagery is 15 cm resolution, 8-bit, 4-band (RGB-IR) data, in JPEG 2000 format. The horizontal projection/datum is NAD 1983 (2011) UTM Zones18N (meters). MassGIS converted the original GeoTiff imagery to JP2 files.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;Funding for this imagery was provided by MassDOT, the State 911 Department, and the Executive Office of Technology Services and Security (EOTSS).&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;This digital orthoimagery was created to provide easily accessible geospatial data which are readily available to enhance the capability of federal, state, and local emergency responders, as well as to plan for homeland security efforts. These data also support The National Map.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;These images can serve a variety of purposes, from general planning to field reference for spatial analysis, to a tool for data development and revision of vector maps. The imagery can also serve as a reference layer or basemap for myriad applications inside geographic information system (GIS) software and web-based maps.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;</idAbs><idCredit>MsssGIS</idCredit><searchKeys><keyword>2021</keyword><keyword>image</keyword><keyword>ortho</keyword><keyword>aerial</keyword><keyword>MassGIS</keyword><keyword>Massachusetts</keyword></searchKeys><dataChar><CharSetCd value="004"/></dataChar><idStatus><ProgCd value="001"/></idStatus><idPoC xmlns=""><rpOrgName>MassGIS</rpOrgName><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, 8th Floor</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><country>US</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5611</voiceNum></cntPhone></rpCntInfo><displayName>MassGIS</displayName><role><RoleCd value="006"/></role><displayName>MassGIS</displayName></idPoC><resMaint xmlns=""><maintFreq><MaintFreqCd value="011"/></maintFreq></resMaint><resConst><Consts xmlns=""><useLimit>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;No restrictions apply to these data. However, users should be aware that temporal changes may have occurred since this dataset was collected and that some parts of these data may no longer represent actual surface conditions. Users should not use these data for critical applications without a full awareness of their limitations. Acknowledgement of MassGIS would be appreciated for products derived from these data.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;</useLimit></Consts></resConst></dataIdInfo><mdLang><languageCode value="eng" Sync="TRUE"/><countryCode value="USA" Sync="TRUE"/></mdLang><mdChar><CharSetCd value="004" Sync="TRUE"/></mdChar><distInfo xmlns=""><distFormat xmlns=""><formatName Sync="TRUE">Raster Dataset</formatName></distFormat><distributor xmlns=""><distorCont xmlns=""><rpOrgName>MassGIS</rpOrgName><rpCntInfo><cntAddress addressType="both"><delPoint>One Ashburton Place, 8th Floor</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><country>US</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5611</voiceNum></cntPhone></rpCntInfo><displayName>MassGIS</displayName><role><RoleCd value="006"/></role><editorSave>False</editorSave><displayName>MassGIS</displayName></distorCont><distorOrdPrc xmlns=""><ordInstr>Download from https://www.mass.gov/info-details/massgis-data-2021-aerial-imagery</ordInstr></distorOrdPrc></distributor></distInfo><mdHrLv><ScopeCd value="005" Sync="TRUE"/></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><refSysInfo><RefSystem><refSysID><identCode code="6347" Sync="TRUE"/><idCodeSpace Sync="TRUE">EPSG</idCodeSpace><idVersion Sync="TRUE">8.2.2(10.2.1)</idVersion></refSysID></RefSystem></refSysInfo><spatRepInfo><Georect><cellGeo><CellGeoCd Sync="TRUE" value="002"/></cellGeo><numDims Sync="TRUE">2</numDims><tranParaAv Sync="TRUE">1</tranParaAv><chkPtAv Sync="TRUE">0</chkPtAv><cornerPts><pos Sync="TRUE">655500.000000 4722000.000000</pos></cornerPts><cornerPts><pos Sync="TRUE">655500.000000 4723500.000000</pos></cornerPts><cornerPts><pos Sync="TRUE">657000.000000 4723500.000000</pos></cornerPts><cornerPts><pos Sync="TRUE">657000.000000 4722000.000000</pos></cornerPts><centerPt><pos Sync="TRUE">656250.000000 4722750.000000</pos></centerPt><axisDimension type="002"><dimSize Sync="TRUE">10000</dimSize><dimResol><value Sync="TRUE" uom="m">0.150000</value></dimResol></axisDimension><axisDimension type="001"><dimSize Sync="TRUE">10000</dimSize><dimResol><value Sync="TRUE" uom="m">0.150000</value></dimResol></axisDimension><ptInPixel><PixOrientCd Sync="TRUE" value="001"/></ptInPixel></Georect></spatRepInfo><contInfo><ImgDesc xmlns=""><contentTyp><ContentTypCd Sync="TRUE" value="001"/></contentTyp><covDim><Band xmlns=""><dimDescrp Sync="TRUE">Band_1</dimDescrp><maxVal Sync="TRUE">255.000000</maxVal><minVal Sync="TRUE">0.000000</minVal><bitsPerVal Sync="TRUE">8</bitsPerVal><valUnit><UOM type="length" gmlID=""/></valUnit></Band><Band xmlns=""><dimDescrp Sync="TRUE">Band_2</dimDescrp><maxVal Sync="TRUE">255.000000</maxVal><minVal Sync="TRUE">0.000000</minVal><bitsPerVal Sync="TRUE">8</bitsPerVal><valUnit><UOM type="length" gmlID=""/></valUnit></Band><Band xmlns=""><dimDescrp Sync="TRUE">Band_3</dimDescrp><maxVal Sync="TRUE">255.000000</maxVal><minVal Sync="TRUE">0.000000</minVal><bitsPerVal Sync="TRUE">8</bitsPerVal><valUnit><UOM type="length" gmlID=""/></valUnit></Band><Band xmlns=""><dimDescrp Sync="TRUE">Band_4</dimDescrp><maxVal Sync="TRUE">255.000000</maxVal><minVal Sync="TRUE">0.000000</minVal><bitsPerVal Sync="TRUE">8</bitsPerVal><valUnit><UOM type="length" gmlID=""/></valUnit></Band></covDim><attDesc>2021 ortho imagery</attDesc><trianInd>False</trianInd><radCalDatAv>False</radCalDatAv><camCalInAv>False</camCalInAv><filmDistInAv>False</filmDistInAv><lensDistInAv>False</lensDistInAv></ImgDesc></contInfo><mdContact xmlns=""><rpOrgName>MassGIS</rpOrgName><rpCntInfo xmlns=""><cntAddress addressType="both"><delPoint>One Ashburton Place, 8th Floor</delPoint><city>Boston</city><adminArea>MA</adminArea><postCode>02108</postCode><country>US</country></cntAddress><cntPhone><voiceNum tddtty="">617-619-5611</voiceNum></cntPhone></rpCntInfo><displayName>MassGIS</displayName><role><RoleCd value="006"/></role><displayName>MassGIS</displayName></mdContact><mdMaint xmlns=""><maintFreq><MaintFreqCd value="011"/></maintFreq></mdMaint><dqInfo xmlns=""><report type="DQAbsExtPosAcc" dimension="horizontal" xmlns=""><measDesc>In order to post-process the imagery data to meet task order specifications and ASPRS horizontal accuracy guidelines, the horizontal accuracy was tested by NV5 Geospatial using a total of 49 ground control points.
+
+NV5 Geospatial created independent check points, none of which were used in the calibration or post-processing of the imagery data. The checkpoints were distributed throughout the project area and were surveyed using GPS techniques. The x and y positions of where the checkpoints fell on the orthoimagery were collected. These values were then compared to the surveyed control point x and y values.
+
+Accuracy Statement for Zone 19:
+
+    Tested 0.11 meters (0.36 feet) RMSEx. The RMSEx of the imagery was calculated using 49 independent checkpoints.
+
+    Tested 0.1 meters (0.33 feet) RMSEy. The RMSEy of the imagery was calculated using 49 independent checkpoints.
+
+    Tested 0.148 meters (0.49 feet) RMSEr. The RMSEr of the imagery was calculated using 49 independent checkpoints.
+
+Accuracy Statement for Zone 18:
+
+    Tested 0.118 meters (0.39 feet) RMSEx. The RMSEx of the imagery was calculated using 9 independent checkpoints.
+
+    Tested 0.115 meters (0.38 feet) RMSEy. The RMSEy of the imagery was calculated using 9 independent checkpoints.
+
+    Tested 0.165 meters (0.54 feet) RMSEr. The RMSEr of the imagery was calculated using 9 independent checkpoints.
+
+Additionally, MassGIS performed an independent test of spatial accuracy using 80 check points statewide created by Mass DOT.</measDesc><evalMethDesc>Planning, acquisition, processing, and creation of derivative products by MassGIS and NV5 Geospatial of Lexington, KY. Project specifications were based on the American Society of Photogrammetry and Remote Sensing (ASPRS) standards.
+
+Aerial imagery was acquired using a UltraCam Eagle M3 camera with a flight design that included a total of 182 flight lines. Aerial imagery was supplemented with the simultaneous acquisition of airborne GPS/IMU data, which captured the ground coordinate for the nadir point of each photograph.
+
+Imagery was collected from 3/17 to 4/24 2021 under conditions free from clouds and cloud shadows, smoke, fog, haze, light streaks, snow, ice on water bodies, flooding, excessive soil moisture, and foliage.
+Post-processing and Quality Control
+
+Radiometry was verified by visual inspection of the digital orthophoto. Slight systematic radiometric differences may exist between adjacent orthoimage files due primarily to differences in source image capture dates and sun angles along flight lines. These differences can be observed in an image's general lightness or darkness when it is compared to adjacent orthoimage file coverages. Tonal balancing may have been performed over a group of images during the mosaicking process which may serve to lighten or darken adjacent images for better color tone matching.
+
+All GeoTIFF data and image file sizes were validated using commercial GIS software to ensure proper loading before delivery.
+
+Seamlines and tile edges were visually inspected. Seamline mismatches were corrected unless the overall displacement is less than one pixel. Orthoimages were visually inspected for completeness to ensure that no gaps or image misplacements exist within and between adjacent images.</evalMethDesc></report></dqInfo></metadata>

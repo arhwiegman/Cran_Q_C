@@ -1,0 +1,134 @@
+Forest-based Classification and Regression
+=====================
+Parameters
+
+Prediction Type     TRAIN_AND_PREDICT
+Input Training Features     df_NO3_rivers_streams_merged_XY
+Output  Trained Features     C:\Workspace\Geodata\MEP\Default.gdb\NO3_RF_trained
+Variable to Predict     NO3
+Treat Variable as Categorical     
+Explanatory Variables     density_SW false;density_GWD false;density_HU false;density_POP false;bayes_krig_NO3_rs_kb_250m false
+Input Prediction Features     bogs_points
+Variable of Importance Table     
+Output Predicted Features     C:\Workspace\Geodata\MEP\Default.gdb\bog_points_predicted_NO3_RF
+Match Explanatory Variables     density_SW density_SW;density_GWD density_GWD;density_HU density_HU;density_POP density_POP;bayes_krig_NO3_rs_kb_250m bayes_krig_NO3_rs_kb_250m
+Number of Trees     100
+Minimum Leaf Size     
+Maximum Tree Depth     
+Data Available per Tree (%)     100
+Number of Randomly Sampled Variables     
+Training Data Excluded for Validation (%)     20
+=====================
+Messages
+
+Start Time: Monday, August 14, 2023 1:04:19 PM
+Started Spark Job 1 with 16 tasks.
+Spark Job 1 completed in 0.5 seconds.
+Started Spark Job 2 with 17 tasks.
+Spark Job 2 completed in 0.1 seconds.
+Started Spark Job 3 with 18 tasks.
+Spark Job 3 completed in 0.0 seconds.
+Started Spark Job 4 with 1 tasks.
+Spark Job 4 completed in 0.1 seconds.
+Started Spark Job 5 with 4 tasks.
+Spark Job 5 completed in 0.1 seconds.
+Started Spark Job 6 with 16 tasks.
+Spark Job 6 completed in 0.2 seconds.
+Started Spark Job 7 with 21 tasks.
+Spark Job 7 completed in 0.3 seconds.
+Started Spark Job 8 with 32 tasks.
+Spark Job 8 completed in 0.3 seconds.
+Started Spark Job 9 with 32 tasks.
+Spark Job 9 completed in 0.1 seconds.
+Started Spark Job 10 with 32 tasks.
+Spark Job 10 completed in 0.2 seconds.
+Started Spark Job 11 with 32 tasks.
+Spark Job 11 completed in 0.2 seconds.
+Started Spark Job 12 with 32 tasks.
+Spark Job 12 completed in 0.2 seconds.
+Started Spark Job 13 with 20 tasks.
+Spark Job 13 completed in 0.3 seconds.
+Started Spark Job 14 with 16 tasks.
+Spark Job 14 completed in 0.2 seconds.
+Started Spark Job 15 with 17 tasks.
+Spark Job 15 completed in 0.0 seconds.
+Started Spark Job 16 with 20 tasks.
+Spark Job 16 completed in 0.3 seconds.
+Started Spark Job 17 with 32 tasks.
+Spark Job 17 completed in 0.4 seconds.
+Started Spark Job 18 with 33 tasks.
+Spark Job 18 completed in 0.0 seconds.
+Started Spark Job 19 with 16 tasks.
+Spark Job 19 completed in 0.4 seconds.
+Started Spark Job 20 with 17 tasks.
+Spark Job 20 completed in 0.0 seconds.
+Model Characteristics
+Number of Trees: 100
+Leaf Size: 5
+Tree Depth: 5
+% of Training Available per Tree: 100
+Number of Randomly Sampled Variables: 2
+% of Training Data Excluded for Validation: 20
+Training Data: Regression Diagnostics
+metricName, score
+R-Squared, 0.75
+Mean Squared Error, 0.07
+Root Mean Squared Error, 0.27
+Mean Absolute Error, 0.14
+Explained Variance, 0.14
+*Predictions for the data used to train the model compared to the observed categories for those features
+Validation Data: Regression Diagnostics
+metricName, score
+R-Squared, 0.78
+Mean Squared Error, 0.02
+Root Mean Squared Error, 0.15
+Mean Absolute Error, 0.13
+Explained Variance, 0.08
+*Predictions for the validation data (excluded from model training) compared to the observed values for those test features
+Started Spark Job 21 with 32 tasks.
+Spark Job 21 completed in 0.4 seconds.
+Top Variable of Importance
+Variable, Importance, Percentage
+density_SW, 0.05
+density_POP, 0.09
+density_HU, 0.10
+density_GWD, 0.11
+bayes_krig_NO3_rs_kb_250m, 0.64
+Started Spark Job 22 with 16 tasks.
+Spark Job 22 completed in 0.3 seconds.
+------------------------------------------------------------
+-------------------Model Characteristics--------------------
+Number of Trees                                          100
+Leaf Size                                                  5
+Tree Depth                                                 5
+% of Training Available per Tree                         100
+Number of Randomly Sampled Variables                       2
+% of Training Data Excluded for Validation                20
+                                                                                                
+-----------Training Data: Regression Diagnostics------------
+metricName                         score
+R-Squared                           0.75
+Mean Squared Error                  0.07
+Root Mean Squared Error             0.27
+Mean Absolute Error                 0.14
+Explained Variance                  0.14
+*Predictions for the data used to train the model compared to the observed categories for those features
+                                                                                                
+----------Validation Data: Regression Diagnostics-----------
+metricName                         score
+R-Squared                           0.78
+Mean Squared Error                  0.02
+Root Mean Squared Error             0.15
+Mean Absolute Error                 0.13
+Explained Variance                  0.08
+*Predictions for the validation data (excluded from model training) compared to the observed values for those test features
+                                                                                                
+-----------------Top Variable of Importance-----------------
+Variable                                           Importance Percentage
+density_SW                                                   0.05
+density_POP                                                  0.09
+density_HU                                                   0.10
+density_GWD                                                  0.11
+bayes_krig_NO3_rs_kb_250m                                    0.64
+
+Succeeded at Monday, August 14, 2023 1:04:33 PM (Elapsed Time: 13.90 seconds)

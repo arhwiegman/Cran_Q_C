@@ -1,0 +1,41 @@
+Embayment,STN_EQUIV,NO3,TN,NO3_n,TN_n,YEAR_min,YEAR_max,EMBAYMENT,WQI_Area,Lat,Long,Town
+Westport Rivers,111W,0.3963981,1.0922469505499999,2,2,2007,2021,Westport Rivers,Westport River E-W Inlet,41.508049,-71.092186,Westport
+Apponagansett Bay,AB1A,0.8983890087290323,1.476054279,31,29,1999,2022,Apponagansett Bay,Apponagansett Bay Inner,41.600978,-70.961853,Dartmouth
+Agawam River,AG1,0.0683083555,0.7588599744847059,87,85,1992,2022,Agawam River,Agawam River Estuary,41.763453,-70.688604,Wareham
+Agawam River,AG2,0.0586108908,0.78633687195,8,8,1994,2022,Agawam River,Agawam River Estuary,41.763612,-70.702375,Wareham
+Agawam River,AG3,0.009001404836170212,0.43892928163,94,90,1997,2022,Agawam River,Agawam River Fresh,41.76261,-70.67575,Wareham
+Acushnet River,AR0,0.313827138485,0.9316494747,60,58,1995,2022,Acushnet River,Acushnet River Sawmill Pond,41.684545,-70.919456,Acushnet
+Acushnet River,AR1,0.45895690061052635,1.1662674348888888,57,54,1992,2022,Acushnet River,Acushnet River Estuary,41.678494,-70.91673,Acushnet
+Acushnet River,ARH,0.3094847343415842,0.9546719365948454,101,97,1995,2022,Acushnet River,Acushnet River Fresh,41.696408,-70.914166,Acushnet
+Acushnet River,ARL,0.024004098323863635,0.6823509245,88,87,2000,2022,Acushnet River,Acushnet River Fresh,41.73811,-70.906013,Acushnet
+Briggs Marsh,BMBB2,0.00350175,1.0288897878,1,1,2018,2021,Briggs Marsh,Briggs Marsh,41.477378,-71.159266,"Little Compton, RI"
+Briggs Marsh,BMDB1,0.1134567,0.8946322259,3,3,2019,2021,Briggs Marsh,Briggs Marsh,41.484079,-71.16685,"Little Compton, RI"
+Buttonwood Brook,BWB1,1.2598795695876923,1.9962018021,65,63,2000,2022,Buttonwood Brook,Buttonwood Brook,41.604595,-70.955893,Dartmouth
+Buttonwood Brook,BWB4,0.02725915299767442,1.9023778065697674,43,43,2009,2022,Buttonwood Brook,Buttonwood Brook Pond Above Zoo,41.631943,-70.953747,New Bedford
+Westport Rivers,E69,0.1321728534,1.155739631025,4,4,1992,2019,Westport Rivers,Westport River East Inner,41.561934,-71.073583,Westport
+"Eel Pond, Mattapoisett",EL1,0.008516256,0.558823272,1,1,1992,2018,"Eel Pond, Mattapoisett","Eel Pond, Mattapoisett",41.657605,-70.819502,Mattapoisett
+"Eel Pond, Mattapoisett",EL2,0.014903448000000001,0.5715262203,1,1,1995,2016,"Eel Pond, Mattapoisett","Eel Pond, Mattapoisett",41.655337,-70.821956,Mattapoisett
+Flume Pond,FLP1,0.0057998985,1.5953069215,21,21,2003,2015,Flume Pond,Flume Pond,41.561375,-70.653062,Falmouth
+Gunning Point Pond,GPP1,0.006269966143636364,2.3789546982923078,55,52,2000,2018,Gunning Point Pond,Gunning Point Pond,41.566122,-70.649209,Falmouth
+Herring Brook Marsh,HB3,0.19362576450000002,0.6614735715,3,2,2013,2016,Herring Brook Marsh,Herring Brook Marsh,41.623028,-70.633754,Falmouth
+Herring Brook Marsh,HB4,0.39657798990000004,0.861867308295,21,20,2013,2022,Herring Brook Marsh,Herring Brook Marsh,41.622537,-70.63095,Falmouth
+Sippican River,HP1,0.06280952725090909,0.74901900234,55,55,2008,2022,Sippican River,Sippican River,41.747371,-70.803695,Rochester
+Hathaway Pond,HP2,0.05654037606,0.73289470422,10,10,2008,2010,Hathaway Pond,Hathaway Pond,41.734885,-70.795771,Rochester
+Hathaway Pond,HP3,0.030931246129411765,0.735290909724,51,50,2008,2022,Hathaway Pond,Hathaway Pond,41.733924,-70.794137,Rochester
+Parkers Mill Pond,MP1,0.010648317196774193,0.4000458922153846,93,91,1997,2022,Parkers Mill Pond,Parkers Mill Pond,41.767448,-70.722141,Wareham
+Mattapoisett River,MR1,0.1952354264,0.8946590943662791,87,86,2000,2022,Mattapoisett River,Mattapoisett River,41.657125,-70.834282,Mattapoisett
+Westport Rivers,N0,0.44506632071481483,1.3375737776625,81,80,1995,2022,Westport Rivers,Westport River East Fresh,41.621049,-71.059734,Westport
+Nasketucket River,NR1,0.26201942424,1.3034610715000001,5,3,1994,2013,Nasketucket River,Nasketucket River Estuary,41.639125,-70.868114,Fairhaven
+Nasketucket River,NR2,0.54302255559,1.3159030021014706,70,68,1993,2022,Nasketucket River,Nasketucket River Fresh,41.642827,-70.871864,Fairhaven
+Nasketucket River,NR3,0.61627330933,1.2348812217,30,29,1993,2017,Nasketucket River,Nasketucket River Marsh,41.640893,-70.870896,Fairhaven
+Paskemansett River,PKR1,0.39310102301707317,1.3867910844607596,82,79,2000,2022,Paskemansett River,Paskamansett River,41.585764,-70.990227,Dartmouth
+Red Brook Pond,RBP1,0.022829563622727273,0.61493181225,22,22,2004,2009,Red Brook Pond,Red Brook Pond,41.677803,-70.608142,Bourne
+Red Brook Pond,RBP2,0.0058941456,0.3539064648,2,2,2004,2015,Red Brook Pond,Red Brook Pond,41.676337,-70.610341,Bourne
+Red Brook Pond,RBP3,0.0091101528,0.4267722795,1,1,2008,2008,Red Brook Pond,Red Brook Pond,41.677514,-70.61113,Bourne
+Red Brook River,RBR1,0.7175008155666667,1.0819496155666668,63,63,2001,2022,Red Brook River,Red Brook River,41.764426,-70.63355,Plymouth/Wareham
+Red Brook River,RBR2,0.296292293444,0.5789074171621622,75,74,2004,2022,Red Brook River,Red Brook River,41.766773,-70.635237,Plymouth/Wareham
+Tub Mill Brook,TMB1,0.34819446938450704,1.07141654055,71,70,2002,2022,Tub Mill Brook,Tub Mill Brook,41.66576,-70.823947,Mattapoisett
+White Island Pond,WIP1,0.0101055252375,1.1510355551625,8,8,2006,2008,White Island Pond,White Island Pond Top,41.816615,-70.617183,Plymouth
+White Island Pond,WIP2,0.014000696850000001,0.9486316788,8,7,2006,2008,White Island Pond,White Island Pond Middle,41.808661,-70.61745,Plymouth
+White Island Pond,WIP3,0.0066279373125,0.7090217337,8,8,2006,2008,White Island Pond,White Island Pond Lower,41.803762,-70.630846,Plymouth
+Weweantic River,WW0,0.1888710642,0.9096873826481928,87,83,1998,2022,Weweantic River,Weweantic River Fresh,41.765299,-70.747559999999993,Wareham

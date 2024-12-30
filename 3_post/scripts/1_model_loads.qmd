@@ -34,8 +34,6 @@ package_names |>
 # Load & Wrangle Data
 ```{r}
 # |output: false
-# working directory
-wd = "C:/Users/Adrian.Wiegman/Documents/GitHub/Wiegman_USDA_ARS/Cran_Q_C"
 # folder to save output files
 outpath = file.path(wd,"3_post/data")
 ```
@@ -157,9 +155,12 @@ df_bogs <- df_bogs_raw %>%
   select(OBJECTID,
          bogFID = ORIG_FID,
          embFID = FID_MEP_Embayments_Domain,
+         #WMA_NO, # IDENTIFYING INFORMATION HAS BEEN REMOVED
+         #OWNER, # IDENTIFYING INFORMATION HAS BEEN REMOVED
          TOWN,
+         #BOG_NAME, # IDENTIFYING INFORMATION HAS BEEN REMOVED
          EMBAY_NAME,
-         # Concentrations predicted by EBK model. 
+         # Concentrations predicted by EBK model (defined above) 
          NO3_mgl_p25,
          NO3_mgl_p50,
          NO3_mgl_p75,

@@ -1,3 +1,9 @@
+Geospatial data outputs in open data geopackage format are contained in the "Cran_Q_C_outputs_geopackage" folder
+This folder contains various other outputs in tabular format.
+To examine the flow of data through processing steps look through jupyter notebook html files
+C:\Users\Adrian.Wiegman\Documents\GitHub\Wiegman_USDA_ARS\Cran_Q_C\2_gis\
+
+
 Contents: 
 Date Modified           Size           Name
 --------------------------------------------------------------------
@@ -33,7 +39,7 @@ Scripts:
 
 Output data: 
 "\2_gis\bogs_agg_verify_extract_Q_C.xls"
-"\2_gis\bogs_pour_points_ident_agg_raw_MEP_Basins_ZS_extract_Q_C.xls"
+"\2_gis\bogs_pour_points_ident_agg_raw_MEP_Basins_ZS_extract_Q_C.xls" # farm owner and location information have been deleted from this version of the data
 "\2_gis\df_NO3_TN_imputed_not_PSW_domain.xls"
 "\2_gis\df_Q_bogs_streams_XYTableToPoint_edit_extract_Q_C.xls"
 "\2_gis\Basins_ZS_SummarizeWithin.xls"

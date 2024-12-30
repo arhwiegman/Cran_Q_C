@@ -1,9 +1,10 @@
 # Metadata =====================
 # author: Adrian Wiegman
 # Verify Flow predictions made by various models. 
+# Discharge (Q) units are in cubic meters per day (Q_m3d)
 
-# This contains information to pull flow values from cranberry bogs
-# where discharge was measured. 8/27/24
+
+# The text below contains information to pull flow values from cranberry bogs where discharge was measured. 8/27/24
 text1 <- "
 ID, FID, ORIG_FID, OBJECTID
 QshntRJP, 18,192, 876

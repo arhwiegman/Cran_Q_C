@@ -1,0 +1,70 @@
+# https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=0110588364,01105876,0110588340,011058835951,011058837198,011058837,01105870,0110588332&siteOutput=expanded&siteStatus=all
+#
+#
+# US Geological Survey
+# retrieved: 2023-08-10 16:36:59 -04:00	(sdas01)
+#
+# The Site File stores location and general information about groundwater,
+# surface water, and meteorological sites
+# for sites in USA.
+#
+# File-format description:  http://help.waterdata.usgs.gov/faq/about-tab-delimited-output
+# Automated-retrieval info: http://waterservices.usgs.gov/rest/Site-Service.html
+#
+# Contact:   gs-w_support_nwisweb@usgs.gov
+#
+# The following selected fields are included in this output:
+#
+#  agency_cd       -- Agency
+#  site_no         -- Site identification number
+#  station_nm      -- Site name
+#  site_tp_cd      -- Site type
+#  lat_va          -- DMS latitude
+#  long_va         -- DMS longitude
+#  dec_lat_va      -- Decimal latitude
+#  dec_long_va     -- Decimal longitude
+#  coord_meth_cd   -- Latitude-longitude method
+#  coord_acy_cd    -- Latitude-longitude accuracy
+#  coord_datum_cd  -- Latitude-longitude datum
+#  dec_coord_datum_cd -- Decimal Latitude-longitude datum
+#  district_cd     -- District code
+#  state_cd        -- State code
+#  county_cd       -- County code
+#  country_cd      -- Country code
+#  land_net_ds     -- Land net location description
+#  map_nm          -- Name of location map
+#  map_scale_fc    -- Scale of location map
+#  alt_va          -- Altitude of Gage/land surface
+#  alt_meth_cd     -- Method altitude determined
+#  alt_acy_va      -- Altitude accuracy
+#  alt_datum_cd    -- Altitude datum
+#  huc_cd          -- Hydrologic unit code
+#  basin_cd        -- Drainage basin code
+#  topo_cd         -- Topographic setting code
+#  instruments_cd  -- Flags for instruments at site
+#  construction_dt -- Date of first construction
+#  inventory_dt    -- Date site established or inventoried
+#  drain_area_va   -- Drainage area
+#  contrib_drain_area_va -- Contributing drainage area
+#  tz_cd           -- Time Zone abbreviation
+#  local_time_fg   -- Site honors Daylight Savings Time
+#  reliability_cd  -- Data reliability code
+#  gw_file_cd      -- Data-other GW files
+#  nat_aqfr_cd     -- National aquifer code
+#  aqfr_cd         -- Local aquifer code
+#  aqfr_type_cd    -- Local aquifer type code
+#  well_depth_va   -- Well depth
+#  hole_depth_va   -- Hole depth
+#  depth_src_cd    -- Source of depth data
+#  project_no      -- Project number
+#
+agency_cd	site_no	station_nm	site_tp_cd	lat_va	long_va	dec_lat_va	dec_long_va	coord_meth_cd	coord_acy_cd	coord_datum_cd	dec_coord_datum_cd	district_cd	state_cd	county_cd	country_cd	land_net_ds	map_nm	map_scale_fc	alt_va	alt_meth_cd	alt_acy_va	alt_datum_cd	huc_cd	basin_cd	topo_cd	instruments_cd	construction_dt	inventory_dt	drain_area_va	contrib_drain_area_va	tz_cd	local_time_fg	reliability_cd	gw_file_cd	nat_aqfr_cd	aqfr_cd	aqfr_type_cd	well_depth_va	hole_depth_va	depth_src_cd	project_no
+5s	15s	50s	7s	16s	16s	16s	16s	1s	1s	10s	10s	3s	2s	3s	2s	23s	20s	7s	8s	1s	3s	10s	16s	2s	1s	30s	8s	8s	8s	8s	6s	1s	1s	30s	10s	8s	1s	8s	8s	1s	12s
+USGS	01105870	JONES RIVER AT KINGSTON, MA	ST	415927	0704403	41.9909362	-70.7336491	M	U	NAD27	NAD83	25	25	023	US		PLYMOUTH, MA	  25000	 3.94	U	.01	NAVD88	01090002			YNNNYNNNNYNNNNNNNNNNNNNNNNNNNN		20061130	19.8	15.7	EST	Y		NNNNNNNN							244100100
+USGS	01105876	EEL RIVER AT RT 3A NEAR PLYMOUTH, MA	ST	415630	0703723	41.94177039	-70.6225338	M	S	NAD27	NAD83	25	25	023	US		MANOMET, MA	  25000	 0.00	M	1.0	NAVD88	01090002			YNNNYNNNNYNNNNNNNNNNNNNNNNNNNN		19691218	14.7	14.7	EST	Y		NNNNNNNN							244100120
+USGS	0110588332	MARSTONS MILLS RV, DS OUT. OF BOG, MARS. MILLS, MA	ST	414001.58	0702525.06	41.66710556	-70.42362778	G	S	NAD83	NAD83	25	25	001	US		SANDWICH, MA	  24000	 82	N	1.6	NAVD88	01090002			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN					EST	Y									
+USGS	0110588340	SANTUIT RIVER AT OLD KINGS ROAD AT SANTUIT, MA	ST	413739	0702704	41.6276095	-70.4505818	M	S	NAD27	NAD83	25	25	001	US		COTUIT	  25000					01090002			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN		19930322			EST	Y		NNNNNNNN							442509900
+USGS	011058835951	MASHPEE RIVER, AT ASHERS PATH, NR MASHPEE, MA	ST	413746.16	0702901.81	41.62948889	-70.4838361	G	S	NAD83	NAD83	25	25	001	US		SANDWICH, MA	  24000	 16	N	1.6	NAVD88	01090002			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN					EST	Y									
+USGS	0110588364	QUASHNET R. 0.6 MI DS OF JOHNS POND NR MASHPEE, MA	ST	413759	0703019	41.6331643	-70.5047501	M	S	NAD27	NAD83	25	25	001	US		POCASSET	  25000					01090002			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN		19900222	2.98		EST	Y		NNNNNNNN							
+USGS	011058837	QUASHNET RIVER AT WAQUOIT VILLAGE, MA	ST	413532	0703030	41.59233175	-70.50780579	M	U	NAD27	NAD83	25	25	001	US		FALMOUTH, MA	  25000	 0.00	M	  5	NAVD88	01090002			YNNNYNNNNYNNNNNNNNNNNNNNNNNNNN		19881001	2.58	2.58	EST	Y		NNNNNNNN							442500100
+USGS	011058837198	CHILDS RIVER, E. OF WAQUOIT FARMS DR,NR WAQUOIT	ST	413517.94	0703131.02	41.58831667	-70.5252833	G	S	NAD83	NAD83	25	25	001	US		FALMOUTH, MA	  24000	 3	N	1.6	NAVD88	01090002			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNN					EST	Y									

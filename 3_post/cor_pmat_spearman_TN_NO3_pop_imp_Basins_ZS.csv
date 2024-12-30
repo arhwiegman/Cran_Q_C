@@ -1,0 +1,6 @@
+rowname,TN_p50_MEAN,NO3_p50_MEAN,NO3_TN_ratio_p50_MEAN,pop_dens,imp_dens
+TN_p50_MEAN,1.4e-6,1.17e-4,0.021,0.0638,0.174
+NO3_p50_MEAN,1.17e-4,1.4e-6,3.27e-6,0.304,0.932
+NO3_TN_ratio_p50_MEAN,0.021,3.27e-6,1.4e-6,0.92,0.356
+pop_dens,0.0638,0.304,0.92,0,0.0207
+imp_dens,0.174,0.932,0.356,0.0207,0

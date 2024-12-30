@@ -13,6 +13,7 @@ editor_options:
 
 # clear objects from environment 
 rm(list=ls()) 
+gc()
 
 # make sure pacman and tidyverse are installed
 if (!require("pacman")) install.packages("pacman")
@@ -116,6 +117,7 @@ lm(Q_m3d~Q_m3d_D8gwelid0,data=df) %>% summary
 df$resid^2%>%mean() %>% sqrt()
 ```
 
+
 ## Fig 3
 Images for Figure 3 were exported from ArcGIS Pro. 
 statistics for correlations are calculated in the following script. 
@@ -151,7 +153,7 @@ g <- ggplot(df,aes(x=marg_TN_Load_kgN_y_MEP,y=marg_TN_Load_kgN_y,label=embFID))+
   geom_point(pch=21,fill="grey",alpha=0.5,size=3) 
 
 predict(lmsub)
-ggplotly()
+
 g + 
   geom_abline(slope=0.67,intercept=0,color="blue",size=.75,
               linetype="dashed")+

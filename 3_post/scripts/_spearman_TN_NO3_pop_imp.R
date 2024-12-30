@@ -14,8 +14,7 @@ df_Basins_ZS_SummarizeWithin %>% nrow()
 
 m <- lm(lnNO3~imp,data=df_NO3_TN_imputed_not_PSW_TableToExcel)
 summary(m)
-plot(m)
-plot(df_NO3_TN_imputed_not_PSW_TableToExcel)
+
 library(tidyverse)
 
 
