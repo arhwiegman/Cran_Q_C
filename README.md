@@ -25,7 +25,7 @@ Affiliations
  - 2 Woodwell Climate Research Center, 149 Woods Hole Road, Falmouth, MA, 02540, USA
  - 3 Buzzards Bay Coalition, 114 Front St, New Bedford, MA, 02740, USA
  - 4 U.S. Department of Agriculture, Agricultural Research Service, Pasture Systems and Watershed Management Research Unit, Building 3702, Curtin Road, University Park, PA 16802, USA
- - *Contact and Corresponding author: adrian.wiegman@gmail.com; adrian.wiegman@usda.gov 
+ - *Contact and Corresponding author: adrian.wiegman@gmail.com
 
 Keywords: 
  - [groundwater, nitrate, hydrology, water quality, septic systems, peatlands, estuaries, agriculture, Cape Cod]
