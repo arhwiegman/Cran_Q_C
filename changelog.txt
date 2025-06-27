@@ -1,0 +1,121 @@
+# 2025-04-21
+
+Added new scripts to plot reductions as a function of farm status. 
+- for the calculation of fertilizer, only active farms in the cranberry layer are considered
+- for S2 indicate if the best bog was retired or active. 
+
+# 2024-11-14
+
+Began the process of organizing scripts for publication and data release.
+the main changes were to the 2_gis and 3_post folders. 
+
+# 2024-09-03
+
+Not sure why some bogs are going missing. There must be an issue with a join. 
+
+note new data from Massachusetts Environmental Public Health Tracking
+https://dphanalytics.hhs.mass.gov/ibmcognos/bi/?perspective=authoring&pathRef=.public_folders%2FMEPHTN%2Fenvironmental%2Fdrinking-water&id=i2D4C01611AA048A1BD0D4224200EB35E&closeWindowOnLastView=true&ui_appbar=false&ui_navbar=false&objRef=i2D4C01611AA048A1BD0D4224200EB35E&action=run&format=HTML&cmPropStr=%7B%22id%22%3A%22i2D4C01611AA048A1BD0D4224200EB35E%22%2C%22type%22%3A%22report%22%2C%22defaultName%22%3A%22drinking-water%22%2C%22permissions%22%3A%5B%22execute%22%2C%22read%22%2C%22traverse%22%5D%7D
+
+Model Flow
+Prep NO3 
+Model NO3
+Model Basins # issues modeling basins
+Extract Cran
+Extract Obs
+Model Load reduction 
+Update figures
+Update tables
+
+
+old notes:
+  - Kingstown vs State Bog
+  - State Bog Precip
+  - QC irrigation
+  
+  
+  
+ BBC
+  Nitrate + Nitrite	Cd reduction, Lachat Autoanalyzer		0.25 µM	Bimonthly July-August	"Laboratory duplicates
+± 10% RPD or detection limit"	MBL	Johnson, K.S. and Petty. R. L. (1983); Lachat Instruments (2000)	
+Ammonium	Indophenol		0.25 µM	Bimonthly July-August	"Laboratory duplicates
+± 10% RPD or detection limit"	MBL	Strickland, J. D. H. and Parsons, T. R. (1972)								
+
+Total Dissolved Nitrogen	Persulfate digestion		0.5 µM	Bimonthly July-August	"Laboratory duplicates
+± 20% RPD or detection limit"	MBL	Standard Methods 19th Edition, Method 4500-Norg-D. D’Elia et al. (1977). Digested samples analyzed for nitrate + nitrate by method above								
+							
+
+Astoria segmented flow analyzer 
+
+ID, FID, ORIG_FID, OBJECTID
+QshntRJP, 18,192, 876
+MrstnMll, 15,155, 802
+ChasBrok, 51, 201, 799
+BornsBrk, 46, 977, 880
+CB-2, 13, 137, 835
+CB-5, 11, 136, 837
+CB-8, 10, 136, 801
+SttBgSc3, 3, 781, 979
+Ny&GrlnB, 8, 957, 84
+Frogfoot, 6, 527, 1258
+WhtIsPFF, 5, 534, 355
+WhtIPADM, 7, 935, 1231
+WhtSprng, 2, 887, 453
+RckyBgNS, 1, 620, 620
+AtwoodBg, 4, 323, 384
+
+# 
+ID, FA_est, Notes
+HosptlBg, 67, 14744, Move E
+LkElzbtS, 71, 4775, Move NE
+LittlRvr, 72, 36456, Move E
+MorsPond, 79, 9823, Pond Drains Different Direction
+ScrtnCrk, 86, 25427, Move W To Just Above Jones Ln Bridge
+
+# 2024-08-29
+
+lidar - burnflowline
+lidar - burn_combined - burnflowline
+gwe - burnflowline
+gwe - burn_combined - burnflowline
+(gwe + 1)*gwdgt1m - lidar*gwdlt1m - 1 - burn_flowline
+(gwe + 0)*gwdgt0m - lidar*gwdlt0m - 0 - burn_flowline
+
+
+# 2024-08-24
+
+Changing the flow rounting model to a GW and Lidar hybrid where GW depth is less than 1m.
+Added functions for modeling nutrient uptake using TIS and walton et al. 
+Tested modifications to NHD burn lines. 
+
+
+# Planned Changes for Fall 2023:
+
+- Create folder with all relevant data and scripts
+- Clean scripts and rerun analyses
+- Specific changes 
+
+0_raw
+- add all input data
+
+1_prep
+- incorperate new NO3/TN data from USGS and buzzards bay
+- summarize N trends regionally and over time 
+- incorperate tidmarsh into Q data
+- rerun scripts
+
+2_gis
+- Bogs
+	- remove artifacts from original bog polygons
+- NO3_TN 
+	- krigging
+	- explore other NO3 models
+- Q
+	- flow accumulation
+	- Adjust for wells zone2/zone1
+	- Compare pumping rate to recharge rate times area. 
+
+3_post
+	- Verification
+		- NO3 observed vs predicted
+		- Q observed vs predicted
+	- Rerun analysis scripts

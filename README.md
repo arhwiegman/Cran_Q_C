@@ -1,8 +1,10 @@
 # Cran_Q_C
- Modeling nitrogen reductions to coastal embayments from ecological restoration of cultivated wetlands
+ Modeling nitrogen reductions to coastal embayments from ecological restoration of cultivated wetlands. 
+
+We use Regional flow (Q) and concentration (C) models to estimate contributing area, nitrogen loads and potential nitrogen retention from wetland restoration on cranberry farms in southeastern Massachusetts
 
 ## Metadata
-Date: 2024-11-26
+Date: 2025-06-27
 
 Journal: Journal of Geophysical Research (Original Research)
 
